@@ -1,0 +1,31 @@
+.tabs {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 53px;
+  background-color: #fff;
+  border-top: 1px solid #d5d5d5;
+  a {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #969696;
+    i {
+      width:25px;
+      height:25px;
+      font-size: 22px;
+      font-style: normal;
+      background-size: 25px 25px;
+      &.icon-index {
+        background-image: url(./images/icon-index.png);
+        background-repeat: no-repeat;
+      }
+    }
+    &.active {
+      color: #FEDA6A;
+    }
+  }
+}
