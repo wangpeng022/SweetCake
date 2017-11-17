@@ -10,7 +10,7 @@ export default class Tab extends Component{
                         <i className="icon-index"/>
                         <span>首页</span>
                     </NavLink>
-                    <NavLink to="/courses">
+                    <NavLink to="/lesson/course">
                         <i className="icon-lesson"/>
                         <span>课程</span>
                     </NavLink>
