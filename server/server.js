@@ -1,7 +1,6 @@
 let express=require("express");
 let app=express();
 
-
 app.use(function (req,res,next) {
     //允许的来源
     res.header('Access-Control-Allow-Origin','http://localhost:8080');
