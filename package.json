@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --open",
-    "dev-redux": "webpack-dev-server --config webpack.config.redux.js --open"
+    "dev": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
