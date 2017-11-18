@@ -8,3 +8,4 @@ export const FETCH_MENUS = 'FETCH_MENUS';
 export const FETCH_MENUS_FINISH = 'FETCH_MENUS_FINISH';
 //刷新课程列表
 export const FETCH_MENUS_REFRESH = 'FETCH_MENUS_REFRESH';
+

@@ -3,8 +3,9 @@ import './index.less';
 import Header from "../../components/Header/header";
 import {Link} from 'react-router-dom';
 import "../../components/Header/header.less";
-
-export default class Home extends Component {
+import actions from '../../store/actions/home';
+import {connect} from 'react-redux';
+class Home extends Component {
     render() {
         return (
             <div>
@@ -21,3 +22,4 @@ export default class Home extends Component {
         )
     }
 }
+export default connect(state=>state.home,actions)(Home);
