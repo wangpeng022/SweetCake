@@ -19,6 +19,7 @@ class Home extends Component {
                         </div>
                     }
                 </Header>
+
             </div>
         )
     }
