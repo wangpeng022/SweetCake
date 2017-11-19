@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import "../../components/Header/header.less";
 import actions from '../../store/actions/home';
 import {connect} from 'react-redux';
+
 class Home extends Component {
     render() {
         return (
@@ -12,7 +13,7 @@ class Home extends Component {
                 <Header>
                     {
                         <div className="container-header">
-                            <Link className="left-link" to="/search"/>
+                            <Link className="left-link" to="/search/home"/>
                             <span>焙忘录</span>
                             <Link className="right-link" to="/gift"/>
                         </div>
@@ -22,4 +23,5 @@ class Home extends Component {
         )
     }
 }
-export default connect(state=>state.home,actions)(Home);
+
+export default connect(state => state.home, actions)(Home);

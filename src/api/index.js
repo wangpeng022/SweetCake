@@ -1,4 +1,5 @@
 const HOST = 'http://localhost:3000';
+const FOOD = 'http://120.77.17.44';
 
 //后台的URL地址是3000端口
 export function get (url) {
@@ -18,6 +19,17 @@ export function get (url) {
 
 export function post(url, data) {
     return fetch(HOST + url, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            "Accept": 'application/json',
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.json());
+};
+export function postFood(url,data) {
+    return fetch(FOOD + url, {
         method: 'POST',
         credentials: 'include',
         headers: {
