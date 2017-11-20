@@ -1,21 +1,29 @@
 import React, {Component} from 'react';
-import {HashRouter as Router, Route, NavLink,Redirect} from 'react-router-dom';
+import {HashRouter as Router, Route, NavLink,Redirect,Switch} from 'react-router-dom';
 import './app.less';
 import Home from "../Home/index";
 import Lesson from "../Lesson/lesson";
 import Profile from "../Profile/profile";
 import Tab from "../../components/Tab/tab";
-import Search from "../../components/Search/search";
+import Search from "../../components/Search/search"
+import Register from "../Profile/Register/register";
+import Login from "../Profile/Login/login";
+
+
 export default class App extends Component {
     render() {
         return (
             <Router>
                 <div>
+                    <Switch>
                     <Route path="/lesson" component={Lesson}/>
                     <Route exact path="/profile" component={Profile}/>
                     <Route path="/search/:from" component={Search}/>
                     <Route path="/home" component={Home}/>
+                    <Route path="/register" component={Register}/>
+                    <Route path="/login" component={Login}/>
                     <Redirect to="/home"/>
+                    </Switch>
                     <Tab/>
                 </div>
             </Router>
