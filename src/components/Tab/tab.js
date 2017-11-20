@@ -6,7 +6,7 @@ export default class Tab extends Component{
         return (
             <div>
                 <nav className="tabs">
-                    <NavLink exact to="/home">
+                    <NavLink to="/home">
                         <i className="icon-index"/>
                         <span>首页</span>
                     </NavLink>

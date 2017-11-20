@@ -22,6 +22,9 @@ export default class Search extends Component {
         url = this.props.location.state ? this.props.location.state.from : '/';
         url = this.props.location.pathname;
     }*/
+    componentWillUnMount() {
+
+    }
 
     componentDidMount() {
         url = '/' + this.props.match.params.from;
@@ -39,19 +42,24 @@ export default class Search extends Component {
         });
     };
     handleClick = (e) => {
-        console.log(recent);
-        recent = (JSON.parse(localStorage.getItem('search')) || []);
-        e.preventDefault();
         let value = this.$input.value;
-        recent.push(value);
-        console.log(recent);
-        localStorage.setItem('search', JSON.stringify(recent));
+        if (value) {
+            recent = (JSON.parse(localStorage.getItem('search')) || []);
+            e.preventDefault();
+            recent.push(value);
+            localStorage.setItem('search', JSON.stringify(recent));
+        }
     };
 
     render() {
         console.log(this.props);
         return (
-            <div className="home-search">
+            <div className="home-search" onKeyUp={(e) => {
+                let keyCode = e.keyCode;
+                if (e.target === this.$input && keyCode === 13) {
+                    this.handleClick(e);
+                }
+            }}>
                 <div className="search-header">
                     <Link to={url} className="search-back">
                         <i>{null}</i>
@@ -97,7 +105,7 @@ export default class Search extends Component {
                                 <ul className="classify-list">
                                     {
                                         this.state.search.data.map((item, index) => (
-                                            <li key={index}>{item.category_name}</li>
+                                            <li key={index}><Link to='/recipe/search'>{item.category_name}</Link></li>
                                         ))
                                     }
                                 </ul>
