@@ -28,7 +28,6 @@ let search = require("./mock/search.json");
 
 app.get("/hlist", function (req, res) {
     res.json(HList);
-    console.log(HList)
 });
 app.get('/star', function (req, res) {
     console.log(req.query);
