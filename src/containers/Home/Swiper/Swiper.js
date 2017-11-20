@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
-import "./index.less"
+import "./Swiper.less"
 
 export default class Swiper extends React.Component {
     constructor() {

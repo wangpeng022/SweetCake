@@ -1,9 +1,7 @@
 let express = require("express");
 let app = express();
 
-
 app.use(function (req,res,next) {
-
     //允许的来源
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
     //允许客户端请求的方法
@@ -19,6 +17,7 @@ app.use(function (req,res,next) {
         next();
     }
 });
+
 let HList = require("./mock/HList");
 //获取星级食物列表
 let food = require("./mock/food.json");
@@ -27,7 +26,6 @@ let search = require("./mock/search.json");
 
 app.get("/hlist", function (req, res) {
     res.json(HList);
-    console.log(HList)
 });
 app.get('/star', function (req, res) {
     console.log(req.query);
@@ -35,5 +33,13 @@ app.get('/star', function (req, res) {
 });
 app.get('/search', function (req, res) {
     res.json(search);
+});
+
+let Lesson=require("./mock/Lesson");
+
+//获取列表页课程数据
+app.get('/lesson',function(req,res){
+    res.json(Lesson);
+    console.log(Lesson);
 });
 app.listen(3000);

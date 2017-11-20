@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import "../../components/Header/header.less";
 import actions from '../../store/actions/home';
 import {connect} from 'react-redux';
-import Swiper from "./Swiper/index";
+import Swiper from "./Swiper/Swiper";
 
 class Home extends Component {
     componentDidMount(){
