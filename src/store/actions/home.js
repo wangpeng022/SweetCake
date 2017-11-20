@@ -1,13 +1,13 @@
 import * as types from '../action-types';
-import {fetchHlist} from '../../api/home';
+import {getHList} from '../../api/home';
 
 export default {
-    fetchHlist() {
+    getHList() {//获取首页轮播图&&列表
         return dispatch => {
-            fetchHlist().then(sliders => {
+            getHList().then( payload=> {
                 dispatch({
-                    type: types.SET_MENU,
-                    payload: sliders
+                    type: types.GET_HLIST,
+                    payload
                 });
             });
         }
