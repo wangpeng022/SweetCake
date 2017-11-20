@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import {getFood, getSearch} from '../../api/search';
 import {connect} from 'react-redux';
+import Catalog from "./catalog/index";
+import Recipe from "./Recipe/recipe";
 
 let star = ['一', '二', '三', '四', '五'];
 //@connect(state=>state.search,actions)
@@ -15,6 +17,7 @@ export default class Search extends Component {
                 data: [],
             },
             recent: [],
+            flag: false,
         }
     };
 
@@ -50,16 +53,23 @@ export default class Search extends Component {
             localStorage.setItem('search', JSON.stringify(recent));
         }
     };
+    handleKeyUp = (e) => {
+        let keyCode = e.keyCode;
+        if (e.target === this.$input && keyCode === 13) {
+            this.handleClick(e);
+        }
+    };
+    handleFocus = (e) => {
+        console.log(true+'xxxxxxxxxxxxxxxxxxxxxxx');
+        this.setState({flag: true});
+        this.props.history.replace('/search/home');
+    };
 
     render() {
+        console.log(this.state.flag);
         console.log(this.props);
         return (
-            <div className="home-search" onKeyUp={(e) => {
-                let keyCode = e.keyCode;
-                if (e.target === this.$input && keyCode === 13) {
-                    this.handleClick(e);
-                }
-            }}>
+            <div className="home-search" onKeyUp={this.handleKeyUp} onFocus={this.handleFocus}>
                 <div className="search-header">
                     <Link to={url} className="search-back">
                         <i>{null}</i>
@@ -75,61 +85,65 @@ export default class Search extends Component {
                     </div>
                     <input onClick={this.handleClick} type="submit" value="搜索" className="search-submit"/>
                 </div>
-                <div className="search-catalog">
-                    <div className="search-record">
-                        <div className="record-catalog">
-                            <span>最近搜索</span>
-                            <a onClick={() => {
-                                localStorage.clear();
-                                this.setState({
-                                    recent: [],
-                                });
-                            }} href="javascript:;">清空</a>
+                {
+                    this.state.flag ? <div className="search-catalog">
+                        <div className="search-record">
+                            <div className="record-catalog">
+                                <span>最近搜索</span>
+                                <a onClick={() => {
+                                    localStorage.clear();
+                                    this.setState({
+                                        recent: [],
+                                    });
+                                }} href="javascript:;">清空</a>
+                            </div>
+                            <ul className="record-list">
+                                {
+                                    this.state.recent.map((item, index) => (
+                                        <li onClick={() => {
+                                            this.$input.value = item;
+                                        }} key={index}>{item}</li>
+                                    ))
+                                }
+                            </ul>
                         </div>
-                        <ul className="record-list">
-                            {
-                                this.state.recent.map((item, index) => (
-                                    <li onClick={() => {
-                                        this.$input.value = item;
-                                    }} key={index}>{item}</li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                    {
-                        url === '/home' ?
-                            <div className="search-classify">
-                                <div className="classify-catalog">
-                                    <span>类别</span>
-                                </div>
-                                <ul className="classify-list">
-                                    {
-                                        this.state.search.data.map((item, index) => (
-                                            <li key={index}><Link to='/recipe/search'>{item.category_name}</Link></li>
-                                        ))
-                                    }
-                                </ul>
-                            </div> : null}
-                    <div className="star-level">
-                        <div className="star-diff">
-                            <span>难度</span>
+                        {
+                            url === '/home' ?
+                                <div className="search-classify">
+                                    <div className="classify-catalog">
+                                        <span>类别</span>
+                                    </div>
+                                    <ul className="classify-list">
+                                        {
+                                            this.state.search.data.map((item, index) => (
+                                                <li key={index}><Link to={{pathname:`/search/home/${index}`,state:{index,item}}} onClick={()=>{this.setState({flag:false})}}>{item.category_name}</Link></li>
+                                            ))
+                                        }
+                                    </ul>
+                                </div> : null}
+                        <div className="star-level">
+                            <div className="star-diff">
+                                <span>难度</span>
+                            </div>
+                            <ul className="star-list">
+                                {
+                                    star.map((item, index) => (
+                                        <li onClick={() => {
+                                            console.log(index);
+                                            this.starClick(index)
+                                        }} key={index}>{item + '星'}</li>
+                                    ))
+                                }
+                            </ul>
                         </div>
-                        <ul className="star-list">
-                            {
-                                star.map((item, index) => (
-                                    <li onClick={() => {
-                                        console.log(index);
-                                        this.starClick(index)
-                                    }} key={index}>{item + '星'}</li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                </div>
+                    </div> : null
+                }
+                <Route path="/search/:from/:id" component={Recipe}/>
             </div>
+
         )
     }
 }
 import './search.less';
 
-connect(state => state.search,)(Search);
+//connect(state => state.search,)(Search);
