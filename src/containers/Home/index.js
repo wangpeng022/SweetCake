@@ -6,6 +6,8 @@ import "../../components/Header/header.less";
 import actions from '../../store/actions/home';
 import {connect} from 'react-redux';
 import Swiper from "./Swiper/Swiper";
+import HomeTab from "./HomeTab/HomeTab";
+import "./index.less"
 
 class Home extends Component {
     componentDidMount(){
@@ -13,7 +15,6 @@ class Home extends Component {
     }
     render() {
         // console.log(this.props.home);
-        console.log(this.props.slider);
         let mySlider=this.props.slider||[];
         return (
             <div>
@@ -28,6 +29,7 @@ class Home extends Component {
                 </Header>
                 <div className="home-content">
                     <Swiper slider={mySlider}/>
+                    <HomeTab list={this.props.list}/>
                 </div>
             </div>
         )

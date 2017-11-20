@@ -47,4 +47,6 @@ app.get('/lesson',function(req,res){
 });
 
 
-app.listen(3000);
+app.listen(3000,function () {
+    console.log("端口 3000")
+});
