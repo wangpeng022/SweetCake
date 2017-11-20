@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom'
 import './register.less'
+import {push} from 'react-router-redux';
 export default class Register extends Component{
     render(){
         return (
@@ -27,7 +28,10 @@ export default class Register extends Component{
                         </div>
                         <div className="password">
                             <input type="password" placeholder="请设置密码"/>
-                            <button type="button" className="btn">注册</button>
+                        </div>
+                        <div className="confirm-password">
+                            <input type="password" placeholder="请确认密码"/>
+                            <button type="button" className="btn" >注册</button>
                         </div>
                         <div className="goto">
                             <a href="">已有账号？去登录</a>

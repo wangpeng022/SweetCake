@@ -11,6 +11,7 @@ import Recipe from "../../components/Search/Recipe/recipe";
 import Search from "../../components/Search/search"
 import Register from "../Profile/Register/register";
 import Login from "../Profile/Login/login";
+import Person from "../Profile/Person/person";
 
 
 
@@ -27,6 +28,7 @@ export default class App extends Component {
                         <Route path="/home" component={Home}/>
                          <Route path="/register" component={Register}/>
                          <Route path="/login" component={Login}/>
+                         <Route path="/person" component={Person}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
