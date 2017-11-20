@@ -7,16 +7,14 @@ import Course from "./course/course";
 import Pack from "./pack/pack";
 import {connect} from 'react-redux'
 import actions from '../../store/actions/lesson'
-import {upMore,downRefresh} from '../../utils/util.js'
+import {upMore, downRefresh} from '../../utils/util.js'
 class Lesson extends Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.getLessons();//获取教程列表数据
-        //上拉加载更多
-        this.refs.content?upMore(this.refs.content,this.props.refresh):null;
-        this.refs.content?downRefresh(this.refs.content,this.props.getLessons):null;
+        upMore(this.refs.content, this.props.refresh);
+        downRefresh(this.refs.content, this.props.getLessons);
     }
     render() {
-        //console.log(this.props.lessons,this.props.hasMore);
         return (
             <div>
                 <Header>
@@ -33,24 +31,17 @@ class Lesson extends Component {
                         </div>
                     }
                 </Header>
-                <Switch>
-
-                    <Route path="/lesson/course" render={()=>
-                        (<div ref="content" className="lesson-content">
-                            <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>
-                        </div>)}/>
-
-                    <Route path="/lesson/pack" component={Pack}/>
-
-                    <Route exact path="/lesson" render={() => <Redirect to="/lesson/course"/>}/>
-                    <Redirect to="/lesson/course"/>
-                    <Route render={() => <h1>你访问的页面不存在,请输入正确的地址,</h1>}/>
-                </Switch>
-
-
-
+                <div ref="content" className="lesson-content">
+                    <Switch>
+                        <Route path="/lesson/course" render={() => <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
+                        <Route path="/lesson/pack" component={Pack}/>
+                        <Route exact path="/lesson" render={() => <Redirect to="/lesson/course"/>}/>
+                        <Redirect to="/lesson/course"/>
+                        <Route render={() => <h1>你访问的页面不存在,请输入正确的地址,</h1>}/>
+                    </Switch>
+                </div>
             </div>
         )
     }
 }
-export default connect(state=>state.lessons,actions)(Lesson)
+export default connect(state => state.lessons, actions)(Lesson)

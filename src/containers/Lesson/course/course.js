@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {connect} from 'react-redux'
-import actions from '../../../store/actions/lesson'
-import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import './course.less';
 let num;
 let ary = [1, 2, 3, 4, 5];
@@ -10,7 +7,7 @@ export default class Course extends Component {
     render() {
         console.log(this.props.lessons ? this.props.lessons : '');
         return (
-            <ul>
+            <ul className="course-list">
                 {
                     this.props.lessons ? (
                         this.props.lessons.map((item, index) => {
@@ -43,17 +40,10 @@ export default class Course extends Component {
                         })
                     ) : null
                 }
-                <div className="load-status" onClick={this.props.getLessons}>
-                    {
-                        this.props.loading ? '加载中' :
-                            this.props.hasMore ? '加载更多' : '已经到达底线'
-                    }
-                </div>
-
             </ul>
 
         )
     }
 }
-/*export default connect(state=>state.lessons,actions)(Course)*/
+
 
