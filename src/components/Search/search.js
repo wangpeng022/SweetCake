@@ -17,7 +17,7 @@ export default class Search extends Component {
                 data: [],
             },
             recent: [],
-            flag: false,
+            flag: true,
         }
     };
 
