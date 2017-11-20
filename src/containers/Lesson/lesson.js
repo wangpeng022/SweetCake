@@ -5,9 +5,18 @@ import "../../components/Header/header.less";
 import {HashRouter as Router,Route,NavLink, Link} from 'react-router-dom';
 import Course from "./course/course";
 import Pack from "./pack/pack";
-
-export default class Lesson extends Component {
+import {connect} from 'react-redux'
+import actions from '../../store/actions/lesson'
+import {upMore,downRefresh} from '../../utils/util.js'
+class Lesson extends Component {
+    componentDidMount(){
+        this.props.getLessons();//获取教程列表数据
+        //上拉加载更多
+        upMore(this.refs.content,this.props.getLessons);
+        downRefresh(this.refs.content,this.props.refresh)
+    }
     render() {
+        //console.log(this.props.lessons,this.props.hasMore);
         return (
             <div>
                 <Header>
@@ -24,9 +33,18 @@ export default class Lesson extends Component {
                         </div>
                     }
                 </Header>
-                <Route  path="/lesson/pack" component={Pack}/>
-                <Route  path="/lesson/course" component={Course}/>
+                <div ref="content" className="lesson-content">
+                    <Route  path="/lesson/pack"/>
+                        <Pack/>
+                    <Route  path="/lesson/course"/>
+                        <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>
+                </div>
+
             </div>
         )
     }
 }
+export default connect(
+    state=>state.lessons,//{hasMore:true, lessons:[{},{},{}...],}}
+    actions
+)(Lesson)
