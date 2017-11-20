@@ -16,7 +16,6 @@ export function get (url) {
         //res是一个响应对象，调用json方法可获取JSON格式的响应体
     }).then(res =>(res.json()));
 }
-
 export function post(url, data) {
     return fetch(HOST + url, {
         method: 'POST',
@@ -26,7 +25,7 @@ export function post(url, data) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data)
-<<<<<<< HEAD
+
     }).then(res => res.json());
 };
 export function postFood(url,data) {
@@ -39,7 +38,6 @@ export function postFood(url,data) {
         },
         body: JSON.stringify(data)
     }).then(res => res.json());
-=======
-    }).then(res => (res.json()));
->>>>>>> develop
+
+
 }

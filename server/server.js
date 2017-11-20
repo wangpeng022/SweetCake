@@ -38,13 +38,8 @@ app.get('/search', function (req, res) {
     res.json(search);
 });
 
-let HList=require("./mock/HList");
+
 let Lesson=require("./mock/Lesson");
-//获取首页数据
-app.get("/hlist",function (req,res) {
-    res.json(HList);
-    console.log(HList)
-});
 
 //获取列表页课程数据
 app.get('/lesson',function(req,res){

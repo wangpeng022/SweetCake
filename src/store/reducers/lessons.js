@@ -17,6 +17,11 @@ export default function (state = initState, action) {
                 ...state,
                 ...action.payload
             };
+        case types.FETCH_LESSONS_REFRESH:
+            return{
+                ...state,
+                lessons:[...state.lessons,...action.payload.lessons],
+            };
         default:
             return state;
     }
