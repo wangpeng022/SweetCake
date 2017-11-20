@@ -42,4 +42,7 @@ app.get('/lesson',function(req,res){
     res.json(Lesson);
     console.log(Lesson);
 });
-app.listen(3000);
+
+app.listen(3000,function () {
+    console.log("端口 3000")
+});

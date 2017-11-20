@@ -23,7 +23,7 @@ module.exports = {
 
     list: [
         {
-            url: 'https://huaban.com/go/?pin_id=1398998140',
+            url: 'http://img.hb.aicdn.com/265cb3f4ab48d29577111576103d1e3b5d55a893b7e3-aQmw73_fw658',
             title: '玫瑰戚风',
             id: 1,
             family: '蛋糕',
