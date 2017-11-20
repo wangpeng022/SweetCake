@@ -4,7 +4,7 @@ export default class Pack extends Component{
     render(){
         return (
             <div>
-                pack
+
             </div>
         )
     }
