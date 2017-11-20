@@ -19,6 +19,7 @@ app.use(function (req,res,next) {
         next();
     }
 });
+
 let HList = require("./mock/HList");
 //获取星级食物列表
 let food = require("./mock/food.json");
@@ -36,4 +37,20 @@ app.get('/star', function (req, res) {
 app.get('/search', function (req, res) {
     res.json(search);
 });
+
+let HList=require("./mock/HList");
+let Lesson=require("./mock/Lesson");
+//获取首页数据
+app.get("/hlist",function (req,res) {
+    res.json(HList);
+    console.log(HList)
+});
+
+//获取列表页课程数据
+app.get('/lesson',function(req,res){
+    res.json(Lesson);
+    console.log(Lesson);
+});
+
+
 app.listen(3000);
