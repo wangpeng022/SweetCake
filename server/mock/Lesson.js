@@ -13,7 +13,7 @@ module.exports = {
             comment:3,
             title: '夜种的制作方法',
             num: "",
-            like: "",
+            collect: "",
         },
         {
             id: 2,
@@ -22,7 +22,7 @@ module.exports = {
             comment:0,
             title: '零失败全蛋打发教程',
             num: "",
-            like: "",
+            collect: "",
         },
         {
             id: 3,
@@ -31,7 +31,7 @@ module.exports = {
             comment:1,
             title: '派皮制作与入模小技巧',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -41,7 +41,7 @@ module.exports = {
             comment:1,
             title: '基础奶油裱花技巧',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -51,7 +51,7 @@ module.exports = {
             comment:4,
             title: '澄清黄油与褐化黄油的制作',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -61,7 +61,7 @@ module.exports = {
             comment:0,
             title: '常见的芝士分类',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -71,7 +71,7 @@ module.exports = {
             comment:4,
             title: '模具防粘指南',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -81,7 +81,7 @@ module.exports = {
             comment:1,
             title: '常见的几种分蛋技巧',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -91,7 +91,7 @@ module.exports = {
             comment:1,
             title: '常见的烘焙材料混拌教程',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -101,7 +101,7 @@ module.exports = {
             comment:0,
             title: '如何挤曲奇、泡芙、手指饼面糊',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -111,7 +111,7 @@ module.exports = {
             comment:2,
             title: '如何组装裱花嘴',
             num: "",
-            like: "",
+            collect: "",
 
         },
         {
@@ -121,7 +121,7 @@ module.exports = {
             comment:0,
             title: '零失败奶油打发教程',
             num: "",
-            like: "",
+            collect: "",
         },
 
     ]

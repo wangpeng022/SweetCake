@@ -5,16 +5,18 @@ import {Link} from 'react-router-dom';
 import "../../components/Header/header.less";
 import actions from '../../store/actions/home';
 import {connect} from 'react-redux';
+import ReactSwipe from "react-swipe"
 import Swiper from "./Swiper/Swiper";
-import HomeTab from "./HomeTab/HomeTab";
+import HomeListNew from "./HomeListNew/HomeListNew";
+import HomeListHot from "./HomeListHot/HomeListHot";
 import "./index.less"
+
 
 class Home extends Component {
     componentDidMount(){
         this.props.getHList();
     }
     render() {
-        // console.log(this.props.home);
         let mySlider=this.props.slider||[];
         return (
             <div>
@@ -29,7 +31,13 @@ class Home extends Component {
                 </Header>
                 <div className="home-content">
                     <Swiper slider={mySlider}/>
-                    <HomeTab list={this.props.list}/>
+                    <div>
+                        <span>最新</span>
+                        <span>热门</span>
+                    </div>
+                        <ReactSwipe className="carousel" >
+                        <HomeListNew list={this.props.list}/>
+                        </ReactSwipe>
                 </div>
             </div>
         )
