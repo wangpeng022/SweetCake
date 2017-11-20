@@ -21,23 +21,14 @@ export default class Search extends Component {
         }
     };
 
-    /*componentWillUpdate() {
-        url = this.props.location.state ? this.props.location.state.from : '/';
-        url = this.props.location.pathname;
-    }*/
-    componentWillUnMount() {
-
-    }
 
     componentDidMount() {
-        url = '/' + this.props.match.params.from;
-        url = url === '/home' || url === '/lesson' ? url : '/';
         getSearch().then(data => {
             this.setState({search: data})
         });
         this.state.recent = (JSON.parse(localStorage.getItem('search')) || []);
-        this.setState({});
     }
+
 
     starClick = (index) => {
         getFood(index).then(data => {
@@ -59,24 +50,27 @@ export default class Search extends Component {
             this.handleClick(e);
         }
     };
-    handleFocus = (e) => {
-        console.log(true+'xxxxxxxxxxxxxxxxxxxxxxx');
+    handleFocus = () => {
         this.setState({flag: true});
         this.props.history.replace('/search/home');
     };
 
     render() {
-        console.log(this.state.flag);
-        console.log(this.props);
+        url = this.props.location.pathname;
+        console.log(url);
         return (
-            <div className="home-search" onKeyUp={this.handleKeyUp} onFocus={this.handleFocus}>
+            <div className="home-search" onKeyUp={this.handleKeyUp}>
                 <div className="search-header">
-                    <Link to={url} className="search-back">
+                    <div onClick={() => {
+                        this.state.flag = true;
+                        this.props.history.goBack()
+                    }} className="search-back">
                         <i>{null}</i>
-                    </Link>
+                    </div>
                     <div className="search-content">
                         <i className="">{null}</i>
-                        <input ref={input => this.$input = input} type="text" placeholder="搜索"
+                        <input onFocus={this.handleFocus} ref={input => this.$input = input} type="text"
+                               placeholder="搜索"
                                className="search-input"/>
                         <div onClick={() => {
                             this.$input.value = '';
@@ -86,7 +80,7 @@ export default class Search extends Component {
                     <input onClick={this.handleClick} type="submit" value="搜索" className="search-submit"/>
                 </div>
                 {
-                    this.state.flag ? <div className="search-catalog">
+                    url === '/search/home' || url === '/search/lesson' ? <div className="search-catalog">
                         <div className="search-record">
                             <div className="record-catalog">
                                 <span>最近搜索</span>
@@ -108,7 +102,7 @@ export default class Search extends Component {
                             </ul>
                         </div>
                         {
-                            url === '/home' ?
+                            url === '/search/home' ?
                                 <div className="search-classify">
                                     <div className="classify-catalog">
                                         <span>类别</span>
@@ -116,7 +110,11 @@ export default class Search extends Component {
                                     <ul className="classify-list">
                                         {
                                             this.state.search.data.map((item, index) => (
-                                                <li key={index}><Link to={{pathname:`/search/home/${index}`,state:{index,item}}} onClick={()=>{this.setState({flag:false})}}>{item.category_name}</Link></li>
+                                                <li key={index}><Link
+                                                    to={{pathname: `/search/home/${index}`, state: {index, item}}}
+                                                    onClick={() => {
+                                                        this.setState({flag: false})
+                                                    }}>{item.category_name}</Link></li>
                                             ))
                                         }
                                     </ul>
@@ -129,7 +127,6 @@ export default class Search extends Component {
                                 {
                                     star.map((item, index) => (
                                         <li onClick={() => {
-                                            console.log(index);
                                             this.starClick(index)
                                         }} key={index}>{item + '星'}</li>
                                     ))
