@@ -5,9 +5,16 @@ import {Link} from 'react-router-dom';
 import "../../components/Header/header.less";
 import actions from '../../store/actions/home';
 import {connect} from 'react-redux';
+import Swiper from "./Swiper/index";
 
 class Home extends Component {
+    componentDidMount(){
+        this.props.getHList();
+    }
     render() {
+        // console.log(this.props.home);
+        console.log(this.props.slider);
+        let mySlider=this.props.slider||[];
         return (
             <div>
                 <Header>
@@ -19,7 +26,9 @@ class Home extends Component {
                         </div>
                     }
                 </Header>
-
+                <div className="home-content">
+                    <Swiper slider={mySlider}/>
+                </div>
             </div>
         )
     }

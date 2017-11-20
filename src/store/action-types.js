@@ -1,7 +1,7 @@
 //设置当前主页
 export const SET_MENU = 'SET_MENU';
-//获取轮播图数据
-export const FETCH_SLIDERS = 'FETCH_SLIDERS';
+//获取轮播图&&首页数据
+export const GET_HLIST = 'GET_HLIST';
 //开始获取课程列表
 export const FETCH_MENUS = 'FETCH_MENUS';
 //获取课程列表结束

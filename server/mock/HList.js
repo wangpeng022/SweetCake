@@ -4,19 +4,19 @@ module.exports = {
             url: 'https://hbimg.b0.upaiyun.com/9499f16c48a18deb9f4dee9a8021072be4fcc17d141c2-zYoT8m_fw658',
             desc: '包治百病，暖暖',
             id: 1,
-            num: "",
+            num: "5",
         },
         {
             url: 'https://hbimg.b0.upaiyun.com/26ca2606e920f8a2c0ba129b35c0ac733a50519128726c-K0c2Ir_fw658',
             desc: '清爽无极限，造起来',
             id: 2,
-            num: "",
+            num: "2",
         },
         {
-            url: 'https://hbimg.b0.upaiyun.com/0ce8ef2c1a96f5d0811e5b726791ede65ccccc3798e0-zTHm6F_fw658',
+            url: 'http://img.hb.aicdn.com/435095452ef6134fcfa8176b991e9a832ea74b1195d9-fz2XRq_fw658',
             desc: '这么美味，确定不点进来看看？',
             id: 3,
-            num: "",
+            num: "3",
         },
     ],
 
