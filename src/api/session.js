@@ -2,8 +2,8 @@ import {post, get} from './index';
 
 
 //注册
-export function signUp(data) {
-    return post('/signup', data);
+export function register(data) {
+    return post('/register', data);
 }
 
 //登录

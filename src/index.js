@@ -5,7 +5,7 @@ import store from './store';
 import {Provider} from 'react-redux';
 window._store=store;
 //Provder组件用来向子组件传递store仓库
-window._store=store;
+// window._store=store;
 ReactDOM.render(
     <Provider store={store}>
         <App/>

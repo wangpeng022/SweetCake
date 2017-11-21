@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './profile.less';
 import {Link}  from 'react-router-dom'
-export default class Profile extends Component {
+import {connect} from 'react-redux'
+ class Profile extends Component {
     render() {
         return (
             <div className="profile-bg">
@@ -31,3 +32,6 @@ export default class Profile extends Component {
         )
     }
 }
+export default connect(
+    state=>state.session
+)(Profile);

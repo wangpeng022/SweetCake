@@ -43,6 +43,22 @@ app.get('/lesson',function(req,res){
     console.log(Lesson);
 });
 
+//注册用户信息
+let users=require('./mock/users.json');
+console.log(users);
+app.post('/register',function (req,res) {
+   let user=req.body;
+    console.log(user.phone);
+    let oldUser=users.find(item=>item.phone==user.phone);
+   if(oldUser){  //有值就说明此用户已被注册了
+       res.json({code:1,error:'手机号已经被注册过 了！'})
+   }else {
+       users.push(user);
+       res.json({code:0,success:'用户注册成功！'})
+   }
+
+});
+
 app.listen(3000,function () {
     console.log("端口 3000")
 });

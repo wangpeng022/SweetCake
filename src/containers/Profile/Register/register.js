@@ -1,9 +1,26 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom'
 import './register.less'
-import {push} from 'react-router-redux';
-export default class Register extends Component{
+import {connect} from 'react-redux';
+import actions from  '../../../store/actions/session'
+ class Register extends Component{
+componentDidMount(){
+
+    console.log(this.phone.value,1111);
+}
+     registers=()=>{
+         let phone=this.phone.value;
+         let password=this.password.value;
+         let confirmPassword=this.confirmPassword.value;
+
+         if(!!phone&&!!password&&!!confirmPassword&&password===confirmPassword){
+             console.log(phone);
+             this.props.register({phone,password});
+         }
+     };
     render(){
+        console.log(this.props);
+
         return (
             <div className="base">
                 <div className="register-img"/>
@@ -24,14 +41,16 @@ export default class Register extends Component{
                 <div className="register-form">
                     <form>
                         <div className="phone">
-                            <input type="text" placeholder="请输入11位手机号码"/>
+                            <input ref={input=>this.phone=input} type="text" placeholder="请输入11位手机号码"/>
                         </div>
                         <div className="password">
-                            <input type="password" placeholder="请设置密码"/>
+                            <input ref={input=>this.password=input} type="password" placeholder="请设置密码"/>
                         </div>
                         <div className="confirm-password">
-                            <input type="password" placeholder="请确认密码"/>
-                            <button type="button" className="btn" >注册</button>
+                            <input ref={input=>this.confirmPassword=input} type="password" placeholder="请确认密码"/>
+                            <button
+                                onClick={this.registers}
+                                className="btn" >注册</button>
                         </div>
                         <div className="goto">
                             <a href="">已有账号？去登录</a>
@@ -42,3 +61,7 @@ export default class Register extends Component{
         )
     }
 }
+export default connect(
+    state=>state.session,
+    actions
+)(Register)
