@@ -11,8 +11,13 @@ import Recipe from "../../components/Search/Recipe/recipe";
 import Search from "../../components/Search/search"
 import Register from "../Profile/Register/register";
 import Login from "../Profile/Login/login";
+
 import Person from "../Profile/Person/person";
 
+
+
+import Detail from '../Detail/detail.js'
+/*import First from '../Lesson/First/first'*/
 
 
 export default class App extends Component {
@@ -23,6 +28,8 @@ export default class App extends Component {
                     <Switch>
                         <Route path="/Recipe/:from" component={Recipe}/>
                         <Route path="/lesson" component={Lesson}/>
+                        <Route path="/detail" component={Detail}/>
+                        {/*<Route  path="/lesson/pack/first" component={First}/>*/}
                         <Route exact path="/profile" component={Profile}/>
                         <Route path="/search/:from" component={Search}/>
                         <Route path="/home" component={Home}/>
