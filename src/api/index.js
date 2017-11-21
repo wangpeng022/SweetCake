@@ -17,6 +17,7 @@ export function get (url) {
     }).then(res =>(res.json()));
 }
 export function post(url, data) {
+    console.log(data);
     return fetch(HOST + url, {
         method: 'POST',
         credentials: 'include',
@@ -27,7 +28,7 @@ export function post(url, data) {
         body: JSON.stringify(data)
 
     }).then(res => res.json());
-};
+}
 export function postFood(url,data) {
     return fetch(FOOD + url, {
         method: 'POST',
