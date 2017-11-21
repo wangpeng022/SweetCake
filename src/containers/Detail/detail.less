@@ -1,0 +1,62 @@
+.detail-header{
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: .44rem;
+  line-height: .44rem;
+  background: #FEDA6A;
+  .left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: .44rem;
+    .go_home{
+      float: left;
+      height: .44rem;
+      line-height: .44rem;
+      color: #987A57;
+      padding: 0 .16rem;
+      font-size: .15rem;
+      text-decoration: none;
+    }
+  }
+  .right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: .44rem;
+    line-height: .44rem;
+    .love{
+      float: left;
+      width: 50px;
+      padding: 12px 0;
+      text-decoration: none;
+      i{
+        display: block;
+        width: 23px;
+        height: 21px;
+        background-size: 23px 21px;
+        background-image:url(../../components/DetailHeader/images/love_icon1.png);
+        margin: auto;
+        &.current{
+          background-image:url(../../components/DetailHeader/images/love_icon1_current.png);
+        }
+      }
+    }
+    .share{
+      float: left;
+      width: 50px;
+      padding: 12px 0;
+      text-decoration: none;
+      span{
+        display: block;
+        width: 21px;
+        height: 21px;
+        background-size: 21px 21px;
+        background-image:url(../../components/DetailHeader/images/share_icon.png);
+        margin: auto;
+      }
+    }
+  }
+}
