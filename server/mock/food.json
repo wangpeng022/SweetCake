@@ -1,6 +1,6 @@
 [
   {
-    "result": "0",
+    "result": 1,
     "data": {
       "find_recipe_count": 58,
       "find_recipe": [
@@ -75,7 +75,7 @@
     "message": "success"
   },
   {
-    "result": "0",
+    "result": 2,
     "data": {
       "find_recipe_count": 72,
       "find_recipe": [
@@ -150,7 +150,7 @@
     "message": "success"
   },
   {
-    "result": "0",
+    "result": 3,
     "data": {
       "find_recipe_count": 76,
       "find_recipe": [
@@ -183,7 +183,7 @@
     "message": "success"
   },
   {
-    "result": "0",
+    "result": 4,
     "data": {
       "find_recipe_count": 17,
       "find_recipe": [
@@ -216,7 +216,7 @@
     "message": "success"
   },
   {
-    "result": "0",
+    "result": 5,
     "data": {},
     "message": "success"
   }

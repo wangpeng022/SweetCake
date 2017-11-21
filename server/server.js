@@ -32,7 +32,6 @@ app.get("/hlist", function (req, res) {
     res.json(HList);
 });
 app.get('/star', function (req, res) {
-    console.log(req.query);
     res.json(food[req.query.index]);
 });
 app.get('/search', function (req, res) {
