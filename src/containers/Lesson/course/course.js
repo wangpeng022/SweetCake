@@ -16,8 +16,8 @@ export default class Course extends Component {
                             return (
                                 <li key={index}>
                                 <div className="content">
-                                    {/*跳转详情页,并且带上数据*/}
-                                    <Link to={{pathname:'/detail',state:item}}>
+                                    {/*跳转详情页*/}
+                                    <Link to='/detail'>
                                         <div className="img">
                                             <img src={item.url} alt=""/>
                                             <div className="data">

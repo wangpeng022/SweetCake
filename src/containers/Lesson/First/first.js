@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './first.less'
 export default class First extends Component {
     render() {
-        console.log(this.props);
-        console.log(this.props.lessons);
+        //console.log(this.props);
+        //console.log(this.props.lessons);
         return (
                 <ul className="big-frame">
                     {
