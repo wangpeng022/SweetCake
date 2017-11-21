@@ -37,10 +37,7 @@ class Lesson extends Component {
 
                         <Route path="/lesson/course" render={() => <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
                         <Route exact path="/lesson/pack" render={()=><Pack lessons={this.props.lessons} getLessons={this.props.getLessons} prefer={this.props.prefer} getLessonPrefer={this.props.getLessonPrefer}/>}/>
-                        {/*<Route exact path="/lesson" render={() => <Redirect to="/lesson/course"/>}/>
-                        <Redirect to="/lesson/course"/>
-                        <Route render={() => <h1>你访问的页面不存在,请输入正确的地址,</h1>}/>*/}
-                        <Route path="/lesson/pack/first" component={First}/>
+                        <Route path="/lesson/pack/first" render={()=><First lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
                 </div>
             </div>
         )
