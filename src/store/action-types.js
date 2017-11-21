@@ -15,3 +15,5 @@ export const FETCH_LESSONS_REFRESH='FETCH_LESSONS_REFRESH';
 export const FETCH_SEARCH='FETCH_SEARCH';
 //获取类别数据
 export const FETCH_CLASSIFY='FETCH_CLASSIFY';
+//获取星级食物列表
+export const GET_STARFOOD='GET_STARFOOD';
