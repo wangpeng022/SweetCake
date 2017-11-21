@@ -46,7 +46,6 @@ app.get('/lesson', function (req, res) {
     //console.log(Lesson);
 });
 
-
 app.post('/search', function (req, res) {
     let searchList = [];
     let find = req.body;
@@ -67,10 +66,9 @@ app.post('/searchIndex', function (req, res) {
     let find = req.body;
     res.json(foodList[find.index]);
 });
-app.listen(3000,function () {
+/*app.listen(3000,function () {
     console.log("端口 3000")
-});
-
+});*/
 
 let lessonsPrefer=require('./mock/lessons-prefer');
 //获取课程包优选课程列表数据
