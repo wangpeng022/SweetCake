@@ -40,6 +40,15 @@ let Lesson=require("./mock/Lesson");
 //获取列表页课程数据
 app.get('/lesson',function(req,res){
     res.json(Lesson);
-    console.log(Lesson);
+    //console.log(Lesson);
 });
+
+let lessonsPrefer=require('./mock/lessons-prefer');
+//获取课程包优选课程列表数据
+app.get('/lessonPrefer',function(req,res){
+    res.json(lessonsPrefer);
+    console.log(lessonsPrefer);
+});
+
+
 app.listen(3000);

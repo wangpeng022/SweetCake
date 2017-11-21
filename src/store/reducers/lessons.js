@@ -7,7 +7,9 @@ let initState = {
         lessons: [],  //存放着每一项li的信息
         hasMore: true,//后面是否有更多
         offset: 0, //偏移量
-        limit: 5   //每页的条数
+        limit: 5  , //每页的条数
+        prefer:[],
+
 };
 export default function (state = initState, action) {
     //每个action必须把携带的数据放在payload里，而且必须是一个对象。
@@ -21,6 +23,12 @@ export default function (state = initState, action) {
             return{
                 ...state,
                 lessons:[...state.lessons,...action.payload.lessons],
+            };
+        case types.FETCH_LESSON_PREFER:
+            return{
+                ...state,
+                lessons:[...state.lessons,...action.payload.lessons],
+                prefer:[...state.prefer,...action.payload.prefer]
             };
         default:
             return state;
