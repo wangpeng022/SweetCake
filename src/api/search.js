@@ -9,5 +9,12 @@ export function getSearch() {
     return get(`/search`);
 }
 
+export function searchFood(data) {
+    return post(`/search`, data);
+}
+export function searchIndex(index) {
+    return post('/searchIndex',index)
+}
+
 //'/api/v1/search_one_by_level'
 //get  //post
