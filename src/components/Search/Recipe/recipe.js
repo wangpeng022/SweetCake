@@ -5,23 +5,23 @@ import Search from "../search";
 
 export default class Recipe extends Component {
     render() {
-        let item=this.props.location.state?this.props.location.state.item:[];
+        //let item = this.props.location.state ? this.props.location.state.item : [];
         console.log(this.props);
         return (
             <div className="recipe">
-                <div className="recipe-header">{item.category_name}</div>
+                {this.props.location.state ? <div className="recipe-header">{this.props.location.state.item.category_name}</div> : null}
                 <div className="recipe-body">
                     <p>发现</p>
                     <ul className="recipe-list">
                         {
-                            [1,2,3].map((item,index)=>(
+                            this.props.searchList.map((item, index) => (
                                 <li key={index} className="">
                                     <Link to="/">
-                                        <img src="http://beile.bakelulu.com.cn//Fu9DmaCT9JtrhVRxvZce5J9yMTYC" alt=""/>
+                                        <img src={item.recipe_img} alt=""/>
                                         <div className="recipe-info">
-                                            <span className="recipe-title">椒盐桃酥</span>
-                                            <span className="recipe-msg">花椒粉的加入给桃酥增加了点特殊的风味，敲好吃，要飞起来的感觉…重点是超简单～↵方子来自达人：花脸猫</span>
-                                            <span className="recipe-date">Julia 2017-11-08</span>
+                                            <span className="recipe-title">{item.recipe_name}</span>
+                                            <span className="recipe-msg">{item.recipe_info}</span>
+                                            <span className="recipe-date">{item.author} {item.create_time}</span>
                                         </div>
                                     </Link>
                                 </li>

@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
-import {Link, Route} from 'react-router-dom';
-import {getFood, getSearch} from '../../api/search';
+import {Link, Route,withRouter} from 'react-router-dom';
+import {getFood, getSearch, searchFood} from '../../api/search';
 import {connect} from 'react-redux';
 import Catalog from "./catalog/index";
 import Recipe from "./Recipe/recipe";
+import actions from "../../store/actions/search";
 
 let star = ['一', '二', '三', '四', '五'];
 //@connect(state=>state.search,actions)
 let recent = [];
 let url = '';
-export default class Search extends Component {
+class Search extends Component {
     constructor() {
         super();
         this.state = {
@@ -42,12 +43,16 @@ export default class Search extends Component {
             e.preventDefault();
             recent.push(value);
             localStorage.setItem('search', JSON.stringify(recent));
+            this.props.history.replace(`/search/home/${this.$input.value}`);
+            this.props.searchFood({searchFood:this.$input.value,limit:3});
         }
     };
     handleKeyUp = (e) => {
         let keyCode = e.keyCode;
         if (e.target === this.$input && keyCode === 13) {
+            this.props.searchFood({searchFood:this.$input.value,limit:3});
             this.handleClick(e);
+            this.props.history.replace(`/search/home/${this.$input.value}`);
         }
     };
     handleFocus = () => {
@@ -56,6 +61,7 @@ export default class Search extends Component {
     };
 
     render() {
+        console.log(this.props);
         url = this.props.location.pathname;
         console.log(url);
         return (
@@ -113,7 +119,8 @@ export default class Search extends Component {
                                                 <li key={index}><Link
                                                     to={{pathname: `/search/home/${index}`, state: {index, item}}}
                                                     onClick={() => {
-                                                        this.setState({flag: false})
+                                                        this.setState({flag: false});this.props.searchIndex({index})
+                                                        console.log(this.props);
                                                     }}>{item.category_name}</Link></li>
                                             ))
                                         }
@@ -135,7 +142,10 @@ export default class Search extends Component {
                         </div>
                     </div> : null
                 }
-                <Route path="/search/:from/:id" component={Recipe}/>
+                {/*<Route path="/search/:from/:id" searchList={this.props.searchList} component={Recipe}/>*/}
+                <Route path="/search/:from/:id" render={(props)=>{
+                    return <Recipe {...props} searchList={this.props.searchList} searchFood={this.props.searchFood}/>
+                }}/>
             </div>
 
         )
@@ -143,4 +153,4 @@ export default class Search extends Component {
 }
 import './search.less';
 
-//connect(state => state.search,)(Search);
+export default connect(state => state.search, actions)(Search);

@@ -1,7 +1,8 @@
 let express = require("express");
+let bodyParser = require('body-parser');
 let app = express();
-
-app.use(function (req,res,next) {
+app.use(bodyParser.json());
+app.use(function (req, res, next) {
     //允许的来源
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
     //允许客户端请求的方法
@@ -23,6 +24,9 @@ let HList = require("./mock/HList");
 let food = require("./mock/food.json");
 //获取搜索选项
 let search = require("./mock/search.json");
+//获取搜索列表
+let foodList = require("./mock/foodList.json");
+
 
 app.get("/hlist", function (req, res) {
     res.json(HList);
@@ -35,11 +39,31 @@ app.get('/search', function (req, res) {
     res.json(search);
 });
 
-let Lesson=require("./mock/Lesson");
+let Lesson = require("./mock/Lesson");
 
 //获取列表页课程数据
-app.get('/lesson',function(req,res){
+app.get('/lesson', function (req, res) {
     res.json(Lesson);
     console.log(Lesson);
+});
+app.post('/search', function (req, res) {
+    let searchList = [];
+    let find = req.body;
+    let reg = new RegExp(find.searchFood, 'i');
+    foodList.forEach(item => {
+        searchList = [...searchList, ...item.data.find_recipe.filter(item => {
+            return reg.test(item.recipe_name) || reg.test(item.recipe_info)
+        })]
+    });
+    res.json({
+        searchList: searchList.slice(0, find.limit),
+        isLoading: false,
+        limit: find.limit,
+        keyword: find.searchFood
+    });
+});
+app.post('/searchIndex', function (req, res) {
+    let find = req.body;
+    res.json(foodList[find.index]);
 });
 app.listen(3000);
