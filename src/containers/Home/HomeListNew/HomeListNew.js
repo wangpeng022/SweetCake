@@ -15,7 +15,7 @@ export default class HomeListNew extends Component {
                                         <h4>{item.title}</h4>
                                         <span>{item.family}</span>
                                         <small><span>收藏 {item.collect || 0}</span></small>
-                                        <small><span> - 评论 {item.comment || 0}</span></small>
+                                        <small><span> - 评论 {item.comment_count || 0}</span></small>
                                     </div>
                                 </div>
                             </li>

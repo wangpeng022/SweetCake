@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from "react-dom"
 import './index.less';
 import Header from "../../components/Header/header";
 import {Link} from 'react-router-dom';
@@ -8,16 +9,46 @@ import {connect} from 'react-redux';
 import ReactSwipe from "react-swipe"
 import Swiper from "./Swiper/Swiper";
 import HomeListNew from "./HomeListNew/HomeListNew";
-import HomeListHot from "./HomeListHot/HomeListHot";
+import HomeListFri from "./HomeListHot/HomeListFri";
 import "./index.less"
 
 
 class Home extends Component {
-    componentDidMount(){
-        this.props.getHList();
+    constructor() {
+        super();
+        this.state = {
+            index: ""
+        }
     }
+
+    componentDidMount() {
+        this.props.getHList();
+        this.props.getFriend();
+    }
+
+    /*change() {
+        let box = ReactDOM.findDOMNode(this.refs["ddd"]);
+        let dd = box.style.transform.match(/\d+/)[0];
+        let width=box.style.width.match(/\d+/)[0];
+        let left = 1+dd/width;
+        console.log(left);
+        ReactDOM.findDOMNode(this.refs["slider"]).left=0
+    }*/
+    componentWillUpdate() {
+
+    }
+
     render() {
-        let mySlider=this.props.slider||[];
+        let swipeOptions = {
+            continuous: false,
+            callback: (index) => {
+                this.setState({index});
+            }
+        };
+        let mySlider = this.props.slider || [];
+        let style = {
+            left:(this.state.index+1)*.9+"rem"
+        };
         return (
             <div>
                 <Header>
@@ -31,13 +62,15 @@ class Home extends Component {
                 </Header>
                 <div className="home-content">
                     <Swiper slider={mySlider}/>
-                    <div>
-                        <span>最新</span>
-                        <span>热门</span>
+                    <div className="list-tab">
+                        <span className={this.state.index == 0 ? "active" : ""}>最新</span>
+                        <span className={this.state.index == 1 ? "active" : ""}>朋友圈</span>
+                        <div className="slider" style={style}/>
                     </div>
-                        <ReactSwipe className="carousel" >
-                        <HomeListNew list={this.props.list}/>
-                        </ReactSwipe>
+                    <ReactSwipe className="carousel" swipeOptions={swipeOptions}>
+                        <div><HomeListNew list={this.props.list}/></div>
+                        <div><HomeListFri friends={this.props.friends}/></div>
+                    </ReactSwipe>
                 </div>
             </div>
         )

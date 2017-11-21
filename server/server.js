@@ -17,12 +17,13 @@ app.use(function (req,res,next) {
         next();
     }
 });
-
+//获取首页 列表 && 轮播图
 let HList = require("./mock/HList");
 //获取星级食物列表
 let food = require("./mock/food.json");
 //获取搜索选项
 let search = require("./mock/search.json");
+let friend = require("./mock/friend.json");
 
 app.get("/hlist", function (req, res) {
     res.json(HList);
@@ -34,13 +35,15 @@ app.get('/star', function (req, res) {
 app.get('/search', function (req, res) {
     res.json(search);
 });
+app.get('/friend', function (req, res) {
+    res.json(friend);
+});
 
 let Lesson=require("./mock/Lesson");
 
 //获取列表页课程数据
 app.get('/lesson',function(req,res){
     res.json(Lesson);
-    console.log(Lesson);
 });
 
 app.listen(3000,function () {

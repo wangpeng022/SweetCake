@@ -13,3 +13,6 @@ export const FETCH_LESSONS_REFRESH='FETCH_LESSONS_REFRESH';
 
 //获取类别数据
 export const FETCH_CLASSIFY='FETCH_CLASSIFY';
+
+//获取 主页 朋友圈数据
+export const GET_FRIEND='GET_FRIEND';

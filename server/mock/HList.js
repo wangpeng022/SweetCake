@@ -27,8 +27,8 @@ module.exports = {
             title: '玫瑰戚风',
             id: 1,
             family: '蛋糕',
-            collect: "",
-            comment: "",
+            collect: "9",
+            comment_count: "",
 
         },
         {
@@ -36,8 +36,8 @@ module.exports = {
             title: '汤种黑芝麻吐司',
             id: 2,
             family: '面包',
-            collect: "",
-            comment: "",
+            collect: "4",
+            comment_count: "",
 
         },
         {
@@ -45,8 +45,8 @@ module.exports = {
             title: '墨西哥Salsa卷饼',
             id: 3,
             family: '烤箱菜',
-            collect: "",
-            comment: "",
+            collect: "2",
+            comment_count: "",
 
         },
         {
@@ -54,8 +54,8 @@ module.exports = {
             title: '皇帝松饼烤箱版',
             id: 4,
             family: '烤箱菜',
-            collect: "",
-            comment: "",
+            collect: "4",
+            comment_count: "",
 
         },
         {
@@ -63,8 +63,8 @@ module.exports = {
             title: '紫薯芋泥贝果（啤酒法）',
             id: 5,
             family: '面包',
-            collect: "",
-            comment: "",
+            collect: "3",
+            comment_count: "2",
 
         },
         {
@@ -72,8 +72,8 @@ module.exports = {
             title: '柠檬红茶司康',
             id: 6,
             family: '曲奇',
-            collect: "",
-            comment: "",
+            collect: "3",
+            comment_count: "1",
 
         },
         {
@@ -81,8 +81,8 @@ module.exports = {
             title: '咸香培根马芬',
             id: 7,
             family: '蛋糕',
-            collect: "",
-            comment: "",
+            collect: "5",
+            comment_count: "2",
 
         },
         {
@@ -90,8 +90,8 @@ module.exports = {
             title: '百香果蛋白蛋糕',
             id: 8,
             family: '蛋糕',
-            collect: "",
-            comment: "",
+            collect: "8",
+            comment_count: "2",
 
         },
         {
@@ -99,8 +99,8 @@ module.exports = {
             title: '黄金芝士条',
             id: 9,
             family: '蛋糕',
-            collect: "",
-            comment: "",
+            collect: "2",
+            comment_count: "1",
 
         },
         {
@@ -108,8 +108,8 @@ module.exports = {
             title: '抹茶白巧魔法蛋糕',
             id: 10,
             family: '蛋糕',
-            collect: "",
-            comment: "",
+            collect: "10",
+            comment_count: "2",
 
         },
 
