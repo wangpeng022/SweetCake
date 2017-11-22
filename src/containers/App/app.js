@@ -11,6 +11,8 @@ import Register from "../Profile/Register/register";
 import Login from "../Profile/Login/login";
 import Person from "../Profile/Person/person";
 import Detail from '../Detail/detail.js'
+import Gift from "../../components/Header/gift/gift";
+
 
 export default class App extends Component {
     render() {
@@ -22,6 +24,7 @@ export default class App extends Component {
                         <Route path="/lesson" component={Lesson}/>
                         <Route path="/detail" component={Detail}/>
                         <Route exact path="/profile" component={Profile}/>
+                        <Route path="/gift" component={Gift}/>
                         <Route path="/search/:from" component={Search}/>
                         <Route path="/home" component={Home}/>
                         <Route path="/register" component={Register}/>
