@@ -11,7 +11,7 @@ import Register from "../Profile/Register/register";
 import Login from "../Profile/Login/login";
 import Person from "../Profile/Person/person";
 import Detail from '../Detail/detail.js'
-
+import Collect from '../Profile/Collect/collect'
 import Gift from "../../components/Header/gift/gift";
 
 import Cover from "./Cover/cover";
@@ -36,6 +36,7 @@ export default class App extends Component {
                         <Route path="/register" component={Register}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/person" component={Person}/>
+                        <Route path="/collect" component={Collect}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>

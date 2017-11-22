@@ -15,8 +15,11 @@ export default {
 
                 let {code,error,success}=payload;
                 if(code===0){
-                    dispatch(push('/login'));
-                    alert(success);
+                    //alert(success);
+
+                        console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+                        dispatch(push('/login'));
+
                 }else {
                     alert(error);
                 }

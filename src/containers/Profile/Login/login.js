@@ -5,39 +5,42 @@ import {connect} from 'react-redux'
 import actions from '../../../store/actions/session'
 
 class Login extends Component {
-constructor(){
-    super();
-    this.state={isShow1:false,isShow2:false}
-}
-    signUp = () => {
+    constructor() {
+        super();
+        this.state = {isShow1: false, isShow2: false}
+    }
+
+    signUp = (e) => {
+        e.preventDefault();
         let phone = this.phone.value;
         console.log(phone);
         let password = this.password.value;
-        if(phone&&password){
+        if (phone && password) {
             this.props.login({phone, password});
-            this.setState({isShow1:false});
-            this.setState({isShow2:false});
+            this.setState({isShow1: false});
+            this.setState({isShow2: false});
         }
-        else if(!phone&&password){
-            this.setState({isShow1:true});
-            this.setState({isShow2:false});
+        else if (!phone && password) {
+            this.setState({isShow1: true});
+            this.setState({isShow2: false});
         }
-        else if(phone&&!password){
-            this.setState({isShow2:true});
-            this.setState({isShow1:false});
+        else if (phone && !password) {
+            this.setState({isShow2: true});
+            this.setState({isShow1: false});
         }
         else {
-            this.setState({isShow1:true});
-            this.setState({isShow2:true});
+            this.setState({isShow1: true});
+            this.setState({isShow2: true});
         }
 
         // this.phone.value='';
         // this.password.value='';
     };
-   disappear=()=>{
-       this.setState({isShow1:false,isShow2:false});
+    disappear = () => {
+        this.setState({isShow1: false, isShow2: false});
 
-   };
+    };
+
     render() {
         //console.log(this.phone.value);
         return (
@@ -64,16 +67,16 @@ constructor(){
                                    onFocus={this.disappear}
                                    type="text" placeholder="请输入11位手机号码"/>
                             {/*{this.phone ? this.phone.value === '' ?*/}
-                                {/*<span className="checkout-phone">手机号不能为空</span> : '' : ''}*/}
-                            {this.state.isShow1?<span
-                                className="checkout-phone">手机号不能为空</span>:''}
+                            {/*<span className="checkout-phone">手机号不能为空</span> : '' : ''}*/}
+                            {this.state.isShow1 ? <span
+                                className="checkout-phone">手机号不能为空</span> : ''}
 
                         </div>
                         <div className="password">
                             <input ref={input => this.password = input}
                                    onFocus={this.disappear}
                                    type="password" placeholder="请输入密码"/>
-                            {this.state.isShow2?<span className="checkout-password">密码不能为空</span>:''}
+                            {this.state.isShow2 ? <span className="checkout-password">密码不能为空</span> : ''}
 
                             <button
                                 onClick={this.signUp}

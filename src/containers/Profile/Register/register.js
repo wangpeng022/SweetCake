@@ -8,7 +8,9 @@ import actions from  '../../../store/actions/session'
          super();
          this.state={isShow1:false,isShow2:false,isShow3:false}
      }
-     registers=()=>{
+     registers=(e)=>{
+         e.preventDefault();
+         console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
          let phone=this.phone.value;
          let password=this.password.value;
          let confirmPassword=this.confirmPassword.value;

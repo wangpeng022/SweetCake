@@ -38,10 +38,10 @@ import './person.less'
                 {/*第二部分：内容区域  */}
                 <div className="set-content">
                     <ul>
-                        <a href="">
+                        <Link to={'/collect'}>
                             <span>我的收藏</span>
                             <p><i>&gt;</i></p>
-                        </a>
+                        </Link>
                     </ul>
                     <ul>
                         <a href="">

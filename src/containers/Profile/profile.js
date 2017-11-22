@@ -11,7 +11,7 @@ import {connect} from 'react-redux'
                 </div>
                 <div className="profile-middle">
                     <h2>登录</h2>
-                    <span>可查看/收藏更多食谱和教程！</span>
+                    <span>可查看   /  收藏更多食谱和教程！</span>
                     <button className="profile-register"><Link to={'/register'} >注册</Link></button>
                     <button className="profile-login"><Link to={'/login'} >登录</Link></button>
 
