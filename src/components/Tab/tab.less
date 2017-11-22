@@ -13,16 +13,32 @@
     justify-content: center;
     align-items: center;
     color: #969696;
+    text-decoration: none;
+
+
     i {
-      width:25px;
-      height:25px;
+      width: 25px;
+      height: 25px;
       font-size: 22px;
       font-style: normal;
       background-size: 25px 25px;
-      &.icon-index {
+      background-repeat: no-repeat;
+      /*&.icon-index {
         background-image: url(./images/icon-index.png);
-        background-repeat: no-repeat;
+      }*/
+      &.active {
+        background-image: url(./images/icon-index1.png);
       }
+      /*}
+      &.icon-lesson {
+        background-image: url(./images/icon-lesson.png);
+      }
+      &.icon-profile {
+        background-image: url(./images/icon-profile.png);
+      }
+      &.icon-tools {
+        background-image: url(./images/icon-tools.png);
+      }*/
     }
     &.active {
       color: #FEDA6A;

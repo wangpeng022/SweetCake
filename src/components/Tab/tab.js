@@ -22,8 +22,8 @@ import actions from '../../store/actions/session'
                         <span>课程</span>
                     </NavLink>
                     <a href="#"/>
-                    <NavLink to="/lesson/course">
-                        <i className="icon-lesson"/>
+                    <NavLink to="/tools">
+                        <i className="icon-tools"/>
                         <span>工具</span>
                     </NavLink>
                     {this.props.code===1?<NavLink to="/profile">
