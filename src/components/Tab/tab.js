@@ -19,7 +19,7 @@ import actions from '../../store/actions/session'
                         <span>课程</span>
                     </NavLink>
                     <a href="#"/>
-                    <NavLink to="/">
+                    <NavLink to="/lesson/course">
                         <i className="icon-lesson"/>
                         <span>工具</span>
                     </NavLink>
