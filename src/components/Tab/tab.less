@@ -14,8 +14,6 @@
     align-items: center;
     color: #969696;
     text-decoration: none;
-
-
     i {
       width: 25px;
       height: 25px;
@@ -23,13 +21,9 @@
       font-style: normal;
       background-size: 25px 25px;
       background-repeat: no-repeat;
-      /*&.icon-index {
+      &.icon-index {
         background-image: url(./images/icon-index.png);
-      }*/
-      &.active {
-        background-image: url(./images/icon-index1.png);
       }
-      /*}
       &.icon-lesson {
         background-image: url(./images/icon-lesson.png);
       }
@@ -38,10 +32,22 @@
       }
       &.icon-tools {
         background-image: url(./images/icon-tools.png);
-      }*/
+      }
     }
     &.active {
       color: #FEDA6A;
+      .icon-index {
+        background-image: url(./images/icon-index1.png);
+      }
+      .icon-lesson {
+        background-image: url(./images/icon-lesson1.png);
+      }
+      .icon-profile {
+        background-image: url(./images/icon-profile1.png);
+      }
+      .icon-tools {
+        background-image: url(./images/icon-tools1.png);
+      }
     }
   }
 }
