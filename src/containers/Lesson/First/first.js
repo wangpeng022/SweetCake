@@ -1,20 +1,26 @@
 import React, {Component} from 'react';
 import './first.less'
 export default class First extends Component {
-    componentDidMount() {
-        if (!this.props.location.state) {
-            this.props.history.push('/pack')
-        }
-    }
     render() {
-        console.log(this.props);
-        console.log(this.props.location.state);
-        let {id, url, bigTitle, lessonNum} = this.props.location.state || {};
+        //console.log(this.props);
+        //console.log(this.props.lessons);
         return (
-            <div>
-                <p>{id}</p>
-                <img src={url} alt=""/>
-            </div>
+                <ul className="big-frame">
+                    {
+                        this.props.lessons.map((item,index)=>(
+                            <li className="current" key={index}>
+                                <div className="frame">
+                                    <a href="#">
+                                        <img src={item.url} alt=""/>
+                                        <div className="title">{item.title}</div>
+                                    </a>
+                                    <div className="sign current"></div>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+
         )
     }
 

@@ -2,10 +2,11 @@ import React,{Component} from 'react';
 import {render} from 'react-dom';
 import './pack.less'
 import {Route, NavLink, Link, Redirect, Switch} from 'react-router-dom';
-import First from '../First/first.js'
 
 export default class Pack extends Component{
+
     render(){
+        //console.log(this.props);
         //console.log(this.props.prefer,this.props.lessons);//[{…}, {…}],[{…}, {…}, {…}, {…}]
         return (
                 <ul className="pack-header">
@@ -13,7 +14,7 @@ export default class Pack extends Component{
                         this.props.prefer?(
                             this.props.prefer.map((item,index)=>(
                                 <li key={index}>
-                                    <Link to={{pathname:'/lesson/pack/first',state:item}}>
+                                    <Link to='/lesson/pack/first'>
                                         <img src={item.url} alt=""/>
                                         <div className="bac"></div>
                                         <div className="title">
@@ -25,9 +26,7 @@ export default class Pack extends Component{
                             ))
                         ):null
                     }
-                    <Route path="/lesson/pack/first" component={First}/>
                 </ul>
         )
     }
 }
-{/*render={() => (<First lessons={this.props.lessons} getLessons={this.props.getLessons}/>)}*/}
