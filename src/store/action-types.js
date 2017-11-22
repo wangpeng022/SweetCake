@@ -25,6 +25,7 @@ export  const  LOGIN='login';
 
 
 
+
 //获取 主页 朋友圈数据
 export const GET_FRIEND='GET_FRIEND';
 
@@ -34,4 +35,11 @@ export const FETCH_LESSON_PREFER='FETCH_LESSON_PREFER';
 
 //获取星级食物列表
 export const GET_STARFOOD='GET_STARFOOD';
+
+
+//验证登录态
+export  const VALIDATE='validate';
+
+//退出
+export const  SIGNOUT='signout';
 
