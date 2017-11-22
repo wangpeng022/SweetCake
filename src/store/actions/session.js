@@ -12,6 +12,7 @@ export default {
                     type:types.REGISTER,
                     payload
                 });
+
                 let {code,error,success}=payload;
                 if(code===0){
                     dispatch(push('/login'));
@@ -34,6 +35,7 @@ export default {
                 //登录成功则跳到个人中心页
                 console.log(code);
                 if(code===0){
+                    console.log('hdsjfsdhjfh sdkjfhsdjf ksd');
                     dispatch(push('/person'));
                     alert(success);
                 }else {
@@ -55,19 +57,20 @@ export default {
         }
     },
     signout(){
-
       return dispatch=>{
-
           signout().then(payload=>{
+              console.log(payload);
               dispatch({
                   type:types.SIGNOUT,
                   payload
-              })
+              });
+              let {code}=payload;
+              if(code===1){
+                  dispatch(push('/home'));
+                  alert('退出成功')
+              }
           });
-          let {code}=payload.code;
-          if(code===1){
-              dispatch(push('/home'))
-          }
+
 
       }
     },
