@@ -83,6 +83,7 @@ app.post('/searchIndex', function (req, res) {
 
 //注册用户信息
 let users=require('./mock/users.json');
+
 // console.log(users);
 let fs=require('fs');
 
@@ -94,6 +95,7 @@ app.post('/register',function (req,res) {
        res.json({code:1,error:'手机号已经被注册过 了！'})
    }else {
        users.push(user);
+       console.log(users);
        res.json({code:0,success:'用户注册成功！'})
    }
 

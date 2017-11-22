@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {getSearch} from '../../api/search';
 import {connect} from 'react-redux';
 import Recipe from "./Recipe/recipe";
 import actions from "../../store/actions/search";
 import {CSSTransition} from 'react-transition-group';
+
 const Fade = ({children, ...props}) => {
     console.log({...props});
     return (
@@ -30,15 +31,17 @@ class Search extends Component {
             },
             recent: [],
             flag: true,
-            show:false,
+            show: false,
         }
     };
+
     componentDidMount() {
         getSearch().then(data => {
             this.setState({search: data})
         });
         this.state.recent = (JSON.parse(localStorage.getItem('search')) || []);
     }
+
     handleClick = (e) => {
         let value = this.$input.value;
         if (value) {
@@ -54,8 +57,10 @@ class Search extends Component {
             //this.props.history.push(`${this.props.match.url}/${this.$input.value}`);
             this.props.searchFood({searchFood: this.$input.value, limit: 3});
 
+        } else {
+            this.setState({show: !this.state.show})
         }
-        this.setState({show: !this.state.show})
+
     };
 
     componentWillReceiveProps(props) {
@@ -68,9 +73,6 @@ class Search extends Component {
         console.log(e.keyCode);
         let keyCode = e.keyCode;
         if (e.target === this.$input && keyCode === 13) {
-            //this.props.searchFood({searchFood: this.$input.value, limit: 3});
-            //console.log(`${this.props.match.url}/${this.$input.value}`);
-            //this.props.history.push(`${this.props.match.url}/${this.$input.value}`);
             this.handleClick(e);
         }
     };
@@ -99,7 +101,6 @@ class Search extends Component {
                         <div onClick={() => {
                             this.$input.value = '';
                             this.$input.focus();
-                            //this.props.history.push(this.props.match.url);
                         }} className="search-clear">{null}
                         </div>
                     </div>
@@ -111,7 +112,7 @@ class Search extends Component {
                             <div className="record-catalog">
                                 <span>最近搜索</span>
                                 <a onClick={() => {
-                                    localStorage.clear();
+                                    localStorage.clear('search');
                                     this.setState({
                                         recent: [],
                                     });
@@ -120,7 +121,7 @@ class Search extends Component {
                             <ul className="record-list">
                                 {
                                     this.state.recent.map((item, index) => (
-                                        <li onClick={(e) => {
+                                        <li onClick={() => {
                                             this.$input.value = item;
                                             this.$input.focus();
                                         }} key={index}>{item}</li>
