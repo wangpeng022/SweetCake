@@ -15,9 +15,8 @@ export default {
 
                 let {code,error,success}=payload;
                 if(code===0){
-                    //alert(success);
-
-                        console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+                    alert(success);
+                    localStorage.setItem('user',JSON.stringify(payload.user));
                         dispatch(push('/login'));
 
                 }else {
@@ -38,9 +37,11 @@ export default {
                 //登录成功则跳到个人中心页
                 console.log(code);
                 if(code===0){
-                    console.log('hdsjfsdhjfh sdkjfhsdjf ksd');
+                    console.log('xxxxxxxxxxxxxxxxxxx');
                     dispatch(push('/person'));
                     alert(success);
+                    localStorage.setItem('user',JSON.stringify(payload.user));
+
                 }else {
                     alert(error);
                 }
@@ -70,7 +71,8 @@ export default {
               let {code}=payload;
               if(code===1){
                   dispatch(push('/home'));
-                  alert('退出成功')
+                  alert('退出成功');
+                  localStorage.clear('user');
               }
           });
 

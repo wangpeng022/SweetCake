@@ -3,14 +3,27 @@ import {Link} from 'react-router-dom'
 import {connect} from  'react-redux'
 import actions from '../../../store/actions/session'
 import './person.less'
+// import {push} from 'react-router-redux'
  class  Person extends Component{
+   // componentWillMount(){
+   //     this.props.validate();
+   //
+   // }
+   //   componentDidMount(){
+   //     if(this.props.code===0){
+   //         push('/person')
+   //     }else {
+   //         push('/profile')
+   //     }
+   //   }
+
 
     signOut=()=>{
         // let code =1;
         this.props.signout();
  };
     render(){
-        console.log(this.props.user);
+        console.log(this.props);
         return (
             <div className="person-content">
                 {/*//第一部分：头部 个人信息*/}
@@ -21,7 +34,7 @@ import './person.less'
                        </a>
                        <input type="hidden" className="sex"/>
                        {/*//显示用户手机号*/}
-                       <div className="person-name">{this.props.user.phone}</div>
+                       <div className="person-name">{this.props.user?this.props.user.phone:''}</div>
                        {/*//显示 关注  粉丝*/}
                        <div className="data">
                            <div className="attention">
@@ -62,7 +75,7 @@ import './person.less'
                     <ul>
                         <a href="">
                             <span>手机号</span>
-                            <p className="phoneContent">{this.props.user.phone}</p>
+                            <p className="phoneContent">{this.props.user?this.props.user.phone:''}</p>
                             <p><i>&gt;</i></p>
                         </a>
                     </ul>

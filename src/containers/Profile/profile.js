@@ -3,6 +3,10 @@ import './profile.less';
 import {Link}  from 'react-router-dom'
 import {connect} from 'react-redux'
  class Profile extends Component {
+         componentDidMount(){
+             console.log(localStorage.getItem('user'));
+             localStorage.getItem('user')?this.props.history.push('/person'):null;
+     }
     render() {
         return (
             <div className="profile-bg">
