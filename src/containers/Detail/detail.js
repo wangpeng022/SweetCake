@@ -136,7 +136,7 @@ export default class Detail extends Component {
                         <p className="child">
                             <span>
                                 最后用叉子戳孔。
-                                <img src="http:http://beile.bakelulu.com.cn/ueditor/aab02d76f3fb46de9a982359add17448.png" alt=""/>
+                                <img src="http://beile.bakelulu.com.cn/ueditor/aab02d76f3fb46de9a982359add17448.png" alt=""/>
                             </span>
                         </p>
                         <p className="child">
