@@ -3,3 +3,6 @@ import {get} from './index';
 export function getHList(){
   return get('/hlist');
 }
+export function getFriend(){
+  return get('/friend');
+}
