@@ -15,14 +15,13 @@ import Login from "../Profile/Login/login";
 import Person from "../Profile/Person/person";
 
 
-
 import Detail from '../Detail/detail.js'
 /*import First from '../Lesson/First/first'*/
 
 
 export default class App extends Component {
     render() {
-        return(
+        return (
             <Router>
                 <div>
                     <Switch>
@@ -33,9 +32,9 @@ export default class App extends Component {
                         <Route exact path="/profile" component={Profile}/>
                         <Route path="/search/:from" component={Search}/>
                         <Route path="/home" component={Home}/>
-                         <Route path="/register" component={Register}/>
-                         <Route path="/login" component={Login}/>
-                         <Route path="/person" component={Person}/>
+                        <Route path="/register" component={Register}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/person" component={Person}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
