@@ -84,7 +84,7 @@ app.post('/searchIndex', function (req, res) {
 //注册用户信息
 let users=require('./mock/users.json');
 // console.log(users);
-let fs=require('fs');
+
 
 app.post('/register',function (req,res) {
    let user=req.body;

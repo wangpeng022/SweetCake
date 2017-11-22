@@ -16,5 +16,6 @@ export function validate() {
 }
 
 export function signout() {
+    console.log('/signout');
     return get('/signout');
 }

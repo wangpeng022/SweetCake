@@ -10,11 +10,11 @@ let initState={
 export default function (state=initState,action) {
     switch (action.type){
         case types.REGISTER:
-            var {success,error}=action.payload;
+            var {success,error,code}=action.payload;
 
             return {
                 ...state,
-                success,error
+                success,error,code
             };
         case types.LOGIN:
             var {success,error,user}=action.payload;
@@ -29,7 +29,7 @@ export default function (state=initState,action) {
             if(code===0){
                 return {...state,user,code}
             }else {
-                return {...state,code:1};
+                return {...state,code};
             }
         case types.SIGNOUT:
             return {...state,...action.payload};

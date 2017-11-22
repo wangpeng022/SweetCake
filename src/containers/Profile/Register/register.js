@@ -4,10 +4,10 @@ import './register.less'
 import {connect} from 'react-redux';
 import actions from  '../../../store/actions/session'
  class Register extends Component{
-componentDidMount(){
-
-    console.log(this.phone.value,1111);
-}
+     constructor(){
+         super();
+         this.state={isShow1:false,isShow2:false,isShow3:false}
+     }
      registers=()=>{
          let phone=this.phone.value;
          let password=this.password.value;
@@ -17,12 +17,41 @@ componentDidMount(){
              console.log(phone);
              this.props.register({phone,password});
          }
-         this.phone.value='';
-         this.password.value='';
-         this.confirmPassword.value='';
+         else if(!phone&&password&&confirmPassword){
+             this.setState({isShow1:true});
+             this.setState({isShow2:false});
+             this.setState({isShow3:false});
+         }
+         else if(!phone&&!password&&confirmPassword){
+             this.setState({isShow1:true});
+             this.setState({isShow2:true});
+             this.setState({isShow3:false});
+         }
+         else if(phone&&!password&&confirmPassword){
+             this.setState({isShow2:true});
+             this.setState({isShow1:false});
+             this.setState({isShow3:false});
+         }
+         else if(phone&&!password&&!confirmPassword){
+             this.setState({isShow2:true});
+             this.setState({isShow1:false});
+             this.setState({isShow3:true});
+         }
+         else{
+             this.setState({isShow1:true});
+             this.setState({isShow2:true});
+             this.setState({isShow3:true});
+         }
+         // this.phone.value='';
+         // this.password.value='';
+         // this.confirmPassword.value='';
+     };
+     disappear=()=>{
+         this.setState({isShow1:false,isShow2:false,isShow3:false});
+
      };
     render(){
-        console.log(this.props);
+        // console.log(this.props);
 
         return (
             <div className="base">
@@ -31,7 +60,7 @@ componentDidMount(){
 
                 <div className="register-head">
                     <div className="left">
-                        <a href=""><i>&lt;</i></a>
+                        <a href="#" onClick={()=>this.props.history.goBack()}><i>&lt;</i></a>
                     </div>
                     <div className="center register">注册</div>
 
@@ -44,19 +73,29 @@ componentDidMount(){
                 <div className="register-form">
                     <form>
                         <div className="phone">
-                            <input ref={input=>this.phone=input} type="text" placeholder="请输入11位手机号码"/>
+                            <input ref={input=>this.phone=input}
+                                   onFocus={this.disappear}
+                                   type="text" placeholder="请输入11位手机号码"/>
+                            {this.state.isShow1?<span
+                                className="checkout-phone">手机号不能为空</span>:''}
                         </div>
                         <div className="password">
-                            <input ref={input=>this.password=input} type="password" placeholder="请设置密码"/>
+                            <input ref={input=>this.password=input}
+                                   onFocus={this.disappear}
+                                   type="password" placeholder="请设置密码"/>
+                            {this.state.isShow2?<span className="checkout-password">密码不能为空</span>:''}
                         </div>
                         <div className="confirm-password">
-                            <input ref={input=>this.confirmPassword=input} type="password" placeholder="请确认密码"/>
+                            <input ref={input=>this.confirmPassword=input}
+                                   onFocus={this.disappear}
+                                   type="password" placeholder="请确认密码"/>
+                            {this.state.isShow3?<span className="checkout-password2">密码不能为空</span>:''}
                             <button
                                 onClick={this.registers}
                                 className="btn" >注册</button>
                         </div>
                         <div className="goto">
-                            <a href="">已有账号？去登录</a>
+                            <Link to={'/login'}>已有账号？去登录</Link>
                         </div>
                     </form>
                 </div>
