@@ -8,11 +8,13 @@ import Pack from "./pack/pack";
 import {connect} from 'react-redux'
 import actions from '../../store/actions/lesson'
 import {upMore, downRefresh} from '../../utils/util.js'
+import First from "./First/first";
 class Lesson extends Component {
     componentDidMount() {
         this.props.getLessons();//获取教程列表数据
         upMore(this.refs.content, this.props.refresh);
         downRefresh(this.refs.content, this.props.getLessons);
+        this.props.getLessonPrefer();//获取课程包数据
     }
     render() {
         return (
@@ -32,13 +34,10 @@ class Lesson extends Component {
                     }
                 </Header>
                 <div ref="content" className="lesson-content">
-                    <Switch>
+
                         <Route path="/lesson/course" render={() => <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
-                        <Route path="/lesson/pack" component={Pack}/>
-                        <Route exact path="/lesson" render={() => <Redirect to="/lesson/course"/>}/>
-                        <Redirect to="/lesson/course"/>
-                        <Route render={() => <h1>你访问的页面不存在,请输入正确的地址,</h1>}/>
-                    </Switch>
+                        <Route exact path="/lesson/pack" render={()=><Pack lessons={this.props.lessons} getLessons={this.props.getLessons} prefer={this.props.prefer} getLessonPrefer={this.props.getLessonPrefer}/>}/>
+                        <Route path="/lesson/pack/first" render={()=><First lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
                 </div>
             </div>
         )

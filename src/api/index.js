@@ -1,9 +1,7 @@
 const HOST = 'http://localhost:3000';
 const FOOD = 'http://120.77.17.44';
 
-//后台的URL地址是3000端口
 export function get (url) {
-    //这里会返回一个promise,resolve之后会传入响应体，就是轮播图数组
     //浏览器原生支持fetch方法，它的用法类似于 $.ajax
     return fetch(HOST + url, {
         method: 'GET',//请求的方法名

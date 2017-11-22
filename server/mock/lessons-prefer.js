@@ -1,10 +1,28 @@
 /**
  * Created by Administrator on 2017/11/19.
- * 列表页后台数据
+ * 课程包优选课程列表数据
  *
  */
 module.exports = {
     hasMore: true,
+    prefer:[
+        {
+            id: 1,
+            url: 'http://beile.bakelulu.com.cn/recipe/306fe0cf3aa447658ee9413ce527eb03_temp.jpg?imageView2/1/w/720/h/540',
+            bigTitle: '一键掌握空气戚风',
+            lessonNum:7,
+            num: "",
+            like: "",
+        },
+        {
+            id: 2,
+            url: 'http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg?imageView2/1/w/720/h/540',
+            bigTitle: '烘焙入门 | 从新手到熟练',
+            lessonNum:21,
+            num: "",
+            like: "",
+        }
+    ],
     lessons:[
         {
             id: 1,
@@ -126,3 +144,4 @@ module.exports = {
 
     ]
 };
+

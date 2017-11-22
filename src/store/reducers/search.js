@@ -5,6 +5,8 @@ let initState = {
     keyword:'',//搜索关键字
     limit: 3 ,  //每页的条数
     searchList: [],  //存放着每一次搜索的信息数组
+    line:'',
+    star: {},
 };
 export default function (state = initState, action) {
     //每个action必须把携带的数据放在payload里，而且必须是一个对象。
@@ -18,6 +20,12 @@ export default function (state = initState, action) {
             return {
                 ...state,
                 searchList:[...action.payload.data.find_recipe],
+            };
+        case types.GET_STARFOOD:
+            console.log(action.payload);
+            return{
+                ...state,
+                star: {...action.payload}
             };
         default:
             return state;
