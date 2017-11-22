@@ -1,10 +1,22 @@
 import React, {Component} from 'react';
-import {Link, Route, withRouter} from 'react-router-dom';
-import {getFood, getSearch, searchFood} from '../../api/search';
+import { Route} from 'react-router-dom';
+import {getSearch} from '../../api/search';
 import {connect} from 'react-redux';
 import Recipe from "./Recipe/recipe";
 import actions from "../../store/actions/search";
-
+import {CSSTransition} from 'react-transition-group';
+const Fade = ({children, ...props}) => {
+    console.log({...props});
+    return (
+        <CSSTransition
+            {...props}
+            timeout={1200}
+            classNames="fade"
+        >
+            {children}
+        </CSSTransition>
+    )
+};
 let star = ['一', '二', '三', '四', '五'];
 let recent = [];
 let url = '';
@@ -18,20 +30,15 @@ class Search extends Component {
             },
             recent: [],
             flag: true,
+            show:false,
         }
     };
-
-
     componentDidMount() {
         getSearch().then(data => {
             this.setState({search: data})
         });
+        this.state.recent = (JSON.parse(localStorage.getItem('search')) || []);
     }
-
-
-    /*starClick = (index) => {
-        this.props.getStarFood(index);
-    };*/
     handleClick = (e) => {
         let value = this.$input.value;
         if (value) {
@@ -48,6 +55,7 @@ class Search extends Component {
             this.props.searchFood({searchFood: this.$input.value, limit: 3});
 
         }
+        this.setState({show: !this.state.show})
     };
 
     componentWillReceiveProps(props) {
@@ -67,13 +75,7 @@ class Search extends Component {
         }
     };
     handleFocus = () => {
-
-        if (this.props.location.pathname === '/search/home' || this.props.location.pathname === '/search/lesson') {
-            //this.props.history.replace(this.props.match.url);
-        } else {
-            console.log(this.props, 'xxxxxxxxxxxxxxxxxxxxxxxxx');
-            this.props.history.goBack();
-        }
+        !(this.props.location.pathname === '/search/home' || this.props.location.pathname === '/search/lesson') ? this.props.history.goBack() : null;
     };
 
     render() {
@@ -83,21 +85,19 @@ class Search extends Component {
         return (
             <div className="home-search" onKeyUp={this.handleKeyUp}>
                 <div className="search-header">
-                    <div onClick={(e) => {
+                    <div onClick={() => {
                         this.props.history.goBack();
                         console.log(this.props.match);
-                        //this.handleClick(e);
                     }} className="search-back">
                         <i> </i>
                     </div>
                     <div className="search-content">
-                        <i className=""> </i>
+                        <i> </i>
                         <input onFocus={this.handleFocus} ref={input => this.$input = input} type="text"
                                placeholder="搜索"
                                className="search-input"/>
                         <div onClick={() => {
                             this.$input.value = '';
-                            //console.log(this.props.match.url,'xxxxxxxxxxxxxxxxxxx');
                             this.$input.focus();
                             //this.props.history.push(this.props.match.url);
                         }} className="search-clear">{null}
@@ -140,8 +140,6 @@ class Search extends Component {
                                                 <li key={index}><a
                                                     onClick={() => {
                                                         this.props.history.push(`${this.props.match.url}/${index + 1}class`);
-                                                        this.$input.value = item.category_name;
-                                                        this.$input.focus();
                                                     }
                                                     }>{item.category_name}</a>
                                                 </li>
@@ -168,6 +166,9 @@ class Search extends Component {
                 }
                 {/*<Route path="/search/:from/:id" searchList={this.props.searchList} component={Recipe}/>*/}
                 <Route path="/search/:from/:id" component={Recipe}/>
+                <Fade in={this.state.show}>
+                    <div className="search-dailog">请输入关键词</div>
+                </Fade>
             </div>
 
         )

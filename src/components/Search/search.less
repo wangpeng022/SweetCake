@@ -8,7 +8,8 @@
   cursor: pointer;
   a {
     text-decoration: none
-  };
+  }
+;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -27,7 +28,7 @@
       height: .21rem;
       //margin: .11rem .165rem;
       background-size: .12rem .21rem;
-      background-image: url(./images/back_icon.png);
+      background-image: url(../Header/images/back_icon.png);
     }
     .search-content {
       position: relative;
@@ -73,6 +74,7 @@
       color: #987A57;
       background: none;
       border: none;
+      outline: none;
     }
   }
   .search-catalog {
@@ -188,5 +190,38 @@
         }
       }
     }
+  }
+  .search-dailog.fade-enter.fade-enter-active {
+    bottom: 1.12rem;
+    opacity: 1;
+    transition: all 140ms ease-out;
+  }
+  .search-dailog.fade-enter {
+    bottom: 0;
+    opacity: 0.01;
+  }
+
+  .search-dailog.fade-exit.fade-exit-active {
+    bottom: 1.12rem;
+    opacity: 1;
+    transition: all 140ms ease-out;
+  }
+  .search-dailog.fade-exit {
+    bottom: 0;
+    opacity: 0.01;
+  }
+  .search-dailog {
+    font-family: PingFang SC, Helvetica, 黑体;
+    text-align: center;
+    width: 1.24rem;
+    height: .42rem;
+    line-height: .42rem;
+    background: #525252;
+    color: white;
+    border-radius: .05rem;
+    position: absolute;
+    bottom: 1.12rem;
+    left: .98rem;
+    opacity: 0.01;
   }
 }
