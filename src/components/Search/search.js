@@ -26,7 +26,6 @@ class Search extends Component {
         getSearch().then(data => {
             this.setState({search: data})
         });
-        this.state.recent = (JSON.parse(localStorage.getItem('search')) || []);
     }
 
 
@@ -40,31 +39,54 @@ class Search extends Component {
             e.preventDefault();
             recent.push(value);
             localStorage.setItem('search', JSON.stringify(recent));
-            this.props.history.replace(`${this.props.match.url}/${this.$input.value}`);
+            if (this.props.location.pathname === '/search/home' || this.props.location.pathname === '/search/lesson') {
+                this.props.history.push(`${this.props.match.url}/${this.$input.value}`)
+            } else {
+                this.props.history.replace(`${this.props.match.url}/${this.$input.value}`);
+            }
+            //this.props.history.push(`${this.props.match.url}/${this.$input.value}`);
             this.props.searchFood({searchFood: this.$input.value, limit: 3});
+
         }
     };
+
+    componentWillReceiveProps(props) {
+        console.log(props);
+        console.log(props.keyword);
+        this.state.recent = (JSON.parse(localStorage.getItem('search')) || []);
+    }
+
     handleKeyUp = (e) => {
         console.log(e.keyCode);
         let keyCode = e.keyCode;
         if (e.target === this.$input && keyCode === 13) {
-            this.props.searchFood({searchFood: this.$input.value, limit: 3});
+            //this.props.searchFood({searchFood: this.$input.value, limit: 3});
+            //console.log(`${this.props.match.url}/${this.$input.value}`);
+            //this.props.history.push(`${this.props.match.url}/${this.$input.value}`);
             this.handleClick(e);
-            this.props.history.replace(`${this.props.match.url}/${this.$input.value}`);
         }
     };
     handleFocus = () => {
-        console.log(this.props);
-        this.props.history.replace(this.props.match.url);
+
+        if (this.props.location.pathname === '/search/home' || this.props.location.pathname === '/search/lesson') {
+            //this.props.history.replace(this.props.match.url);
+        } else {
+            console.log(this.props, 'xxxxxxxxxxxxxxxxxxxxxxxxx');
+            this.props.history.goBack();
+        }
     };
 
     render() {
+        console.log(this.props.match);
         url = this.props.location.pathname;
+        console.log(this.props);
         return (
             <div className="home-search" onKeyUp={this.handleKeyUp}>
                 <div className="search-header">
-                    <div onClick={() => {
-                        this.props.history.goBack()
+                    <div onClick={(e) => {
+                        this.props.history.goBack();
+                        console.log(this.props.match);
+                        //this.handleClick(e);
                     }} className="search-back">
                         <i> </i>
                     </div>
@@ -75,7 +97,9 @@ class Search extends Component {
                                className="search-input"/>
                         <div onClick={() => {
                             this.$input.value = '';
-                            this.props.history.replace(this.props.match.url);
+                            //console.log(this.props.match.url,'xxxxxxxxxxxxxxxxxxx');
+                            this.$input.focus();
+                            //this.props.history.push(this.props.match.url);
                         }} className="search-clear">{null}
                         </div>
                     </div>
@@ -113,8 +137,13 @@ class Search extends Component {
                                     <ul className="classify-list">
                                         {
                                             this.state.search.data.map((item, index) => (
-                                                <li key={index}><Link
-                                                    to={`${this.props.match.url}/${index+1}class`}>{item.category_name}</Link>
+                                                <li key={index}><a
+                                                    onClick={() => {
+                                                        this.props.history.push(`${this.props.match.url}/${index + 1}class`);
+                                                        this.$input.value = item.category_name;
+                                                        this.$input.focus();
+                                                    }
+                                                    }>{item.category_name}</a>
                                                 </li>
                                             ))
                                         }
@@ -129,7 +158,7 @@ class Search extends Component {
                                     star.map((item, index) => (
                                         <li onClick={() => {
                                             //this.starClick(index);
-                                            this.props.history.push(`${this.props.match.url}/${index+1}star`)
+                                            this.props.history.push(`${this.props.match.url}/${index + 1}star`)
                                         }} key={index}>{item + '星'}</li>
                                     ))
                                 }

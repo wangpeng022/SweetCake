@@ -25,6 +25,7 @@ class Recipe extends Component {
         console.log(this.props);
         //获取当前路径参数,
         this.state.title = this.props.match.params.id || '';
+        //如果是点击选项进来的,
         if (reg.test(this.state.title)) {
             this.state.sort = reg.exec(this.state.title)[2];
             console.log(reg.test(this.state.title)[2]);
@@ -59,13 +60,13 @@ class Recipe extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props,'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
         return (
             this.state.list.length || this.state.data ?
                 <div className="recipe">
-                    {this.state.headline ? <div className="recipe-header">{this.state.headline}</div> : null}
+                    {this.state.headline &&this.state.flag? <div className="recipe-header">{this.state.headline}</div> : null}
                     <div className="recipe-body">
-                        <p>发现</p>
+                        <p>{this.state.sort==='star'?'教程':'发现'}</p>
                         <ul className="recipe-list">
                             {
                                 this.state.list.map((item, index) => (
@@ -89,7 +90,7 @@ class Recipe extends Component {
                             this.state.flag = false;
                         }}>
                             <i className="recipe-left"> </i>
-                            <span>发现更多</span>
+                            <span>{this.state.sort==='star'?'查看更多教程':'发现更多'}</span>
                             <i className="recipe-right"> </i>
                         </a>
                     </div>
