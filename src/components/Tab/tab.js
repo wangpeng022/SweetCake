@@ -9,7 +9,7 @@ import actions from '../../store/actions/session'
     }
     render(){
         console.log(this.props.code);
-        // let  code=this.props.code||1;
+         let  code=this.props.code||1;
         return (
             <div>
                 <nav className="tabs">
@@ -20,6 +20,11 @@ import actions from '../../store/actions/session'
                     <NavLink to="/lesson/course">
                         <i className="icon-lesson"/>
                         <span>课程</span>
+                    </NavLink>
+                    <a href="#"/>
+                    <NavLink to="/">
+                        <i className="icon-lesson"/>
+                        <span>工具</span>
                     </NavLink>
                     {this.props.code===1?<NavLink to="/profile">
                         <i className="icon-profile"/>

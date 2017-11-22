@@ -11,14 +11,20 @@ import Register from "../Profile/Register/register";
 import Login from "../Profile/Login/login";
 import Person from "../Profile/Person/person";
 import Detail from '../Detail/detail.js'
+
 import Gift from "../../components/Header/gift/gift";
+
+import Cover from "./Cover/cover";
+/*import First from '../Lesson/First/first'*/
+
 
 
 export default class App extends Component {
+
     render() {
         return (
             <Router>
-                <div>
+                <div className="app">
                     <Switch>
                         <Route path="/Recipe/:from" component={Recipe}/>
                         <Route path="/lesson" component={Lesson}/>
@@ -33,6 +39,8 @@ export default class App extends Component {
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
+                    <Cover/>
+
                 </div>
             </Router>
         )
