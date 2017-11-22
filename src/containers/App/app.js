@@ -17,6 +17,7 @@ import Collect from '../Profile/Collect/collect'
 import Tools from '../Tools/tools.js'
 
 import Gift from "../../components/Header/gift/gift";
+import Suff from "../Suff/suff";
 
 import Cover from "./Cover/cover";
 /*import First from '../Lesson/First/first'*/
@@ -32,6 +33,7 @@ export default class App extends Component {
                         <Route path="/lesson" component={Lesson}/>
                         <Route path="/detail" component={Detail}/>
                         <Route path="/profile" component={Profile}/>
+                        <Route path="/suff" component={Suff}/>
                         <Route path="/gift" component={Gift}/>
                         <Route path="/search/:from" component={Search}/>
                         <Route path="/home" component={Home}/>
