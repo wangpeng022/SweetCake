@@ -1,8 +1,16 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from  'react-redux'
+import actions from '../../../store/actions/session'
 import './person.less'
-export default class  Person extends Component{
+ class  Person extends Component{
+
+    signOut=()=>{
+        // let code =1;
+        this.props.signout();
+ };
     render(){
+        console.log(this.props.user);
         return (
             <div className="person-content">
                 {/*//第一部分：头部 个人信息*/}
@@ -13,7 +21,7 @@ export default class  Person extends Component{
                        </a>
                        <input type="hidden" className="sex"/>
                        {/*//显示用户手机号*/}
-                       <div className="person-name">111222333444</div>
+                       <div className="person-name">{this.props.user.phone}</div>
                        {/*//显示 关注  粉丝*/}
                        <div className="data">
                            <div className="attention">
@@ -54,7 +62,7 @@ export default class  Person extends Component{
                     <ul>
                         <a href="">
                             <span>手机号</span>
-                            <p className="phoneContent">111222333444</p>
+                            <p className="phoneContent">{this.props.user.phone}</p>
                             <p><i>&gt;</i></p>
                         </a>
                     </ul>
@@ -80,9 +88,16 @@ export default class  Person extends Component{
 
                 {/*退出登录按钮*/}
                 <div className="sign-out">
-                    <button className="person-out"><Link to={'/home'}>退出登录</Link></button>
+                    <button
+                        onClick={this.signOut}
+                        className="person-out">退出登录</button>
                 </div>
             </div>
         )
     }
 }
+
+export default connect(
+    state=>state.session,
+    actions
+)(Person)

@@ -17,6 +17,9 @@ componentDidMount(){
              console.log(phone);
              this.props.register({phone,password});
          }
+         this.phone.value='';
+         this.password.value='';
+         this.confirmPassword.value='';
      };
     render(){
         console.log(this.props);

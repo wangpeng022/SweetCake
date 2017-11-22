@@ -14,3 +14,7 @@ export function login(data) {
 export function validate() {
     return get('/validate');
 }
+
+export function signout() {
+    return get('/signout');
+}

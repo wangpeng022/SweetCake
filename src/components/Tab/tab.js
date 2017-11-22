@@ -1,8 +1,15 @@
 import React,{Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import './tab.less';
-export default class Tab extends Component{
+import {connect} from 'react-redux'
+import actions from '../../store/actions/session'
+ class Tab extends Component{
+    componentDidMount(){
+        this.props.validate();
+    }
     render(){
+        console.log(this.props.code);
+        // let  code=this.props.code||1;
         return (
             <div>
                 <nav className="tabs">
@@ -14,12 +21,20 @@ export default class Tab extends Component{
                         <i className="icon-lesson"/>
                         <span>课程</span>
                     </NavLink>
-                    <NavLink to="/profile">
+                    {this.props.code===1?<NavLink to="/profile">
                         <i className="icon-profile"/>
                         <span>我的</span>
-                    </NavLink>
+                    </NavLink>:<NavLink to="/person">
+                        <i className="icon-profile"/>
+                        <span>我的</span>
+                    </NavLink>}
+
                 </nav>
             </div>
         )
     }
 }
+export default connect(
+    state=>state.session,
+    actions
+)(Tab)

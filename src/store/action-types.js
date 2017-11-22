@@ -22,3 +22,8 @@ export  const  REGISTER='register';
 // 登录
 export  const  LOGIN='login';
 
+//验证登录态
+export  const VALIDATE='validate';
+
+//退出
+export const  SIGNOUT='signout';
