@@ -7,5 +7,5 @@
   {"id":5,"name":"刘查","phone":"10377566194","sex":0,"password":1033453535},
   {"id":6,"name":"张得","phone":"16770474552","sex":0,"password":1033234434},
   {"id":7,"name":"孙峰","phone":"14616543726","sex":1,"password":10332453334},
-  {"id":8,"name":"孙达","phone":"15615077890","sex":1,"password":103324345}
+  {"id":8,"petName":"15615077890","phone":"15615077890","sex":1,"password":103324345,"collects":[],"follows":[],"fans":[],"works":[],"message":[]}
 ]
