@@ -14,7 +14,7 @@ export default class Cover extends Component {
         this.setState({
             isCover: !this.state.isCover,
             style: {transform: `rotate(${!this.state.isCover * 45}deg)`},
-            styleWrite:{transform:`translate(0,-${!this.state.isCover*2}rem) 
+            styleWrite:{transform:`translate(0,-${!this.state.isCover*1.75}rem) 
             scale(${!this.state.isCover*3},${!this.state.isCover*3})`},
             styleCaoGao:{transform:`translate(0,-${!this.state.isCover*1}rem)
             scale(${!this.state.isCover*3},${!this.state.isCover*3})`}
