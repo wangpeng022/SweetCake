@@ -14,7 +14,11 @@ export default class Tab extends Component{
                         <i className="icon-lesson"/>
                         <span>课程</span>
                     </NavLink>
+                    <a href="#"/>
                     <NavLink to="/profile">
+                        <i className="icon-profile"/>
+                        <span>我的</span>
+                    </NavLink><NavLink to="/profile">
                         <i className="icon-profile"/>
                         <span>我的</span>
                     </NavLink>

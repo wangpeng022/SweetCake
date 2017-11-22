@@ -14,13 +14,12 @@ import "./index.less"
 
 
 class Home extends Component {
-    constructor() {
+    constructor(){
         super();
         this.state = {
-            index: ""
+            index:""
         }
-    }
-
+    };
     componentDidMount() {
         this.props.getHList();
         this.props.getFriend();
