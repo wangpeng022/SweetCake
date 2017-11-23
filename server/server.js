@@ -144,11 +144,21 @@ app.listen(3000,function () {
     console.log("端口 3000")
 });
 
-let lessonsPrefer=require('./mock/lessons-prefer');
+
 //获取课程包优选课程列表数据
+let lessonsPrefer=require('./mock/lessons-prefer');
 app.get('/lessonPrefer',function(req,res){
     res.json(lessonsPrefer);
-    console.log(lessonsPrefer);
+    //console.log(lessonsPrefer);
 });
+
+//获取教程列表详情页数据
+let detailList=require('./mock/detailList.json');
+app.post('/detail',function(req,res){
+    console.log(req.query);
+    res.json(detailList);
+    //console.log(detailList);
+});
+
 
 

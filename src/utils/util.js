@@ -1,4 +1,4 @@
-//上拉加载更多 限流 防抖
+//上拉加载更多
 export function upMore(element,callback){
     let timerId;
     element.addEventListener('scroll',function(){
