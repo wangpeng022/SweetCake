@@ -30,7 +30,7 @@ import './person.less'
                <div className="person-head">
                    <div className="content">
                        <a href="">
-                           <img src="http://p4.gexing.com/G1/M00/C8/2B/rBACFFL3IbnRLRtRAAAgPkR0kXc844_200x200_3.jpg?recache=20131108" alt=""/>
+                           <img src="http://img.hb.aicdn.com/18313d7c916e64894af2f07c0f3c6fae3e8a2547182a-yM8jYR_fw658" alt=""/>
                        </a>
                        <input type="hidden" className="sex"/>
                        {/*//显示用户手机号*/}
