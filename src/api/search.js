@@ -16,5 +16,6 @@ export function searchIndex(index) {
     return post('/searchIndex',index)
 }
 
+
 //'/api/v1/search_one_by_level'
 //get  //post

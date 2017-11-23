@@ -10,7 +10,8 @@ import Search from "../../components/Search/search"
 import Register from "../Profile/Register/register";
 import Login from "../Profile/Login/login";
 import Person from "../Profile/Person/person";
-import Detail from '../Detail/detail.js'
+
+import Dialog from '../../components/Dialog/dialog.js'
 import Gift from "../../components/Header/gift/gift";
 
 
@@ -22,7 +23,8 @@ export default class App extends Component {
                     <Switch>
                         <Route path="/Recipe/:from" component={Recipe}/>
                         <Route path="/lesson" component={Lesson}/>
-                        <Route path="/detail" component={Detail}/>
+
+                        <Route path="/share" component={Dialog}/>
                         <Route exact path="/profile" component={Profile}/>
                         <Route path="/gift" component={Gift}/>
                         <Route path="/search/:from" component={Search}/>

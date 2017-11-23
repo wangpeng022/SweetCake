@@ -2,7 +2,17 @@ import React, {Component} from 'react';
 import './detail.less'
 import DetailHeader from "../../components/DetailHeader/detail-header.js";
 import {Link} from 'react-router-dom';
+
 export default class Detail extends Component {
+    constructor(){
+        super();
+        this.state={show:false}
+    }
+    handleClick=()=>{
+        this.setState({
+            show:!this.state.show
+        })
+    };
     render() {
         //console.log(this.props);
         return (
@@ -14,8 +24,10 @@ export default class Detail extends Component {
                                 <Link className="go_home" to="/home">首页</Link>
                             </div>
                             <div className="right">
-                                <a href="javascript:;" className="love"><i className="current"></i></a>
-                                <Link className="share" to="/share"><span></span></Link>
+                                <a href="javascript:;" className="love" onClick={this.handleClick}><i className={this.state.show?'current':''}></i></a>
+                                <Link className="share" to="/share">
+                                    <span></span>
+                                </Link>
                             </div>
                         </div>
                     }

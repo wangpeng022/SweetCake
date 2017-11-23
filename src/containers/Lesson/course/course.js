@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Link} from 'react-router-dom'
 import './course.less';
+import Detail from '../../Detail/detail'
+import {HashRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom';
 let num;
 let ary = [1, 2, 3, 4, 5];
 export default class Course extends Component {
@@ -17,7 +19,7 @@ export default class Course extends Component {
                                 <li key={index}>
                                 <div className="content">
                                     {/*跳转详情页*/}
-                                    <Link to='/detail'>
+                                    <Link to={`/lesson/course/${index}`}>
                                         <div className="img">
                                             <img src={item.url} alt=""/>
                                             <div className="data">
@@ -43,6 +45,7 @@ export default class Course extends Component {
                         })
                     ) : null
                 }
+                <Route path="/lesson/course/:index" render={() => <Detail />}/>
             </ul>
 
         )
