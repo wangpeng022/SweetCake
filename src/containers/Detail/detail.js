@@ -4,20 +4,27 @@ import DetailHeader from "../../components/DetailHeader/detail-header.js";
 import {Route,Link} from 'react-router-dom';
 import actions from '../../store/actions/details'
 import {connect} from 'react-redux'
+
+let ary=[1,2,3,4,5];
 class Detail extends Component {
     constructor() {
         super();
         this.state = {show: false}
     }
-    handleClick = () => {
+    handleClick = (id) => {
+       // console.log(id);
         this.setState({
             show: !this.state.show
-        })
+        });
+        this.props.fetchUserCollect(id)
+
     };
     render() {
         //console.log(this.props, 'xxxxxxx');
         let {id, message, dataCourse, dataCakeLIst, dataComment, dataTopic} = this.props;
         //console.log(dataCakeLIst);
+        console.log(id);
+        let num=Math.round(Math.random()*4+1);
         return (
             <div className="detail-xq">
                 <DetailHeader>
@@ -27,8 +34,7 @@ class Detail extends Component {
                                 <Link className="go_home" to="/home">首页</Link>
                             </div>
                             <div className="right">
-                                <a href="javascript:;" className="love" onClick={this.handleClick}><i
-                                    className={this.state.show ? 'current' : ''}></i></a>
+                                <a href="javascript:;" className="love" onClick={()=>this.handleClick(id)}><i className={this.state.show ? 'current' : ''}> </i></a>
                                 <Link className="share" to="/share">
                                     <span></span>
                                 </Link>
@@ -62,11 +68,11 @@ class Detail extends Component {
                                     <div className="bottom">
                                         <div className="level">
                                             <ul className="current">
-                                                <li className="current"></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
+                                                {
+                                                    ary.map((item,index)=>(
+                                                        <li className={index<num?'current':''} key={index}> </li>
+                                                    ))
+                                                }
                                             </ul>
                                             <p>难度基于5分</p>
                                         </div>
@@ -242,5 +248,5 @@ class Detail extends Component {
         )
     }
 }
-export default connect(state => state.detail, null)(Detail)
+export default connect(state => state.detail, actions)(Detail)
 

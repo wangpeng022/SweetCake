@@ -61,3 +61,7 @@ export const GET_OTHERS = 'getOthers';
 
 export const POST_DRAFT = 'POST_DRAFT';
 
+
+//发送收藏详情id,返回用户收藏数据
+export const FETCH_USER_COLLECT='FETCH_USER_COLLECT';
+

@@ -34,6 +34,11 @@ export default function (state = initState, action) {
                 ...state,
                 ...action.payload,
             };
+        case types.FETCH_USER_COLLECT:
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }

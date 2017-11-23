@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './first.less'
+
 export default class First extends Component {
     constructor(){
         super();
@@ -23,7 +24,7 @@ export default class First extends Component {
                                         <img src={item.url} alt=""/>
                                         <div className="title">{item.title}</div>
                                     </a>
-                                    <div className={this.state.show?'sign current':'sign'} />
+                                       <div key={index} className={this.state.show?'sign current':'sign'} />
                                 </div>
                             </li>
                         ))
@@ -31,7 +32,6 @@ export default class First extends Component {
                 </ul>
         )
     }
-
 }
 
 
