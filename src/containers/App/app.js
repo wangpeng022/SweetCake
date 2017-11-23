@@ -20,6 +20,7 @@ import Gift from "../../components/Header/gift/gift";
 import Suff from "../Suff/suff";
 
 import Cover from "./Cover/cover";
+import Works from "../Works/works";
 /*import First from '../Lesson/First/first'*/
 
 export default class App extends Component {
@@ -42,6 +43,7 @@ export default class App extends Component {
                         <Route path="/person" component={Person}/>
                         <Route path="/collect" component={Collect}/>
                         <Route path="/tools" component={Tools}/>
+                        <Route path="/works" component={Works}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
