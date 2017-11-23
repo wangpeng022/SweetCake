@@ -109,7 +109,7 @@ export default class Works extends Component {
                     <div className="works-add"> </div>
                     <div className="works-abs">
                         <span>方子摘要:</span>
-                        <textarea placeholder="对这个方子有什么想介绍或者想补充的吗"></textarea>
+                        <textarea ref={textarea=>this.$text=textarea} placeholder="对这个方子有什么想介绍或者想补充的吗">{null}</textarea>
                         <div></div>
                     </div>
                     <div className="works-footer">
