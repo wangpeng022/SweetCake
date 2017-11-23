@@ -57,10 +57,10 @@ import './person.less'
                         </Link>
                     </ul>
                     <ul>
-                        <a href="">
+                        <Link to={'/myworks'}>
                             <span>我的作品</span>
                             <p><i>&gt;</i></p>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
                 <div className="set-content">

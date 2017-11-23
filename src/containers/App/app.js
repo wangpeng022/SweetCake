@@ -14,7 +14,7 @@ import Person from "../Profile/Person/person";
 import Detail from '../Detail/detail.js'
 
 import Collect from '../Profile/Collect/collect'
-
+import Myworks from '../Profile/Myworks/myworks'
 import Tools from '../Tools/tools.js'
 
 
@@ -58,6 +58,7 @@ export default class App extends Component {
                         <Route path="/login" component={Login}/>
                         <Route path="/person" component={Person}/>
                         <Route path="/collect" component={Collect}/>
+                        <Route path="/myworks" component={Myworks}/>
                         <Route path="/tools" component={Tools}/>
                         <Route path="/other/fangzi/:id" component={OtherDetail}/>
                         <Route path="/works" component={Works}/>
