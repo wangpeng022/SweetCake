@@ -1,7 +1,4 @@
 [
-  {
-    "result": "0",
-    "friends": [
       {
         "comment_count": 0,
         "url": "http://beile.bakelulu.com.cn//FlsO2Tjlf9FoIBNUDc09sZMOrKCj",
@@ -342,7 +339,5 @@
         "id": "20",
         "collects": []
       }
-    ],
-    "message": "success"
-  }
+
 ]

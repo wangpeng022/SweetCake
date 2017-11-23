@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import "./HomeListNew.less"
 
 export default class HomeListNew extends Component {
+    componentWillReceiveProps(props){
+        console.log(props,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    }
     render() {
         return (
             <div className="home-list-new">
                 <ul>
-                    {this.props.list.length ?
+                    {this.props.list?this.props.list.length ?
                         this.props.list.map((item, index) => (
                             <li key={index}>
                                 <img src={item.url} alt=""/>
@@ -19,7 +22,7 @@ export default class HomeListNew extends Component {
                                     </div>
                                 </div>
                             </li>
-                        )) : null
+                        )) : null:null
                     }
 
                 </ul>

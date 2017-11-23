@@ -3,11 +3,17 @@ import "./HomeListFir.less"
 import {Link} from "react-router-dom"
 
 export default class HomeListFri extends Component {
+
+    // getOther=()=>{
+    //   this.props.getOthers();
+    // };
     render() {
+        console.log(this.props);
         return (
+
             <div className="home-list-fri">
                 <ul>
-                    {this.props.friends.length ?
+                    {this.props.friends?this.props.friends.length ?
                         this.props.friends.map((item, index) => (
                             <li key={index}>
                                 <div className="img-box">
@@ -22,12 +28,16 @@ export default class HomeListFri extends Component {
                                     <h4>{item.title}</h4>
                                     <span>{item.family}</span>
                                     <div className="author">
-                                        <Link to={`/other/fangzi/${2}`}><img src={item.user_img} alt=""/></Link>
+                                        <Link to={`/other/fangzi/${item.id}`}>
+
+                                            <img src={item.user_img} alt=""/>
+                                        </Link>
                                         <span className="wrap">{item.author}</span>
-                                    </div>
+                                    </div
+                                 >
                                 </div>
                             </li>
-                        )) : null
+                        )) : null:null
                     }
 
                 </ul>

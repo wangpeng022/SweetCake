@@ -49,3 +49,6 @@ export const GET_WORKS='GET_WORKS';
 
 //获取收藏信息
 export const GET_COLLECTIONS='getCollections';
+
+//获取其他用户
+export const  GET_OTHERS='getOthers';

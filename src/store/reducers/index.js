@@ -5,6 +5,7 @@ import lessons from './lessons';
 import search from './search';
 import session from './session';
 import user from './user';
+import getOthers from './getOthers'
 
 import {routerReducer} from 'react-router-redux';
 export default combineReducers({
@@ -14,4 +15,5 @@ export default combineReducers({
     search,
     session,
     user,
+    getOthers
 })

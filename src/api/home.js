@@ -6,3 +6,4 @@ export function getHList(){
 export function getFriend(){
   return get('/friend');
 }
+
