@@ -160,4 +160,9 @@ app.post('/detail',function(req,res){
     //console.log(detailList);
 });
 
-
+app.get("/user",function (req,res) {
+    console.log(req);
+    let tt=users.find(item=>item.id==req.body.match.params.id);
+    res.json(tt);
+    console.log(tt);
+});
