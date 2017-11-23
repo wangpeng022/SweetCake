@@ -1,26 +1,29 @@
 import React, {Component} from 'react';
 import "./fangzi.less"
+import {connect} from 'react-redux'
+import actions from '../../../store/actions/getOthers'
+class Fangzi extends Component {
 
-export default class Fangzi extends Component {
     render() {
+        console.log(this.props,'dddddddddddddddddddddddd');
         return (
             <div className="fangzi">
                 <ul>
                     <li>
                         <div className="img-box">
-                            <img src="http://beile.bakelulu.com.cn//FtOhEui63a8LTyRrkl2oyCXDSkfY" alt=""/>
+                            <img src={this.props.friends.url} alt=""/>
                             <div className="cover"/>
                             <div className="footer">
-                                <small><span>收藏 0</span></small>
-                                <small><span> - 评论 4</span></small>
+                                <small><span>收藏 {this.props.friends.collect_num}</span></small>
+                                <small><span> - 评论 {this.props.friends.collect_num}</span></small>
                             </div>
                         </div>
                         <div className="title">
-                            <h4>紫薯麻薯软欧包</h4>
-                            <span>面包</span>
+                            <h4>{this.props.friends.title}</h4>
+                            <span>{this.props.friends.family}</span>
                             <div className="author">
-                                <img src="http://beile.bakelulu.com.cn//FqzH1YukVXYuDZ7dNIeiOLxcwQ4Q" alt=""/>
-                                <span className="wrap">狗蛋</span>
+                                <img src={this.props.friends.user_img} alt=""/>
+                                <span className="wrap">{this.props.friends.author}</span>
                             </div>
                         </div>
                     </li>
@@ -33,3 +36,6 @@ export default class Fangzi extends Component {
         )
     }
 }
+export default connect(
+    state=>state.getOthers,actions
+)(Fangzi)

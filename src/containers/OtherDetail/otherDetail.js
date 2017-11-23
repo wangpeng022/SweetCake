@@ -16,6 +16,7 @@ import actions from '../../store/actions/getOthers'
 
     render() {
         console.log(this.props.friends,'sdsfsdfdsfsfsfsfs');
+        console.log(this.props,'aaaaaaaaa');
         return (
             <div>
                 <Header>
