@@ -1,6 +1,7 @@
 const HOST = 'http://localhost:3000';
 const FOOD = 'http://120.77.17.44';
 
+
 export function get (url) {
     //浏览器原生支持fetch方法，它的用法类似于 $.ajax
     return fetch(HOST + url, {
@@ -37,6 +38,4 @@ export function postFood(url,data) {
         },
         body: JSON.stringify(data)
     }).then(res => res.json());
-
-
 }

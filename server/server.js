@@ -42,6 +42,7 @@ app.get("/hlist", function (req, res) {
     res.json(HList);
 });
 app.get('/star', function (req, res) {
+    console.log(req.query);
     res.json(food[req.query.index]);
 });
 app.get('/search', function (req, res) {
@@ -89,7 +90,7 @@ let users=require('./mock/users.json');
 
 app.post('/register',function (req,res) {
    let user=req.body;
-    console.log(user.phone);
+    //console.log(user.phone);
     let oldUser=users.find(item=>item.phone==user.phone);
    if(oldUser){  //有值就说明此用户已被注册了
        res.json({code:1,error:'手机号已经被注册过 了！'})
@@ -137,7 +138,7 @@ app.get('/validate',function (req,res) {
 app.get('/signout',function (req,res) {
    req.session.user='';
    res.json({code:1});
-    console.log(9000000);
+    //console.log(9000000);
 });
 
 app.listen(3000,function () {
@@ -152,12 +153,17 @@ app.get('/lessonPrefer',function(req,res){
     //console.log(lessonsPrefer);
 });
 
+
 //获取教程列表详情页数据
 let detailList=require('./mock/detailList.json');
-app.post('/detail',function(req,res){
+app.post('/detail',function(req,res) {
     console.log(req.query);
     res.json(detailList);
     //console.log(detailList);
+});
+app.post('/works',function (req, res) {
+    console.log(req.body);
+
 });
 
 
