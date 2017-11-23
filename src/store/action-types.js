@@ -45,7 +45,10 @@ export const SIGNOUT = 'signout';
 export const POST_WORKS = 'POST_WORKS';
 
 //获取个人作品
-export const GET_WORKS='GET_WORKS';
+export const GET_WORKS = 'GET_WORKS';
 
 //获取收藏信息
-export const GET_COLLECTIONS='getCollections';
+export const GET_COLLECTIONS = 'getCollections';
+
+//提交草稿
+export const POST_DRAFT = 'POST_DRAFT';

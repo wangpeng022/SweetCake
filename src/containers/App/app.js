@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {HashRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, withRouter, Redirect, Switch} from 'react-router-dom';
 import './app.less';
 import Home from "../Home/index";
 import Lesson from "../Lesson/lesson";
@@ -18,7 +18,6 @@ import Collect from '../Profile/Collect/collect'
 import Tools from '../Tools/tools.js'
 
 
-
 import Dialog from '../../components/Dialog/dialog.js'
 
 import Gift from "../../components/Header/gift/gift";
@@ -32,7 +31,9 @@ import OtherDetail from "../OtherDetail/otherDetail";
 import Works from "../Works/works";
 
 /*import First from '../Lesson/First/first'*/
-
+let WithCover = withRouter(function (props) {
+    return <Cover {...props}/>
+});
 export default class App extends Component {
 
     render() {
@@ -64,7 +65,7 @@ export default class App extends Component {
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
-                    <Cover/>
+                    <WithCover/>
                 </div>
             </Router>
         )
