@@ -1,5 +1,5 @@
 import * as types from '../action-types'
-import {fetchDetailList} from '../../api/detail'
+import {fetchDetailList,fetchUserCollect} from '../../api/detail'
 export default {
     //获取后台详情列表数据
     fetchDetailLists(index){
@@ -9,6 +9,16 @@ export default {
                 //console.log(value);//{...}//返回的那一项
                 dispatch({
                     type: types.FETCH_DETAIL_LIST,
+                    payload: value
+                })
+            })
+        }
+    },
+    fetchUserCollect(id){
+        return dispatch => {
+            fetchUserCollect(id).then(value => {
+                dispatch({
+                    type: types.FETCH_USER_COLLECT,
                     payload: value
                 })
             })

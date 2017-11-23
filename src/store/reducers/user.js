@@ -28,6 +28,11 @@ export default function (state = initState, action) {
                 ...state,
                 success, error, code
             };
+        case types.FETCH_USER_COLLECT:
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }

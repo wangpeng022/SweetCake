@@ -53,3 +53,6 @@ export const GET_WORKS='GET_WORKS';
 
 //获取收藏信息
 export const GET_COLLECTIONS='getCollections';
+
+//发送收藏详情id,返回用户收藏数据
+export const FETCH_USER_COLLECT='FETCH_USER_COLLECT';

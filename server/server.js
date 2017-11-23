@@ -154,12 +154,12 @@ let detailList=require('./mock/detailList.json');
 
 
 app.post('/detail',function(req,res){
-    console.log(req.body);//{index:0}
+    //console.log(req.body);//{index:0}
 
     let newDetailList=detailList['detailList'].find((item,index)=>{
         return item.id===req.body.index+1;
     });
-    console.log(newDetailList);
+   // console.log(newDetailList);
     res.json(newDetailList);
 
 });
@@ -169,8 +169,19 @@ app.post('/works',function (req, res) {
 });
 
 app.get("/user",function (req,res) {
-    console.log(req);
+    //console.log(req);
     let tt=users.find(item=>item.id==req.body.match.params.id);
     res.json(tt);
-    console.log(tt);
+    //console.log(tt);
+});
+
+
+//返回用户收藏数
+app.post('/collect',function(req,res){
+    //console.log(req.body);//{ id: 1 }
+    let id=req.body.id;
+    //console.log(users[0].friends);
+    let collectItem=users[0].friends.find((item,index)=>item.id==id);
+    res.json(collectItem);
+    //console.log(collectItem);
 });
