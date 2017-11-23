@@ -19,3 +19,6 @@ export function signout() {
     console.log('/signout');
     return get('/signout');
 }
+export function getCollections() {
+    return get('/getCollections');
+}

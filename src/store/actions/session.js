@@ -1,5 +1,5 @@
 import * as types from '../action-types'
-import {register,login,validate,signout} from '../../api/session'
+import {register,login,validate,signout,getCollections} from '../../api/session'
 import {push} from 'react-router-redux'
 
 export default {
@@ -80,5 +80,14 @@ export default {
       }
     },
 
-
+    getCollections(){
+        return dispatch=>{
+            getCollections().then(payload=>{
+                dispatch({
+                    type:types.GET_COLLECTIONS,
+                    payload
+                })
+            })
+        }
+    }
 }

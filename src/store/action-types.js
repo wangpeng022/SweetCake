@@ -43,3 +43,5 @@ export  const VALIDATE='validate';
 //退出
 export const  SIGNOUT='signout';
 
+//获取收藏信息
+export const GET_COLLECTIONS='getCollections';
