@@ -24,7 +24,7 @@ class Home extends Component {
     componentDidMount() {
         this.props.getHList();
         this.props.getFriend();
-        upMore(this.refs.content,()=>console.log(1111111111111));
+        //upMore(this.refs.content,()=>console.log(1111111111111));
         downRefresh(this.refs.content,()=>console.log(222222222222));
         //fixed(this.refs.ss,".44rem")
     }
