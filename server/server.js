@@ -4,9 +4,9 @@ let session = require('express-session');
 let app = express();
 app.use(bodyParser.json());
 app.use(session({
-    resave:true,//每次访问都重新保存session
-    saveUninitialized:true,//保存未初始化的session
-    secret:'zfpx'//密钥
+    resave: true,//每次访问都重新保存session
+    saveUninitialized: true,//保存未初始化的session
+    secret: 'zfpx'//密钥
 }));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
@@ -42,7 +42,6 @@ app.get("/hlist", function (req, res) {
     res.json(HList);
 });
 app.get('/star', function (req, res) {
-    console.log(req.query);
     res.json(food[req.query.index]);
 });
 app.get('/search', function (req, res) {
@@ -82,111 +81,121 @@ app.post('/searchIndex', function (req, res) {
 });
 
 //注册用户信息
-let users=require('./mock/users.json');
+let users = require('./mock/users.json');
 
-console.log(users);
 
-app.post('/register',function (req,res) {
-   let user=req.body;
+
+app.post('/register', function (req, res) {
+    let user = req.body;
     //console.log(user.phone);
-    let oldUser=users.find(item=>item.phone==user.phone);
-   if(oldUser){  //有值就说明此用户已被注册了
-       res.json({code:1,error:'手机号已经被注册过 了！'})
-   }else {
-       user.id=users.length+1;
-       user.petname=user.phone;
-       users.push(user);
-       res.json({code:0,success:'用户注册成功！',user})
-   }
+
+    let oldUser = users.find(item => item.phone == user.phone);
+    if (oldUser) {  //有值就说明此用户已被注册了
+        res.json({code: 1, error: '手机号已经被注册过 了！'})
+    } else {
+        user.id = users.length + 1;
+        user.petname = user.phone;
+        users.push(user);
+        res.json({code: 0, success: '用户注册成功！', user})
+    }
+
+
 });
 
 //登录
-app.post('/login',function (req,res) {
-   let user=req.body;
+app.post('/login', function (req, res) {
+    let user = req.body;
     // console.log(users);
     // console.log(user);
-    let oldUser=users.find(item=>item.phone==user.phone&&item.password==user.password);
+    let oldUser = users.find(item => item.phone == user.phone && item.password == user.password);
 
-   if(oldUser){
-       // req.session.user=user;  //把登录成功的对象写入session
-       user.id=users.length+1;
-       user.petname=user.phone;
-       //lStorage.setItem('user',JSON.stringify(user));
-       res.json({code:0,success:'登录成功！',user});
-   }else {
-       res.json({code:1,error:'手机号或密码错误！'})
-   }
+    if (oldUser) {
+        // req.session.user=user;  //把登录成功的对象写入session
+        user.id = users.length + 1;
+        user.petname = user.phone;
+        //lStorage.setItem('user',JSON.stringify(user));
+        res.json({code: 0, success: '登录成功！', user});
+    } else {
+        res.json({code: 1, error: '手机号或密码错误！'})
+    }
 
 });
 
 //验证登录态，如果已经登录则返回登录的用户并存放在仓库里
-app.get('/validate',function (req,res) {
-    if(req.session.user){
+app.get('/validate', function (req, res) {
+    if (req.session.user) {
         res.json({
-            code:0,user:req.session.user
+            code: 0, user: req.session.user
         })
-    }else {
-        res.json({code:1});
+    } else {
+        res.json({code: 1});
     }
 });
 
 //退出登录 退出时code为1 并且跳转到首页
-app.get('/signout',function (req,res) {
-   req.session.user='';
-   res.json({code:1});
+app.get('/signout', function (req, res) {
+    req.session.user = '';
+    res.json({code: 1});
     //console.log(9000000);
 });
 
-app.listen(3000,function () {
+app.listen(3000, function () {
     console.log("端口 3000")
 });
 
 
 //获取课程包优选课程列表数据
-let lessonsPrefer=require('./mock/lessons-prefer');
-app.get('/lessonPrefer',function(req,res){
+let lessonsPrefer = require('./mock/lessons-prefer');
+app.get('/lessonPrefer', function (req, res) {
     res.json(lessonsPrefer);
     //console.log(lessonsPrefer);
 });
 
 
 //获取教程列表详情页数据
-let detailList=require('./mock/detailList.json');
+
+let detailList = require('./mock/detailList.json');
 
 
-app.post('/detail',function(req,res){
-    console.log(req.body);//{index:0}
+app.post('/detail', function (req, res) {
+   //{index:0}
 
-    let newDetailList=detailList['detailList'].find((item,index)=>{
-        return item.id===req.body.index+1;
+    let newDetailList = detailList['detailList'].find((item, index) => {
+        return item.id === req.body.index + 1;
     });
-    console.log(newDetailList);
     res.json(newDetailList);
 
 });
-app.post('/works',function (req, res) {
-    console.log(req.body);
-
+app.post('/works', function (req, res) {
+    let user = users[0].friends.find((item) => {
+        return item.id == req.body.id
+    });
+    user.works.push(req.body);
+    res.json(user);
+});
+app.post('/postDraft', function (req, res) {
+    let user = users[0].friends.find((item) => {
+        return item.id == req.body.id
+    });
+    user.draft.push(req.body);
+    res.json(user);
 });
 
+
 //获取其他用户的信息
-app.post('/getOthers',function (req,res) {
-    let user=req.body;
-    console.log(user);
-    console.log(users);
-    let current=users.find(item=>item.id===user.id);
-    console.log(current);
-    if(current){
+app.post('/getOthers', function (req, res) {
+    let user = req.body;
+    let current = users.find(item => item.id === user.id);
+    if (current) {
         res.json(current);
-    }else {
+    } else {
         res.json({});
     }
 
 });
 
-app.get("/user",function (req,res) {
-    console.log(req);
-    let tt=users.find(item=>item.id==req.body.match.params.id);
+app.get("/user", function (req, res) {
+
+    let tt = users[0].friends.find(item => item.id == req.body.match.params.id);
     res.json(tt);
-    console.log(tt);
 });

@@ -1,9 +1,27 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Header from "../../components/DetailHeader/detail-header";
+import {connect} from 'react-redux';
+import {store} from '../../store';
+import actions from '../../store/actions/works';
+import {CSSTransition} from 'react-transition-group';
 
-export default class Works extends Component {
+const Fade = ({children, ...props}) => {
+    console.log({...props});
+    return (
+        <CSSTransition
+            {...props}
+            timeout={1200}
+            classNames="fade"
+        >
+            {children}
+        </CSSTransition>
+    )
+};
+let id = '';
+
+class Works extends Component {
     constructor() {
         super();
         this.state = {
@@ -11,27 +29,67 @@ export default class Works extends Component {
             star: '',//控制点击出现几个星星,
             index: 'S',//控制点击切换人份,个数,
             part: 2,//份量
-            describe:'',//描述
-            file:'',
+            describe: '',//描述
+            file: '',
+            url: '',
+            id: '',
+            show: false,
+            showWord: '',
+            face: '',
         }
     }
-    handleSubmit=()=>{
-        if(this.state.title&&this.state.file&&this.describe){
 
+
+    handleGoback = () => {
+        id = JSON.parse(localStorage.getItem('user'));
+        id = id ? id.id : null;
+        if (id) {
+            let works = {...this.state, id: id};
+            if (this.state.title || this.state.url || this.state.describe) {
+                this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: '方子已经保存到草稿箱'});
+                this.setState({show: !this.state.show});
+                this.props.postDraft(works);
+                setTimeout(() => {
+                    this.props.history.push('/');
+                }, 1700);
+            } else {
+                this.props.history.push('/');
+            }
+        } else {
+            this.props.history.push('/');
         }
     };
-    //创建预览图,获取图片url,
+
+
+    handleSubmit = () => {
+        id = JSON.parse(localStorage.getItem('user'));
+        id = id ? id.id : null;
+        if (id) {
+            if (id && this.state.title && this.state.url && this.state.describe) {
+                let works = {...this.state, id: id};
+                this.props.postWorks(works);
+
+            } else {
+                this.setState({
+                    face: '(๑╹◡╹)ﾉ"""',
+                    showWord: !this.state.title ? '方子还没有起名字哦' : !this.state.url ? '请选择一张图片' : !this.state.star ? '请选择困难程度哦' : !this.state.describe ? '还没有添加描述哦' : '终于好了喔'
+                });
+                this.setState({show: !this.state.show})
+            }
+        } else {
+            this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: '请先登录'});
+            this.setState({show: !this.state.show})
+        }
+    };
+//创建预览图,获取图片url,
     handleClick = () => {
-        console.log(this.$file.files);
         let url = window.URL.createObjectURL(this.$file.files[0]);
-        console.log(url);
         this.$img.src = url;
         this.$img.style.display = 'block';
-        this.setState({});
+        this.setState({url});
     };
-    //改变星星,分类
+//改变星星,分类
     select = (index) => {
-        console.dir(this.$i);
         this.setState({index});
         this.$i.style.backgroundImage = index === 'S' ? 'url(http://img.hb.aicdn.com/4176b4a923d07170d09f1759d5a80f1f62e7fce5355-obwisX_fw658)' : 'url(http://m.bakelulu.com/images/count_icon.png)';
     };
@@ -42,15 +100,16 @@ export default class Works extends Component {
                 <Header>
                     {
                         <div className="works-header">
-                            <Link className="works-left" to="/"><i> </i></Link>
+                            <a onClick={this.handleGoback} className="works-left"><i> </i></a>
                             <span className="works-title">新建方子</span>
-                            <Link className="works-right" to="/">发布</Link>
+                            <a onClick={this.handleSubmit} className="works-right">发布</a>
                         </div>
                     }
                 </Header>
                 <div className="works-body">
                     <span className="works-body-title">名称:</span>
-                    <input ref={input => this.$title = input} type="text" className="works-body-time"
+                    <input onChange={() => this.setState({title: this.$title.value})} ref={input => this.$title = input}
+                           type="text" className="works-body-time"
                            placeholder="28个字符以内"/>
                     <div className="works-body-cover">
                         <span>封面:</span>
@@ -104,12 +163,15 @@ export default class Works extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="works-body-class5"> </div>
+                        <div className="works-body-class5"></div>
                     </div>
-                    <div className="works-add"> </div>
+                    <div className="works-add"></div>
                     <div className="works-abs">
                         <span>方子摘要:</span>
-                        <textarea ref={textarea=>this.$text=textarea} placeholder="对这个方子有什么想介绍或者想补充的吗">{null}</textarea>
+                        <textarea onChange={() => {
+                            this.setState({describe: this.$text.value})
+                        }} ref={textarea => this.$text = textarea}
+                                  placeholder="对这个方子有什么想介绍或者想补充的吗">{null}</textarea>
                         <div></div>
                     </div>
                     <div className="works-footer">
@@ -127,12 +189,19 @@ export default class Works extends Component {
                             <div></div>
                         </div>
                         <div id="works-button">
-                            <div onClick={this.handleSubmit}>提交</div>
+                            <div onClick={this.handleSubmit}>发布</div>
                         </div>
                     </div>
                 </div>
+                <Fade in={this.state.show}>
+                    <div
+                        ref={div => this.$div = div}
+                        className="works-dailog">{this.state.face}<br/>{this.state.showWord}</div>
+                </Fade>
             </div>
         )
     }
 }
+
+export default connect(store => store.user, actions)(Works);
 import './works.less';

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import "./cover.less"
 
 export default class Cover extends Component {
@@ -14,10 +15,14 @@ export default class Cover extends Component {
         this.setState({
             isCover: !this.state.isCover,
             style: {transform: `rotate(${!this.state.isCover * 45}deg)`},
-            styleWrite:{transform:`translate(0,-${!this.state.isCover*1.75}rem) 
-            scale(${!this.state.isCover*3},${!this.state.isCover*3})`},
-            styleCaoGao:{transform:`translate(0,-${!this.state.isCover*1}rem)
-            scale(${!this.state.isCover*3},${!this.state.isCover*3})`}
+            styleWrite: {
+                transform: `translate(0,-${!this.state.isCover * 1.75}rem) 
+            scale(${!this.state.isCover * 3},${!this.state.isCover * 3})`
+            },
+            styleCaoGao: {
+                transform: `translate(0,-${!this.state.isCover * 1}rem)
+            scale(${!this.state.isCover * 3},${!this.state.isCover * 3})`
+            }
         });
     };
 
@@ -30,7 +35,10 @@ export default class Cover extends Component {
                         <div/>
                         <span/>
                     </div>
-                    <div className="write" style={this.state.styleWrite}/>
+                    <div onClick={() => {
+                        this.props.history.push('/works');
+                        this.cover()
+                    }} className="write" style={this.state.styleWrite}/>
                     <div className="caogao" style={this.state.styleCaoGao}/>
                 </div>
                 {
@@ -42,3 +50,4 @@ export default class Cover extends Component {
         )
     }
 }
+

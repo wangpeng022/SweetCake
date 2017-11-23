@@ -32,7 +32,7 @@ export const FETCH_LESSON_PREFER = 'FETCH_LESSON_PREFER';
 
 //获取detail详情页数据
 
-export const FETCH_DETAIL_LIST='FETCH_DETAIL_LIST';
+export const FETCH_DETAIL_LIST = 'FETCH_DETAIL_LIST';
 
 
 //获取星级食物列表
@@ -49,10 +49,15 @@ export const SIGNOUT = 'signout';
 export const POST_WORKS = 'POST_WORKS';
 
 //获取个人作品
-export const GET_WORKS='GET_WORKS';
+export const GET_WORKS = 'GET_WORKS';
 
 //获取收藏信息
-export const GET_COLLECTIONS='getCollections';
 
-//获取其他用户
-export const  GET_OTHERS='getOthers';
+export const GET_COLLECTIONS = 'getCollections';
+
+
+export const GET_OTHERS = 'getOthers';
+
+
+export const POST_DRAFT = 'POST_DRAFT';
+

@@ -14,6 +14,7 @@ let initState = {
     collects: [],//收藏,
     phone: '',//电话
     password: '',//密码
+    draft: [],//草稿
 };
 
 export default function (state = initState, action) {
@@ -21,12 +22,17 @@ export default function (state = initState, action) {
         case types.POST_WORKS:
             return {
                 ...state,
-                success, error, code
+                ...action.payload,
+            };
+        case types.POST_DRAFT:
+            return {
+                ...state,
+                ...action.payload,
             };
         case types.GET_WORKS:
             return {
                 ...state,
-                success, error, code
+                ...action.payload,
             };
         default:
             return state;

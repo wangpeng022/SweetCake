@@ -19,7 +19,6 @@ export default {
                     type: types.GET_HLIST,
                     payload
                 });
-                console.log(payload);
             });
         }
     },

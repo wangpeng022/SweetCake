@@ -10,7 +10,9 @@
     position: fixed;
     z-index: 30;
     background: #FEDA6A;
-
+    a {
+      text-decoration: none;
+    }
     .works-left {
       i {
         float: left;
@@ -63,7 +65,7 @@
     }
     .works-body-cover {
       background-color: #F3F3F3;
-      #works-img{
+      #works-img {
         display: none;
         width: 3.2rem;
         height: 2.4rem;
@@ -211,7 +213,7 @@
           width: .25rem;
           height: .25rem;
           background-size: .25rem .25rem;
-          background-image:url('http://img.hb.aicdn.com/4176b4a923d07170d09f1759d5a80f1f62e7fce5355-obwisX_fw658');
+          background-image: url('http://img.hb.aicdn.com/4176b4a923d07170d09f1759d5a80f1f62e7fce5355-obwisX_fw658');
           margin-left: 1.3rem;
         }
         div {
@@ -313,7 +315,7 @@
       overflow: hidden;
       height: 1.2rem;
       background-color: #F3F3F3;
-      div{
+      div {
         margin: .3rem .77rem .5rem .77rem;
         text-align: center;
         height: .4rem;
@@ -324,4 +326,35 @@
       }
     }
   }
+  .works-dailog.fade-enter.fade-enter-active {
+    opacity: .8;
+    transition: all 400ms ease-out;
+  }
+  .works-dailog.fade-enter {
+    opacity: 0.01;
+  }
+
+  .works-dailog.fade-exit.fade-exit-active {
+    opacity: .8;
+    transition: all 400ms ease-out;
+  }
+  .works-dailog.fade-exit {
+    opacity: 0.01;
+  }
+  .works-dailog {
+    font-family: PingFang SC, Helvetica, 黑体;
+    text-align: center;
+    width: 1.5rem;
+    height: .84rem;
+    line-height: .4rem;
+    background: #525252;
+    color: white;
+    border-radius: .05rem;
+    position: fixed;
+    bottom: 2.5rem;
+    left: .85rem;
+    opacity: 0.01;
+    transition: all 400ms ease-out;
+  }
+
 }

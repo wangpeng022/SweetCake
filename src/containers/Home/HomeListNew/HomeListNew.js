@@ -3,7 +3,6 @@ import "./HomeListNew.less"
 
 export default class HomeListNew extends Component {
     componentWillReceiveProps(props){
-        console.log(props,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     }
     render() {
         return (

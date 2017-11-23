@@ -8,7 +8,6 @@ export default class HomeListFri extends Component {
     //   this.props.getOthers();
     // };
     render() {
-        console.log(this.props);
         return (
 
             <div className="home-list-fri">
