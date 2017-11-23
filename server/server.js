@@ -161,4 +161,3 @@ app.post('/detail',function(req,res){
 });
 
 
-

@@ -26,6 +26,8 @@ import Suff from "../Suff/suff";
 
 import Cover from "./Cover/cover";
 
+import OtherDetail from "../OtherDetail/otherDetail";
+/*import First from '../Lesson/First/first'*/
 
 export default class App extends Component {
 
@@ -53,6 +55,8 @@ export default class App extends Component {
                         <Route path="/person" component={Person}/>
                         <Route path="/collect" component={Collect}/>
                         <Route path="/tools" component={Tools}/>
+                        <Route path="/other/fangzi/:id" component={OtherDetail}/>
+
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
