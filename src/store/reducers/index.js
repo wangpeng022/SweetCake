@@ -6,6 +6,7 @@ import search from './search';
 
 
 import user from './user';
+import getOthers from './getOthers'
 
 import session from './session'
 import detail from './detail'
@@ -20,5 +21,6 @@ export default combineReducers({
     session,
     user,
     detail,
+    getOthers
 
 })

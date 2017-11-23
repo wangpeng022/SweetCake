@@ -25,6 +25,8 @@ export default function (state = initState, action) {
                 ...state,
                 friends:[...action.payload]
             };
+        case types.GET_OTHERS:
+            return {};
         default:
             return state;
     }

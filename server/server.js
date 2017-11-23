@@ -27,6 +27,7 @@ app.use(function (req, res, next) {
 });
 //获取首页 列表 && 轮播图
 let HList = require("./mock/HList");
+// console.log(HList);
 //获取星级食物列表
 let food = require("./mock/food.json");
 //获取搜索选项
@@ -83,7 +84,7 @@ app.post('/searchIndex', function (req, res) {
 //注册用户信息
 let users=require('./mock/users.json');
 
-// console.log(users);
+console.log(users);
 
 app.post('/register',function (req,res) {
    let user=req.body;
@@ -165,6 +166,21 @@ app.post('/detail',function(req,res){
 });
 app.post('/works',function (req, res) {
     console.log(req.body);
+
+});
+
+//获取其他用户的信息
+app.post('/getOthers',function (req,res) {
+    let user=req.body;
+    console.log(user);
+    console.log(users);
+    let current=users.find(item=>item.id===user.id);
+    console.log(current);
+    if(current){
+        res.json(current);
+    }else {
+        res.json({});
+    }
 
 });
 

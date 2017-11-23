@@ -4,28 +4,31 @@ import {NavLink, Route, Link} from "react-router-dom"
 import Fangzi from "./Fangzi/fangzi";
 import Header from "../../components/Header/header";
 import {upMore, downRefresh, fixed} from "../../utils/util";
-
-export default class OtherDetail extends Component {
+import {connect} from 'react-redux'
+import actions from '../../store/actions/getOthers'
+ class OtherDetail extends Component {
     componentDidMount() {
         upMore(this.refs.other, () => "");
         downRefresh(this.refs.other, () => "");
+        this.props.getOthers(this.props.match.params);
+
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props.friends,'sdsfsdfdsfsfsfsfs');
         return (
             <div>
                 <Header>
-                    <Link to={'/home'} className="other-back"/>
+                    <Link to='/' className="other-back"/>
                     <span className="other-right"/>
                 </Header>
                 <div className="other-content" ref={"other"}>
                     <div className="other-header">
                         <div className="user-info">
                             <div className="pic">
-                                <img src="http://beile.bakelulu.com.cn//FqzH1YukVXYuDZ7dNIeiOLxcwQ4Q"/>
+                                <img src={this.props.friends.user_img}/>
                             </div>
-                            <h5>李狗蛋</h5>
+                            <h5>{this.props.friends.author}</h5>
                             <span>关注：3 </span>&nbsp;&nbsp;
                             <span>粉丝：3 </span>
                             <div className="fork">
@@ -52,3 +55,6 @@ export default class OtherDetail extends Component {
         )
     }
 }
+export default connect(
+    state=>state.getOthers,actions
+)(OtherDetail)
