@@ -11,7 +11,7 @@ import actions from '../../../store/actions/session'
         return (
             <div className="collect-top">
                 {/*头部：我的收藏*/}
-                <div className="left"><a href="" className="back"><i>&lt;</i></a></div>
+                <div className="left" onClick={()=>this.props.history.goBack()}><a href="#" className="back"><i>&lt;</i></a></div>
                 <div className="collect-middle">我的收藏</div>
 
 
