@@ -16,7 +16,7 @@ export default class OtherDetail extends Component {
         return (
             <div>
                 <Header>
-                    <span className="other-back"/>
+                    <Link to={'/home'} className="other-back"/>
                     <span className="other-right"/>
                 </Header>
                 <div className="other-content" ref={"other"}>
