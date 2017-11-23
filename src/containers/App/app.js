@@ -43,10 +43,9 @@ export default class App extends Component {
                         <Route path="/Recipe/:from" component={Recipe}/>
                         <Route path="/lesson" component={Lesson}/>
 
-                        <Route path="/detail" component={Detail}/>
+                        {/*<Route path="/detail" component={Detail}/>*/}
                         <Route path="/profile" component={Profile}/>
                         <Route path="/suff" component={Suff}/>
-
 
                         <Route path="/share" component={Dialog}/>
                         <Route exact path="/profile" component={Profile}/>

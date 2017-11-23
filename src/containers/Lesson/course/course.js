@@ -4,11 +4,17 @@ import {Link} from 'react-router-dom'
 import './course.less';
 import Detail from '../../Detail/detail'
 import {HashRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom';
+import actions from '../../../store/actions/details'
+import {connect} from 'react-redux'
 let num;
 let ary = [1, 2, 3, 4, 5];
-export default class Course extends Component {
+class Course extends Component {
+    handleClick=(e,index)=>{
+        e.preventDefault;
+        this.props.fetchDetailLists(index)
+    };
     render() {
-        //console.log(this.props.lessons ? this.props.lessons : '');
+        //console.log(this.props);
         return (
             <ul className="course-list">
                 {
@@ -19,7 +25,7 @@ export default class Course extends Component {
                                 <li key={index}>
                                 <div className="content">
                                     {/*跳转详情页*/}
-                                    <Link to={`/lesson/course/${index}`}>
+                                    <Link to={`/lesson/course/${index}`} onClick={(e)=>this.handleClick(e,index)}>
                                         <div className="img">
                                             <img src={item.url} alt=""/>
                                             <div className="data">
@@ -45,11 +51,11 @@ export default class Course extends Component {
                         })
                     ) : null
                 }
-                <Route path="/lesson/course/:index" render={() => <Detail />}/>
+
             </ul>
 
         )
     }
 }
-
+export default connect (null, actions)(Course)
 

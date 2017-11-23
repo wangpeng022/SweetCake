@@ -3,8 +3,13 @@ import home from './home';
 
 import lessons from './lessons';
 import search from './search';
-import session from './session';
+
+
 import user from './user';
+
+import session from './session'
+import detail from './detail'
+
 
 import {routerReducer} from 'react-router-redux';
 export default combineReducers({
@@ -14,4 +19,6 @@ export default combineReducers({
     search,
     session,
     user,
+    detail,
+
 })
