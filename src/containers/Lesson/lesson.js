@@ -9,6 +9,7 @@ import {connect} from 'react-redux'
 import actions from '../../store/actions/lesson'
 import {upMore, downRefresh} from '../../utils/util.js'
 import First from "./First/first";
+import Detail from '../Detail/detail'
 class Lesson extends Component {
     componentDidMount() {
         this.props.getLessons();//获取教程列表数据
@@ -35,10 +36,12 @@ class Lesson extends Component {
                 </Header>
                 <div ref="content" className="lesson-content">
 
-                        <Route path="/lesson/course" render={() => <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
+                        <Route exact path="/lesson/course" render={() => <Course lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
                         <Route exact path="/lesson/pack" render={()=><Pack lessons={this.props.lessons} getLessons={this.props.getLessons} prefer={this.props.prefer} getLessonPrefer={this.props.getLessonPrefer}/>}/>
                         <Route path="/lesson/pack/first" render={()=><First lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
+
                 </div>
+                <Route path="/lesson/course/:index" render={() => <Detail/>}/>
             </div>
         )
     }

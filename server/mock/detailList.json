@@ -1,11 +1,10 @@
 {
   "detailList":[
-
     {
       "id":1,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 1,
         "course_img": "http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg",
         "course_title": "派皮制作与入模小技巧",
@@ -13,7 +12,7 @@
         "course_info": "详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-04-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!"},
         {"cake_img_title02":"接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png",
@@ -39,7 +38,7 @@
         {"cake_img_title04":"最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。"},
         {"cake_img_title05":"派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -62,7 +61,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2016-12-14 18:00:18",
         "topic_title": "烘焙入门 | 从新手到熟练",
         "topic_img": "http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg",
@@ -79,7 +78,7 @@
       "id":2,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 2,
         "course_img": "http://beile.bakelulu.com.cn/course/3d2f24a8a73a49b59b57df74d5121d56_temp.jpg",
         "course_title": "澄清黄油与褐化黄油的制作",
@@ -87,7 +86,7 @@
         "course_info": "褐化过的黄油会带有特殊的香气，在很多甜品中会被用来代替普通黄油使用，感兴趣的朋友可以自己做来试试。如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-11-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"烘焙中除了常用的黄油外，有些配方中会标注需要使用“"},
         {"cake_img_title02":"”。有些胖友可能会好奇，褐化黄油是什么？那下面就说说澄清黄油的制作方法："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/da25e2c02e754fd4bc77dbacec4d4591.png",
@@ -113,7 +112,7 @@
         {"cake_img_title04":"无论是澄清黄油还是褐化黄油，在到达状态后都需要立刻倒进其他容器晾凉，以防锅中余热将黄油加热过头；"},
         {"cake_img_title05":"在制作褐化黄油时，当锅中颜色整体变深，就要时刻盯紧黄油的状态了，最好每隔一小会儿就用勺子舀一勺黄油起来看看有没有变色。因为此时底部的黑色沉淀会让整锅液体看起来颜色很深，直接看是很难判断的黄油颜色深浅的；"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -136,7 +135,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2017-12-14 19:00:00",
         "topic_title": "一键掌握空气戚风",
         "topic_img": "http://beile.bakelulu.com.cn/27fb87ad278e403894e335e097935560.jpg",
@@ -153,7 +152,7 @@
       "id":3,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 3,
         "course_img": "http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg",
         "course_title": "派皮制作与入模小技巧",
@@ -161,7 +160,7 @@
         "course_info": "详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-04-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!"},
         {"cake_img_title02":"接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png",
@@ -187,7 +186,7 @@
         {"cake_img_title04":"最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。"},
         {"cake_img_title05":"派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -210,7 +209,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2016-12-14 18:00:18",
         "topic_title": "烘焙入门 | 从新手到熟练",
         "topic_img": "http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg",
@@ -227,7 +226,7 @@
       "id":4,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 4,
         "course_img": "http://beile.bakelulu.com.cn/course/3d2f24a8a73a49b59b57df74d5121d56_temp.jpg",
         "course_title": "澄清黄油与褐化黄油的制作",
@@ -235,7 +234,7 @@
         "course_info": "褐化过的黄油会带有特殊的香气，在很多甜品中会被用来代替普通黄油使用，感兴趣的朋友可以自己做来试试。如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-11-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"烘焙中除了常用的黄油外，有些配方中会标注需要使用“"},
         {"cake_img_title02":"”。有些胖友可能会好奇，褐化黄油是什么？那下面就说说澄清黄油的制作方法："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/da25e2c02e754fd4bc77dbacec4d4591.png",
@@ -261,7 +260,7 @@
         {"cake_img_title04":"无论是澄清黄油还是褐化黄油，在到达状态后都需要立刻倒进其他容器晾凉，以防锅中余热将黄油加热过头；"},
         {"cake_img_title05":"在制作褐化黄油时，当锅中颜色整体变深，就要时刻盯紧黄油的状态了，最好每隔一小会儿就用勺子舀一勺黄油起来看看有没有变色。因为此时底部的黑色沉淀会让整锅液体看起来颜色很深，直接看是很难判断的黄油颜色深浅的；"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -284,7 +283,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2017-12-14 19:00:00",
         "topic_title": "一键掌握空气戚风",
         "topic_img": "http://beile.bakelulu.com.cn/27fb87ad278e403894e335e097935560.jpg",
@@ -301,7 +300,7 @@
       "id":5,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 5,
         "course_img": "http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg",
         "course_title": "派皮制作与入模小技巧",
@@ -309,7 +308,7 @@
         "course_info": "详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-04-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!"},
         {"cake_img_title02":"接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png",
@@ -335,7 +334,7 @@
         {"cake_img_title04":"最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。"},
         {"cake_img_title05":"派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -358,7 +357,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2016-12-14 18:00:18",
         "topic_title": "烘焙入门 | 从新手到熟练",
         "topic_img": "http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg",
@@ -375,7 +374,7 @@
       "id":6,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 6,
         "course_img": "http://beile.bakelulu.com.cn/course/3d2f24a8a73a49b59b57df74d5121d56_temp.jpg",
         "course_title": "澄清黄油与褐化黄油的制作",
@@ -383,7 +382,7 @@
         "course_info": "褐化过的黄油会带有特殊的香气，在很多甜品中会被用来代替普通黄油使用，感兴趣的朋友可以自己做来试试。如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-11-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"烘焙中除了常用的黄油外，有些配方中会标注需要使用“"},
         {"cake_img_title02":"”。有些胖友可能会好奇，褐化黄油是什么？那下面就说说澄清黄油的制作方法："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/da25e2c02e754fd4bc77dbacec4d4591.png",
@@ -409,7 +408,7 @@
         {"cake_img_title04":"无论是澄清黄油还是褐化黄油，在到达状态后都需要立刻倒进其他容器晾凉，以防锅中余热将黄油加热过头；"},
         {"cake_img_title05":"在制作褐化黄油时，当锅中颜色整体变深，就要时刻盯紧黄油的状态了，最好每隔一小会儿就用勺子舀一勺黄油起来看看有没有变色。因为此时底部的黑色沉淀会让整锅液体看起来颜色很深，直接看是很难判断的黄油颜色深浅的；"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -432,7 +431,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2017-12-14 19:00:00",
         "topic_title": "一键掌握空气戚风",
         "topic_img": "http://beile.bakelulu.com.cn/27fb87ad278e403894e335e097935560.jpg",
@@ -449,7 +448,7 @@
       "id":7,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 7,
         "course_img": "http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg",
         "course_title": "派皮制作与入模小技巧",
@@ -457,7 +456,7 @@
         "course_info": "详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-04-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!"},
         {"cake_img_title02":"接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png",
@@ -483,7 +482,7 @@
         {"cake_img_title04":"最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。"},
         {"cake_img_title05":"派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -506,7 +505,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2016-12-14 18:00:18",
         "topic_title": "烘焙入门 | 从新手到熟练",
         "topic_img": "http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg",
@@ -523,7 +522,7 @@
       "id":8,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 8,
         "course_img": "http://beile.bakelulu.com.cn/course/3d2f24a8a73a49b59b57df74d5121d56_temp.jpg",
         "course_title": "澄清黄油与褐化黄油的制作",
@@ -531,7 +530,7 @@
         "course_info": "褐化过的黄油会带有特殊的香气，在很多甜品中会被用来代替普通黄油使用，感兴趣的朋友可以自己做来试试。如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-11-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"烘焙中除了常用的黄油外，有些配方中会标注需要使用“"},
         {"cake_img_title02":"”。有些胖友可能会好奇，褐化黄油是什么？那下面就说说澄清黄油的制作方法："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/da25e2c02e754fd4bc77dbacec4d4591.png",
@@ -557,7 +556,7 @@
         {"cake_img_title04":"无论是澄清黄油还是褐化黄油，在到达状态后都需要立刻倒进其他容器晾凉，以防锅中余热将黄油加热过头；"},
         {"cake_img_title05":"在制作褐化黄油时，当锅中颜色整体变深，就要时刻盯紧黄油的状态了，最好每隔一小会儿就用勺子舀一勺黄油起来看看有没有变色。因为此时底部的黑色沉淀会让整锅液体看起来颜色很深，直接看是很难判断的黄油颜色深浅的；"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -580,7 +579,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2017-12-14 19:00:00",
         "topic_title": "一键掌握空气戚风",
         "topic_img": "http://beile.bakelulu.com.cn/27fb87ad278e403894e335e097935560.jpg",
@@ -597,7 +596,7 @@
       "id":9,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 9,
         "course_img": "http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg",
         "course_title": "派皮制作与入模小技巧",
@@ -605,7 +604,7 @@
         "course_info": "详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-04-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!"},
         {"cake_img_title02":"接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png",
@@ -631,7 +630,7 @@
         {"cake_img_title04":"最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。"},
         {"cake_img_title05":"派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -654,7 +653,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2016-12-14 18:00:18",
         "topic_title": "烘焙入门 | 从新手到熟练",
         "topic_img": "http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg",
@@ -671,7 +670,7 @@
       "id":10,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 10,
         "course_img": "http://beile.bakelulu.com.cn/course/3d2f24a8a73a49b59b57df74d5121d56_temp.jpg",
         "course_title": "澄清黄油与褐化黄油的制作",
@@ -679,7 +678,7 @@
         "course_info": "褐化过的黄油会带有特殊的香气，在很多甜品中会被用来代替普通黄油使用，感兴趣的朋友可以自己做来试试。如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-11-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"烘焙中除了常用的黄油外，有些配方中会标注需要使用“"},
         {"cake_img_title02":"”。有些胖友可能会好奇，褐化黄油是什么？那下面就说说澄清黄油的制作方法："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/da25e2c02e754fd4bc77dbacec4d4591.png",
@@ -705,7 +704,7 @@
         {"cake_img_title04":"无论是澄清黄油还是褐化黄油，在到达状态后都需要立刻倒进其他容器晾凉，以防锅中余热将黄油加热过头；"},
         {"cake_img_title05":"在制作褐化黄油时，当锅中颜色整体变深，就要时刻盯紧黄油的状态了，最好每隔一小会儿就用勺子舀一勺黄油起来看看有没有变色。因为此时底部的黑色沉淀会让整锅液体看起来颜色很深，直接看是很难判断的黄油颜色深浅的；"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -728,7 +727,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2017-12-14 19:00:00",
         "topic_title": "一键掌握空气戚风",
         "topic_img": "http://beile.bakelulu.com.cn/27fb87ad278e403894e335e097935560.jpg",
@@ -745,7 +744,7 @@
       "id":11,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 11,
         "course_img": "http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg",
         "course_title": "派皮制作与入模小技巧",
@@ -753,7 +752,7 @@
         "course_info": "详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-04-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!"},
         {"cake_img_title02":"接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png",
@@ -779,7 +778,7 @@
         {"cake_img_title04":"最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。"},
         {"cake_img_title05":"派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -802,7 +801,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2016-12-14 18:00:18",
         "topic_title": "烘焙入门 | 从新手到熟练",
         "topic_img": "http://beile.bakelulu.com.cn/fa76b1543ce94932a43eefe4dd43632c.jpg",
@@ -819,7 +818,7 @@
       "id":12,
       "result": "0",
       "message": "success",
-      "data-course": {
+      "dataCourse": {
         "course_id": 12,
         "course_img": "http://beile.bakelulu.com.cn/course/3d2f24a8a73a49b59b57df74d5121d56_temp.jpg",
         "course_title": "澄清黄油与褐化黄油的制作",
@@ -827,7 +826,7 @@
         "course_info": "褐化过的黄油会带有特殊的香气，在很多甜品中会被用来代替普通黄油使用，感兴趣的朋友可以自己做来试试。如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君",
         "create_time": "2017-11-27"
       },
-      "data-cakeLIst":[
+      "dataCakeLIst":[
         {"cake_img_title01":"烘焙中除了常用的黄油外，有些配方中会标注需要使用“"},
         {"cake_img_title02":"”。有些胖友可能会好奇，褐化黄油是什么？那下面就说说澄清黄油的制作方法："},
         {"cake_img1":"http://beile.bakelulu.com.cn/ueditor/da25e2c02e754fd4bc77dbacec4d4591.png",
@@ -853,7 +852,7 @@
         {"cake_img_title04":"无论是澄清黄油还是褐化黄油，在到达状态后都需要立刻倒进其他容器晾凉，以防锅中余热将黄油加热过头；"},
         {"cake_img_title05":"在制作褐化黄油时，当锅中颜色整体变深，就要时刻盯紧黄油的状态了，最好每隔一小会儿就用勺子舀一勺黄油起来看看有没有变色。因为此时底部的黑色沉淀会让整锅液体看起来颜色很深，直接看是很难判断的黄油颜色深浅的；"}
       ],
-      "data-comment": {
+      "dataComment": {
         "comment_count": 1,
         "comment_list": [
           {
@@ -876,7 +875,7 @@
           }
         ]
       },
-      "data-topic": {
+      "dataTopic": {
         "create_time": "2017-12-14 19:00:00",
         "topic_title": "一键掌握空气戚风",
         "topic_img": "http://beile.bakelulu.com.cn/27fb87ad278e403894e335e097935560.jpg",

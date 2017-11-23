@@ -15,7 +15,7 @@ export function get (url) {
     }).then(res =>(res.json()));
 }
 export function post(url, data) {
-    console.log(data);
+    //console.log(data);
     return fetch(HOST + url, {
         method: 'POST',
         credentials: 'include',

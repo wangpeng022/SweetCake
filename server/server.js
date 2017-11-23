@@ -37,7 +37,6 @@ let friend = require("./mock/friend.json");
 //获取搜索列表
 let foodList = require("./mock/foodList.json");
 
-
 app.get("/hlist", function (req, res) {
     res.json(HList);
 });
@@ -58,7 +57,6 @@ app.get('/lesson', function (req, res) {
     res.json(Lesson);
 
 });
-
 
 app.post('/search', function (req, res) {
     let searchList = [];
@@ -86,7 +84,6 @@ let users=require('./mock/users.json');
 
 // console.log(users);
 
-
 app.post('/register',function (req,res) {
    let user=req.body;
     console.log(user.phone);
@@ -98,9 +95,7 @@ app.post('/register',function (req,res) {
        user.petname=user.phone;
        users.push(user);
        res.json({code:0,success:'用户注册成功！',user})
-
    }
-
 });
 
 //登录
@@ -154,10 +149,15 @@ app.get('/lessonPrefer',function(req,res){
 
 //获取教程列表详情页数据
 let detailList=require('./mock/detailList.json');
+
 app.post('/detail',function(req,res){
-    console.log(req.query);
-    res.json(detailList);
-    //console.log(detailList);
+    console.log(req.body);//{index:0}
+
+    let newDetailList=detailList['detailList'].find((item,index)=>{
+        return item.id===req.body.index+1;
+    });
+    console.log(newDetailList);
+    res.json(newDetailList);
 });
 
 

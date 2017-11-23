@@ -1,5 +1,5 @@
 import {post} from './index';
 
-export function fetchLessonPrefer(){
-    return post('/detail',data)
+export function fetchDetailList(index){
+    return post('/detail',{index})
 }
