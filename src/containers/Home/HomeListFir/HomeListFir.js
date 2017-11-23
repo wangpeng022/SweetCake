@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import "./HomeListFri.less"
+import "./HomeListFir.less"
+import {Link} from "react-router-dom"
 
 export default class HomeListFri extends Component {
     render() {
@@ -21,7 +22,7 @@ export default class HomeListFri extends Component {
                                     <h4>{item.title}</h4>
                                     <span>{item.family}</span>
                                     <div className="author">
-                                        <img src={item.user_img} alt=""/>
+                                        <Link to={`/other/fangzi/${2}`}><img src={item.user_img} alt=""/></Link>
                                         <span className="wrap">{item.author}</span>
                                     </div>
                                 </div>

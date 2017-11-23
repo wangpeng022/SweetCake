@@ -30,7 +30,7 @@ export function downRefresh(element,callback){
             let pageY = e.targetTouches[0].pageY;
             if(pageY>startY){//新的点的纵坐标大于起始点的纵坐标表示下拉
                 distance = pageY - startY;
-                element.style.top = initTop+distance+'px';
+                element.style.top = initTop+distance*.5+'px';
             }else{//如果上拉的话不处理，移除监听
                 element.removeEventListener('touchmove',touchMove);
                 element.removeEventListener('touchend',touchEnd);
@@ -44,10 +44,10 @@ export function downRefresh(element,callback){
                     element.style.top=initTop;
                     clearInterval(timerId)
                 }else{//让top值减1
-                    element.style.top=element.offsetTop-1+'px'
+                    element.style.top=element.offsetTop*0.98+'px'
                 }
 
-            },5);
+            },2);
             if(distance>50){
                 callback();
             }

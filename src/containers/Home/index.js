@@ -9,8 +9,9 @@ import {connect} from 'react-redux';
 import ReactSwipe from "react-swipe"
 import Swiper from "./Swiper/Swiper";
 import HomeListNew from "./HomeListNew/HomeListNew";
-import HomeListFri from "./HomeListHot/HomeListFri";
+import HomeListFri from "./HomeListFir/HomeListFir";
 import "./index.less"
+import {upMore,downRefresh,fixed} from "../../utils/util";
 
 
 class Home extends Component {
@@ -23,16 +24,11 @@ class Home extends Component {
     componentDidMount() {
         this.props.getHList();
         this.props.getFriend();
+        upMore(this.refs.content,()=>console.log(1111111111111));
+        downRefresh(this.refs.content,()=>console.log(222222222222));
+        //fixed(this.refs.ss,".44rem")
     }
 
-    /*change() {
-        let box = ReactDOM.findDOMNode(this.refs["ddd"]);
-        let dd = box.style.transform.match(/\d+/)[0];
-        let width=box.style.width.match(/\d+/)[0];
-        let left = 1+dd/width;
-        console.log(left);
-        ReactDOM.findDOMNode(this.refs["slider"]).left=0
-    }*/
     componentWillUpdate() {
 
     }
@@ -59,9 +55,9 @@ class Home extends Component {
                         </div>
                     }
                 </Header>
-                <div className="home-content">
+                <div className="home-content"  ref={"content"}>
                     <Swiper slider={mySlider}/>
-                    <div className="list-tab">
+                    <div className="list-tab" ref={"ss"}>
                         <span className={this.state.index == 0 ? "active" : ""}>最新</span>
                         <span className={this.state.index == 1 ? "active" : ""}>朋友圈</span>
                         <div className="slider" style={style}/>
