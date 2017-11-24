@@ -14,7 +14,7 @@ class Course extends Component {
         this.props.fetchDetailLists(index)
     };
     render() {
-        console.log(this.props);
+       // console.log(this.props);
         return (
             <ul className="course-list">
                 {
