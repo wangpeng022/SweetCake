@@ -40,8 +40,7 @@ export default {
                     console.log('xxxxxxxxxxxxxxxxxxx');
                     dispatch(push('/person'));
                     alert(success);
-                    localStorage.setItem('user',JSON.stringify(payload.user));
-
+                    localStorage.setItem('user',JSON.stringify(payload.oldUser));
                 }else {
                     alert(error);
                 }

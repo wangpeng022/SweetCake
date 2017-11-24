@@ -1,30 +1,44 @@
 import React, {Component} from 'react';
 import './detail.less'
 import DetailHeader from "../../components/DetailHeader/detail-header.js";
-import {Route,Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 import actions from '../../store/actions/details'
 import {connect} from 'react-redux'
 
-let ary=[1,2,3,4,5];
+let ary = [1, 2, 3, 4, 5];
+
 class Detail extends Component {
     constructor() {
         super();
         this.state = {show: false}
     }
+
+    componentDidMount() {
+        console.log(this.props.match.params.index);
+        this.props.fetchDetailLists(+this.props.match.params.index);
+    }
+
     handleClick = (id) => {
-       // console.log(id);
-        this.setState({
-            show: !this.state.show
-        });
-        this.props.fetchUserCollect(id)
+        // console.log(id);
+        let user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            this.setState({
+                show: !this.state.show
+            });
+            this.props.fetchUserCollect({id, user: user.id})
+        } else {
+            alert('请先登录');
+        }
+
 
     };
+
     render() {
-        //console.log(this.props, 'xxxxxxx');
+        console.log(this.props, 'xxxxxxx');
         let {id, message, dataCourse, dataCakeLIst, dataComment, dataTopic} = this.props;
         //console.log(dataCakeLIst);
         console.log(id);
-        let num=Math.round(Math.random()*4+1);
+        let num = Math.round(Math.random() * 4 + 1);
         return (
             <div className="detail-xq">
                 <DetailHeader>
@@ -34,7 +48,8 @@ class Detail extends Component {
                                 <Link className="go_home" to="/home">首页</Link>
                             </div>
                             <div className="right">
-                                <a href="javascript:;" className="love" onClick={()=>this.handleClick(id)}><i className={this.state.show ? 'current' : ''}> </i></a>
+                                <a href="javascript:;" className="love" onClick={() => this.handleClick(id)}><i
+                                    className={this.state.show ? 'current' : ''}> </i></a>
                                 <Link className="share" to="/share">
                                     <span></span>
                                 </Link>
@@ -43,7 +58,7 @@ class Detail extends Component {
                     }
                 </DetailHeader>
                 {
-                    dataCakeLIst&&dataComment.comment_list?(
+                    dataCakeLIst && dataComment.comment_list ? (
                         <div className="courseDiv">
                             {/*头部分*/}
                             <div className="arc_header">
@@ -55,7 +70,8 @@ class Detail extends Component {
                                 <div className="content">
                                     <div className="top">
                                         <div className="img">
-                                            <img src="http://beile.bakelulu.com.cn/FluvAmpf-qsWdScxXCgTUzBaOwlr" alt=""/>
+                                            <img src="http://beile.bakelulu.com.cn/FluvAmpf-qsWdScxXCgTUzBaOwlr"
+                                                 alt=""/>
                                         </div>
                                         <div className="text">
                                             <span>焙忘录</span>
@@ -69,8 +85,8 @@ class Detail extends Component {
                                         <div className="level">
                                             <ul className="current">
                                                 {
-                                                    ary.map((item,index)=>(
-                                                        <li className={index<num?'current':''} key={index}> </li>
+                                                    ary.map((item, index) => (
+                                                        <li className={index < num ? 'current' : ''} key={index}></li>
                                                     ))
                                                 }
                                             </ul>
@@ -242,11 +258,12 @@ class Detail extends Component {
                                 </div>
                             </div>
                         </div>
-                    ):''
-            }
+                    ) : ''
+                }
             </div>
         )
     }
 }
+
 export default connect(state => state.detail, actions)(Detail)
 

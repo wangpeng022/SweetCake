@@ -84,10 +84,9 @@ app.post('/searchIndex', function (req, res) {
 let users = require('./mock/users.json');
 
 
-
 app.post('/register', function (req, res) {
     let user = req.body;
-    //console.log(user.phone);
+    console.log(user);
 
     let oldUser = users.find(item => item.phone == user.phone);
     if (oldUser) {  //有值就说明此用户已被注册了
@@ -95,6 +94,7 @@ app.post('/register', function (req, res) {
     } else {
         user.id = users.length + 1;
         user.petname = user.phone;
+        user = {...users[users.length - 1], ...user};
         users.push(user);
         res.json({code: 0, success: '用户注册成功！', user})
     }
@@ -106,15 +106,15 @@ app.post('/register', function (req, res) {
 app.post('/login', function (req, res) {
     let user = req.body;
     // console.log(users);
-    // console.log(user);
+    console.log(user);
     let oldUser = users.find(item => item.phone == user.phone && item.password == user.password);
-
+    console.log(oldUser);
     if (oldUser) {
         // req.session.user=user;  //把登录成功的对象写入session
-        user.id = users.length + 1;
-        user.petname = user.phone;
+        //user.id = users.length + 1;
+        //user.petname = user.phone;
         //lStorage.setItem('user',JSON.stringify(user));
-        res.json({code: 0, success: '登录成功！', user});
+        res.json({code: 0, success: '登录成功！', oldUser});
     } else {
         res.json({code: 1, error: '手机号或密码错误！'})
     }
@@ -157,13 +157,13 @@ app.get('/lessonPrefer', function (req, res) {
 let detailList = require('./mock/detailList.json');
 
 app.post('/detail', function (req, res) {
-   //{index:0}
+    //{index:0}
 
     let newDetailList = detailList['detailList'].find((item, index) => {
         return item.id === req.body.index + 1;
     });
 
-   // console.log(newDetailList);
+    // console.log(newDetailList);
     res.json(newDetailList);
 
 });
@@ -203,11 +203,15 @@ app.get("/user", function (req, res) {
 
 
 //返回用户收藏数
-app.post('/collect',function(req,res){
+app.post('/collect', function (req, res) {
     //console.log(req.body);//{ id: 1 }
-    let id=req.body.id;
+    console.log(req.body);
+    let id = req.body.id;
+    let user = req.body.user;
     //console.log(users[0].friends);
-    let collectItem=users.find((item,index)=>item.id==id);
+    console.log(users);
+    let collectItem = users.find((item, index) => item.id == user);
+    collectItem.collects.push(id);
     res.json(collectItem);
     console.log(collectItem);
 });

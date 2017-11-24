@@ -14,9 +14,9 @@ export default {
             })
         }
     },
-    fetchUserCollect(id){
+    fetchUserCollect(data){
         return dispatch => {
-            fetchUserCollect(id).then(value => {
+            fetchUserCollect(data).then(value => {
                 dispatch({
                     type: types.FETCH_USER_COLLECT,
                     payload: value

@@ -41,7 +41,7 @@ class Lesson extends Component {
                         <Route path="/lesson/pack/first" render={()=><First lessons={this.props.lessons} getLessons={this.props.getLessons}/>}/>
 
                 </div>
-                <Route path="/lesson/course/:index" render={() => <Detail/>}/>
+                <Route path="/lesson/course/:index" render={(props) => <Detail {...props}/>}/>
             </div>
         )
     }

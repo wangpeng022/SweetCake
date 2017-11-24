@@ -14,7 +14,7 @@ class Course extends Component {
         this.props.fetchDetailLists(index)
     };
     render() {
-        //console.log(this.props);
+        console.log(this.props);
         return (
             <ul className="course-list">
                 {
@@ -57,5 +57,5 @@ class Course extends Component {
         )
     }
 }
-export default connect (null, actions)(Course)
+export default connect (state=>state.detail, actions)(Course)
 
