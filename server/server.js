@@ -168,20 +168,26 @@ app.post('/detail', function (req, res) {
 
 });
 app.post('/works', function (req, res) {
-    let user = users[0].friends.find((item) => {
+    let user = users.find((item) => {
         return item.id == req.body.id
     });
+    console.log(req.body);
     user.works.push(req.body);
     res.json(user);
 });
 app.post('/postDraft', function (req, res) {
-    let user = users[0].friends.find((item) => {
+    let user = users.find((item) => {
         return item.id == req.body.id
     });
     user.draft.push(req.body);
     res.json(user);
 });
-
+//获取用户信息
+app.get('/works', function (req, res) {
+    let user = users.find(item => item.id == req.query.id);
+    console.log(user);
+    res.json(user);
+});
 
 //获取其他用户的信息
 app.post('/getOthers', function (req, res) {
@@ -195,11 +201,11 @@ app.post('/getOthers', function (req, res) {
 
 });
 
-app.get("/user", function (req, res) {
+/*app.get("/user", function (req, res) {
 
     let tt = users[0].friends.find(item => item.id == req.body.match.params.id);
     res.json(tt);
-});
+});*/
 
 
 //返回用户收藏数

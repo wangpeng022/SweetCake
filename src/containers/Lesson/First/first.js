@@ -24,7 +24,7 @@ export default class First extends Component {
                                         <img src={item.url} alt=""/>
                                         <div className="title">{item.title}</div>
                                     </a>
-                                       <div key={index} className={this.state.show?'sign current':'sign'} />
+                                       {/*<div key={index} className="sign"/>*/}
                                 </div>
                             </li>
                         ))

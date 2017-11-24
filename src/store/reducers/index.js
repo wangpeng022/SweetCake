@@ -22,5 +22,4 @@ export default combineReducers({
     user,
     detail,
     getOthers
-
 })

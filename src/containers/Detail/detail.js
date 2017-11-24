@@ -50,9 +50,9 @@ class Detail extends Component {
                             <div className="right">
                                 <a href="javascript:;" className="love" onClick={() => this.handleClick(id)}><i
                                     className={this.state.show ? 'current' : ''}> </i></a>
-                                <Link className="share" to="/share">
+                                <a className="share">
                                     <span></span>
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     }
