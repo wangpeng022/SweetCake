@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Header from "../../components/Header/header";
 import {NavLink, Route, Link} from "react-router-dom"
 import "./speech.less"
+import {connect} from "react-redux"
+import {store} from '../../store';
+import actions from '../../store/actions/works';
 export default class Speech extends Component {
     render() {
         return (
@@ -54,3 +57,4 @@ export default class Speech extends Component {
         )
     }
 }
+export default connect(store => store.user, actions)();
