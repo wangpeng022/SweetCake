@@ -39,6 +39,11 @@ export default function (state = initState, action) {
                 ...state,
                 ...action.payload
             };
+        case types.GET_USER:
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }

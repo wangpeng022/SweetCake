@@ -9,10 +9,10 @@ import {connect} from 'react-redux'
 let num;
 let ary = [1, 2, 3, 4, 5];
 class Course extends Component {
-    handleClick=(e,index)=>{
+    /*handleClick=(e,index)=>{
         e.preventDefault;
         this.props.fetchDetailLists(index)
-    };
+    };*/
     render() {
         console.log(this.props);
         return (

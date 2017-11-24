@@ -65,3 +65,6 @@ export const POST_DRAFT = 'POST_DRAFT';
 //发送收藏详情id,返回用户收藏数据
 export const FETCH_USER_COLLECT='FETCH_USER_COLLECT';
 
+//获取用户全部数据
+export const GET_USER='GET_USER';
+
