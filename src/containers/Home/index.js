@@ -26,13 +26,15 @@ class Home extends Component {
         this.props.getFriend();
         //upMore(this.refs.content,()=>console.log(1111111111111));
         downRefresh(this.refs.content,()=>console.log(222222222222));
-        //fixed(this.refs.ss,".44rem")
     }
 
     componentWillUpdate() {
 
     }
+    change=()=>{
+        console.log(123123);
 
+    };
     render() {
         let swipeOptions = {
             continuous: false,
@@ -59,7 +61,7 @@ class Home extends Component {
                     <Swiper slider={mySlider}/>
                     <div className="list-tab" ref={"ss"}>
                         <span className={this.state.index == 0 ? "active" : ""}>最新</span>
-                        <span className={this.state.index == 1 ? "active" : ""}>朋友圈</span>
+                        <span onClick={this.change} className={this.state.index == 1 ? "active" : ""}>朋友圈</span>
                         <div className="slider" style={style}/>
                     </div>
                     <ReactSwipe className="carousel" swipeOptions={swipeOptions}>
