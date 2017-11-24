@@ -15,6 +15,7 @@ let initState = {
     phone: '',//电话
     password: '',//密码
     draft: [],//草稿
+    collections:[]
 };
 
 export default function (state = initState, action) {
@@ -30,6 +31,7 @@ export default function (state = initState, action) {
                 ...action.payload,
             };
         case types.GET_WORKS:
+
             return {
                 ...state,
                 ...action.payload,
@@ -44,6 +46,18 @@ export default function (state = initState, action) {
                 ...state,
                 ...action.payload
             };
+        case types.GET_COLLECTIONS:
+            return {
+                ...state,
+                collections:action.payload
+            };
+
+            // return {...state,
+            //     collect_img:payload.data-course.course_img,
+            //     collect_title:payload.data-course.course_title,
+            //     comment_counts:payload.data-comment.comment_count
+            // };
+
         default:
             return state;
     }

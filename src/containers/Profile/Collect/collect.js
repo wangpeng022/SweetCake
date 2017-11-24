@@ -1,13 +1,29 @@
 import React,{Component} from 'react';
 import './collect.less';
 import {connect} from 'react-redux'
+// import actions from '../../../store/actions/works'
 import actions from '../../../store/actions/session'
  class Collect extends Component{
-
+// componentWillReceiveProps(props){
+//     let collectId=props.collects;
+//
+// }
     componentDidMount(){
-        this.props.getCollections();
+        // let userId=this.props.id;
+
+        let otherId=JSON.parse(localStorage.getItem('user')).id;
+        // console.log(otherId,'saaaaaaaaaaaaaasssssss');
+        this.props.getCollections({otherId});
+
+
+
     }
     render(){
+         console.log(this.props);
+        let collect=this.props.collections||[];
+        console.log(collect
+            ,'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
+
         return (
             <div className="collect-top">
                 {/*头部：我的收藏*/}
@@ -38,21 +54,28 @@ import actions from '../../../store/actions/session'
                     {/*</li>*/}
                 {/*</ul>*/}
                 <ul className="collect-lists">
-                    <li>
-                        <a href="">
-                            <div className="collect-img"/>
-                            <div className="background"/>
-                        </a>
-                        <div className="collect-tittle">
-                            <p className="big-title">咸蛋黄肉松贝果</p>
-                            <p className="small-title">面包</p>
-                        </div>
-                        <div className="collect-data">
-                            收藏 9
-                            <span>·</span>
-                            评论 7
-                        </div>
-                    </li>
+                {collect.map(item=>(
+
+                        <li>
+                            <a href="">
+                                <div className="collect-img"/>
+                                <div className="background"/>
+                            </a>
+                            <div className="collect-tittle">
+                                {/*<p className="big-title">{this.props.collections.course_title}</p>*/}
+                                <p className="big-title">{item.dataCourse.course_title}</p>
+                                {/*<p className="small-title">面包</p>*/}
+                            </div>
+                            <div className="collect-data">
+                                收藏 {item.dataTopic.collect_num}
+                                {/*收藏 3*/}
+                                <span>·</span>
+                                评论 {item.dataTopic.course_count}
+                                {/*评论 5*/}
+                            </div>
+                        </li>
+
+                ))}
                 </ul>
             </div>
         )
@@ -60,6 +83,6 @@ import actions from '../../../store/actions/session'
 }
 
 export default connect(
-    state=>state.session,
+    state=>state.user,
     actions
 )(Collect);

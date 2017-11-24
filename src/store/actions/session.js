@@ -79,9 +79,9 @@ export default {
       }
     },
 
-    getCollections(){
+    getCollections(data){
         return dispatch=>{
-            getCollections().then(payload=>{
+            getCollections(data).then(payload=>{
                 dispatch({
                     type:types.GET_COLLECTIONS,
                     payload

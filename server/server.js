@@ -86,7 +86,7 @@ let users = require('./mock/users.json');
 
 app.post('/register', function (req, res) {
     let user = req.body;
-    console.log(user);
+    // console.log(user);
 
     let oldUser = users.find(item => item.phone == user.phone);
     if (oldUser) {  //有值就说明此用户已被注册了
@@ -106,9 +106,9 @@ app.post('/register', function (req, res) {
 app.post('/login', function (req, res) {
     let user = req.body;
     // console.log(users);
-    console.log(user);
+    // console.log(user);
     let oldUser = users.find(item => item.phone == user.phone && item.password == user.password);
-    console.log(oldUser);
+    // console.log(oldUser);
     if (oldUser) {
         // req.session.user=user;  //把登录成功的对象写入session
         //user.id = users.length + 1;
@@ -139,9 +139,7 @@ app.get('/signout', function (req, res) {
     //console.log(9000000);
 });
 
-app.listen(3000, function () {
-    console.log("端口 3000")
-});
+
 
 
 //获取课程包优选课程列表数据
@@ -155,7 +153,7 @@ app.get('/lessonPrefer', function (req, res) {
 //获取教程列表详情页数据
 
 let detailList = require('./mock/detailList.json');
-
+// console.log(detailList.detailList);
 app.post('/detail', function (req, res) {
     //{index:0}
 
@@ -211,13 +209,41 @@ app.post('/getOthers', function (req, res) {
 //返回用户收藏数
 app.post('/collect', function (req, res) {
     //console.log(req.body);//{ id: 1 }
-    console.log(req.body);
+    // console.log(req.body);
     let id = req.body.id;
     let user = req.body.user;
     //console.log(users[0].friends);
-    console.log(users);
+    // console.log(users);
     let collectItem = users.find((item, index) => item.id == user);
     collectItem.collects.push(id);
     res.json(collectItem);
-    console.log(collectItem);
+    // console.log(collectItem);
+});
+//登录成功后获取当前用户的收藏详情
+app.post('/getCollections',function (req,res) {
+    // let curId=req.body.userId;
+    // console.log(req.body);
+    let otherId=req.body.otherId;
+    let collection=[];
+    let user=users.find(item=>item.id==otherId);
+
+    detailList.detailList.filter(item=>{
+       if(user.collects.indexOf(item.id)>=0){
+          return collection.push(item);
+       }
+   });
+    // console.log(collection);
+    if(collection){
+       res.json(collection);
+   }else {
+       res.json({});
+   }
+
+});
+app.post('/collect',function (req, res) {
+
+});
+
+app.listen(3000, function () {
+    console.log("端口 3000")
 });

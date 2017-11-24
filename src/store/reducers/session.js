@@ -5,11 +5,7 @@ let initState={
     success:null,
     error:null,
     code:null,
-    collections:{
-        collect_img:null,
-        collect_title:null,
-        comment_counts:null
-    }
+
 
 };
 
@@ -39,12 +35,7 @@ export default function (state=initState,action) {
             }
         case types.SIGNOUT:
             return {...state,...action.payload};
-        case types.GET_COLLECTIONS:
-            return {...state,
-                collect_img:payload.data-course.course_img,
-                collect_title:payload.data-course.course_title,
-                comment_counts:payload.data-comment.comment_count
-            };
+
         default:
             return state;
     }
