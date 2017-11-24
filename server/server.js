@@ -173,11 +173,12 @@ app.post('/works', function (req, res) {
     user.works.push(req.body);
     res.json(user);
 });
-app.post('/postDraft', function (req, res) {
+app.post('/draft', function (req, res) {
     let user = users.find((item) => {
         return item.id == req.body.id
     });
     user.draft.push(req.body);
+    console.log(user);
     res.json(user);
 });
 //获取用户信息
