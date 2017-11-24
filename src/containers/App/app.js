@@ -30,6 +30,7 @@ import Cover from "./Cover/cover";
 import OtherDetail from "../OtherDetail/otherDetail";
 
 import Works from "../Works/works";
+import Speech from "../Speech/speech";
 
 /*import First from '../Lesson/First/first'*/
 
@@ -61,6 +62,7 @@ export default class App extends Component {
                         <Route path="/tools" component={Tools}/>
                         <Route path="/other/fangzi/:id" component={OtherDetail}/>
                         <Route path="/works" component={Works}/>
+                        <Route path="/speech" component={Speech}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
