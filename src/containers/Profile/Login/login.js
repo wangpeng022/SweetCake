@@ -63,7 +63,7 @@ class Login extends Component {
                 <div className="register-form">
                     <form>
                         <div className="phone">
-                            <input ref={input => this.phone = input}
+                            <input autoFocus ref={input => this.phone = input}
                                    onFocus={this.disappear}
                                    type="text" placeholder="请输入11位手机号码"/>
                             {/*{this.phone ? this.phone.value === '' ?*/}
