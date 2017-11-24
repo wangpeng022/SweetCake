@@ -87,7 +87,7 @@ class Myworks extends Component {
                                                 {this.props.create_time}
                                             </div>
                                             <div className="works-img">
-                                                <img src='http://beile.bakelulu.com.cn/Fgj9OXtQTuPMRzUev0FUCv1CE-3f'
+                                                <img src={item.url}
                                                      alt=""/>
                                             </div>
                                             <div className="works-footer">
