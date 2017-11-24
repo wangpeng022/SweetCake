@@ -1,20 +1,25 @@
 import React,{Component} from 'react';
 import './collect.less';
 import {connect} from 'react-redux'
+// import actions from '../../../store/actions/works'
 import actions from '../../../store/actions/session'
  class Collect extends Component{
-
+// componentWillReceiveProps(props){
+//     let collectId=props.collects;
+//
+// }
     componentDidMount(){
         // let userId=this.props.id;
-        // let otherId=this.props.collects;
+
         let otherId=JSON.parse(localStorage.getItem('user')).id;
         // console.log(otherId,'saaaaaaaaaaaaaasssssss');
         this.props.getCollections({otherId});
 
+
+
     }
     render(){
-        // console.log(this.props.collects
-        //     ,'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
+         console.log(this.props);
         let collect=this.props.collections||[];
         console.log(collect
             ,'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');

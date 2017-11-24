@@ -225,8 +225,10 @@ app.post('/getCollections',function (req,res) {
     // console.log(req.body);
     let otherId=req.body.otherId;
     let collection=[];
+    let user=users.find(item=>item.id==otherId);
+
     detailList.detailList.filter(item=>{
-       if(otherId.indexOf(item.id)>=0){
+       if(user.collects.indexOf(item.id)>=0){
           return collection.push(item);
        }
    });
@@ -236,6 +238,9 @@ app.post('/getCollections',function (req,res) {
    }else {
        res.json({});
    }
+
+});
+app.post('/collect',function (req, res) {
 
 });
 
