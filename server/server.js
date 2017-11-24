@@ -207,19 +207,6 @@ app.post('/getOthers', function (req, res) {
 });*/
 
 
-//返回用户收藏数
-app.post('/collect', function (req, res) {
-    //console.log(req.body);//{ id: 1 }
-    // console.log(req.body);
-    let id = req.body.id;
-    let user = req.body.user;
-    //console.log(users[0].friends);
-    // console.log(users);
-    let collectItem = users.find((item, index) => item.id == user);
-    collectItem.collects.push(id);
-    res.json(collectItem);
-    // console.log(collectItem);
-});
 //登录成功后获取当前用户的收藏详情
 app.post('/getCollections',function (req,res) {
     // let curId=req.body.userId;
@@ -241,8 +228,19 @@ app.post('/getCollections',function (req,res) {
    }
 
 });
+
+//返回用户收藏数
 app.post('/collect',function (req, res) {
 
+    let id = req.body.id;
+    let user = req.body.user;
+    let collectItem = users.find((item, index) => item.id == user);
+    console.log(collectItem);
+    if(collectItem){
+        collectItem.collects.push(id);
+        console.log(collectItem);
+        res.json(collectItem);
+    }
 });
 
 app.listen(3000, function () {

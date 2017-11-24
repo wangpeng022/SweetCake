@@ -14,7 +14,7 @@ class Course extends Component {
         this.props.fetchDetailLists(index)
     };*/
     render() {
-        console.log(this.props);
+       // console.log(this.props);
         return (
             <ul className="course-list">
                 {
@@ -25,7 +25,7 @@ class Course extends Component {
                                 <li key={index}>
                                 <div className="content">
                                     {/*跳转详情页*/}
-                                    <Link to={`/lesson/course/${index}`} onClick={(e)=>this.handleClick(e,index)}>
+                                    <Link to={`/lesson/course/${index}`}>
                                         <div className="img">
                                             <img src={item.url} alt=""/>
                                             <div className="data">

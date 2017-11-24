@@ -29,15 +29,30 @@ class Detail extends Component {
         } else {
             alert('请先登录');
         }
-
-
     };
-
+    handleShow=()=>{
+        if(this.refs.fullBg.style.display=='none'&&this.refs.shareContent.style.display=='none'){
+            this.refs.fullBg.style.display='block';
+            this.refs.shareContent.style.display='block';
+        }else{
+            this.refs.fullBg.style.display='none';
+            this.refs.shareContent.style.display='none';
+        }
+    };
+    handleCancel=()=>{
+        if(this.refs.fullBg.style.display=='block'&&this.refs.shareContent.style.display=='block'){
+            this.refs.fullBg.style.display='none';
+            this.refs.shareContent.style.display='none';
+        }else{
+            this.refs.fullBg.style.display='block';
+            this.refs.shareContent.style.display='block';
+        }
+    };
     render() {
-        console.log(this.props, 'xxxxxxx');
+       // console.log(this.props, 'xxxxxxx');
         let {id, message, dataCourse, dataCakeLIst, dataComment, dataTopic} = this.props;
         //console.log(dataCakeLIst);
-        console.log(id);
+       // console.log(id);
         let num = Math.round(Math.random() * 4 + 1);
         return (
             <div className="detail-xq">
@@ -50,7 +65,7 @@ class Detail extends Component {
                             <div className="right">
                                 <a href="javascript:;" className="love" onClick={() => this.handleClick(id)}><i
                                     className={this.state.show ? 'current' : ''}> </i></a>
-                                <a className="share">
+                                <a className="share" onClick={this.handleShow}>
                                     <span></span>
                                 </a>
                             </div>
@@ -256,6 +271,32 @@ class Detail extends Component {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="full_bg" ref="fullBg" onClick={this.handleCancel}></div>
+                            <div className="share_content" ref="shareContent">
+                                <div className="title">分享到</div>
+                                <div className="content">
+                                    <ul>
+                                        <li className="nativeShare weixin">
+                                            <div className="pic">
+                                                <img src={require('../Images/share_wechat.png')} alt=""/>
+                                            </div>
+                                            <span className="fs_12">微信</span>
+
+                                        </li>
+                                        <li className="nativeShare weixin_timeline">
+                                            <div className="pic">
+                                                <img src={require('../Images/share_friends.png')} alt=""/>
+                                            </div>
+                                            <span className="fs_12">朋友圈</span>
+                                        </li>
+                                        <li>
+                                            <div className="pic"><img src={require('../Images/share_sina.png')} alt=""/></div>
+                                            <span className="fs_12">微博</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="btn">取消</div>
                             </div>
                         </div>
                     ) : ''
