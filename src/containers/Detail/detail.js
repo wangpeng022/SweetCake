@@ -30,6 +30,7 @@ class Detail extends Component {
             alert('请先登录');
         }
     };
+    
     handleShow=()=>{
         if(this.refs.fullBg.style.display=='none'&&this.refs.shareContent.style.display=='none'){
             this.refs.fullBg.style.display='block';
