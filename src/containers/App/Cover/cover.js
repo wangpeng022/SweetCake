@@ -39,7 +39,10 @@ export default class Cover extends Component {
                         this.props.history.push('/works');
                         this.cover()
                     }} className="write" style={this.state.styleWrite}/>
-                    <div className="caogao" style={this.state.styleCaoGao}/>
+                    <div onClick={() => {
+                        this.props.history.push('/speech');
+                        this.cover()}}
+                        className="caogao" style={this.state.styleCaoGao}/>
                 </div>
                 {
                     this.state.isCover ? <div className="cover-all" onClick={this.cover}>
