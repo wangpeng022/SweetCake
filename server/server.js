@@ -156,13 +156,14 @@ app.get('/lessonPrefer', function (req, res) {
 
 let detailList = require('./mock/detailList.json');
 
-
 app.post('/detail', function (req, res) {
    //{index:0}
 
     let newDetailList = detailList['detailList'].find((item, index) => {
         return item.id === req.body.index + 1;
     });
+
+   // console.log(newDetailList);
     res.json(newDetailList);
 
 });
@@ -198,4 +199,15 @@ app.get("/user", function (req, res) {
 
     let tt = users[0].friends.find(item => item.id == req.body.match.params.id);
     res.json(tt);
+});
+
+
+//返回用户收藏数
+app.post('/collect',function(req,res){
+    //console.log(req.body);//{ id: 1 }
+    let id=req.body.id;
+    //console.log(users[0].friends);
+    let collectItem=users.find((item,index)=>item.id==id);
+    res.json(collectItem);
+    console.log(collectItem);
 });
