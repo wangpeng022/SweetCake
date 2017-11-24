@@ -68,7 +68,10 @@ class Works extends Component {
             if (id && this.state.title && this.state.url && this.state.describe) {
                 let works = {...this.state, id: id};
                 this.props.postWorks(works);
-
+                this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: '一次就提交成功了呢'});
+                setTimeout(() => {
+                    this.props.history.push('/');
+                }, 1700);
             } else {
                 this.setState({
                     face: '(๑╹◡╹)ﾉ"""',
