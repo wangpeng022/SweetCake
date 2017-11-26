@@ -27,7 +27,7 @@ class Detail extends Component {
     }
 
     handleClick = (id) => {
-        // console.log(id);
+         console.log(id);
         let user = JSON.parse(localStorage.getItem('user'));
         console.log(user);
         if (user) {
@@ -79,7 +79,7 @@ class Detail extends Component {
                                 <Link className="go_home" to="/home">首页</Link>
                             </div>
                             <div className="right">
-                                <a href="javascript:;" className="love" onClick={() => this.handleClick(id)}><i
+                                <a href="javascript:;" className="love" onClick={() => this.handleClick(this.props.match.params.index)}><i
                                     className={this.state.show ? 'current' : ''}> </i></a>
                                 <a className="share" onClick={this.handleShow}>
                                     <span></span>
