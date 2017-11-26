@@ -4,13 +4,21 @@ import DetailHeader from "../../components/DetailHeader/detail-header.js";
 import {Route, Link} from 'react-router-dom';
 import actions from '../../store/actions/details'
 import {connect} from 'react-redux'
-
+import Comment from '../comment/CommentApp.js'
 let ary = [1, 2, 3, 4, 5];
+let comment=localStorage.getItem('userComment');
+let getUserComment=JSON.parse(comment);
+console.log(getUserComment);
 
+
+let user = JSON.parse(localStorage.getItem('user'));
 class Detail extends Component {
     constructor() {
         super();
-        this.state = {show: false}
+        this.state = {
+            show: false,
+            isShow:false,
+        }
     }
 
     componentDidMount() {
@@ -21,9 +29,10 @@ class Detail extends Component {
     handleClick = (id) => {
         // console.log(id);
         let user = JSON.parse(localStorage.getItem('user'));
+        console.log(user);
         if (user) {
             this.setState({
-                show: !this.state.show
+                show: !this.state.show,
             });
             this.props.fetchUserCollect({id, user: user.id})
         } else {
@@ -48,6 +57,11 @@ class Detail extends Component {
             this.refs.fullBg.style.display='block';
             this.refs.shareContent.style.display='block';
         }
+    };
+    handleIsShow=()=>{
+        this.setState({
+            isShow:!this.state.isShow
+        })
     };
     render() {
        // console.log(this.props, 'xxxxxxx');
@@ -217,9 +231,9 @@ class Detail extends Component {
                                 <div className="content">
                                     <div className="title_frame">
                                         <h3>这个教程的评论</h3>
-                                        <span>
+                                        {/*<span>
                                     <a href="#">{dataComment.comment_count}条评论</a>
-                                </span>
+                                </span>*/}
                                     </div>
                                     <div className="content_frame">
                                         <ul>
@@ -231,8 +245,8 @@ class Detail extends Component {
                                                     </div>
                                                     <div className="right">
                                                         <div className="click_frame">
-                                                            <i></i>
-                                                            <span className="fs_12 count">0</span>
+                                                            <i className={this.state.isShow?'current':''} onClick={this.handleIsShow}></i>
+                                                           {/* <span className="fs_12 count">0</span>*/}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -246,12 +260,12 @@ class Detail extends Component {
                                                 </div>
                                             </li>
                                         </ul>
-                                        <a href="#" className="write">
+                                        <Link to="/comment" className="write">
                                    <span>
                                        <i></i>
                                        写评论
                                    </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -261,6 +275,7 @@ class Detail extends Component {
                                     <div className="border"></div>
                                     <span className="fs_18">相关教程</span>
                                 </div>
+                                <Link to='/lesson/pack/first'>
                                 <div className="content">
                                     <div className="pic">
                                         <img src={dataTopic.topic_img} alt=""/>
@@ -272,6 +287,7 @@ class Detail extends Component {
                                         </div>
                                     </div>
                                 </div>
+                                </Link>
                             </div>
                             <div className="full_bg" ref="fullBg" onClick={this.handleCancel}></div>
                             <div className="share_content" ref="shareContent">
@@ -302,10 +318,10 @@ class Detail extends Component {
                         </div>
                     ) : ''
                 }
+                <Route path="/comment" component={Comment}/>
             </div>
         )
     }
 }
-
 export default connect(state => state.detail, actions)(Detail)
 

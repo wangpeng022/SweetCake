@@ -31,6 +31,8 @@ import OtherDetail from "../OtherDetail/otherDetail";
 import Works from "../Works/works";
 import Speech from "../Speech/speech";
 
+import Comment from '../comment/CommentApp.js'
+
 /*import First from '../Lesson/First/first'*/
 let WithCover = withRouter(function (props) {
     return <Cover {...props}/>
@@ -64,6 +66,7 @@ export default class App extends Component {
                         <Route path="/other/fangzi/:id" component={OtherDetail}/>
                         <Route path="/works" component={Works}/>
                         <Route path="/speech" component={Speech}/>
+                        <Route path="/comment" component={Comment}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
