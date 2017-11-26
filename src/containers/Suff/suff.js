@@ -1,22 +1,25 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Link} from 'react-router-dom';
 import DetailHeader from "../../components/DetailHeader/detail-header.js";
-let url='';
-export default class Suff extends Component{
-    componentWillUpdate(){
+
+let url = '';
+export default class Suff extends Component {
+    componentWillUpdate() {
         //this.$input
     }
-    handleClick=()=>{
+
+    handleClick = () => {
         console.log(this.$img);
         console.log(this.$input.files);
-        let url =window.URL.createObjectURL(this.$input.files[0]);
+        let url = window.URL.createObjectURL(this.$input.files[0]);
         console.log(url);
-        this.$img.src=url;
+        this.$img.src = url;
         console.dir(this.$input);
         this.setState({});
     };
-    render(){
+
+    render() {
         return (
             <div className="suff">
                 <DetailHeader>
@@ -32,224 +35,205 @@ export default class Suff extends Component{
                         </div>
                     }
                 </DetailHeader>
-                <div>
-                    <div className="suff-body">
-                        <div className="suff-img1">
-                            <img src="http://beile.bakelulu.com.cn/recipe/o_1bvej1ujg1p841itj1en7lba19r8f.png?imageView2/1/w/720/h/540" alt=""/>
-                        </div>
-                        <div className="suff-title">
-                            <h2>咸蛋黄肉松贝果</h2>
-                            <p>面包</p>
-                            <span>
+                <div className="suff-body">
+                    <div className="suff-img1">
+                        <img
+                            src="http://beile.bakelulu.com.cn/recipe/o_1bvep6f2f14a5946d7tdsa2m0f.png?imageView2/1/w/720/h/540"
+                            alt=""/>
+                    </div>
+                    <div className="suff-title">
+                        <h2>咸蛋黄肉松贝果</h2>
+                        <p>面包</p>
+                        <span>
                                 创建于 2017-11-21
-                                <i></i>
+                                <i/>
                             </span>
-                        </div>
-                        <input onChange={this.handleClick} ref={input=>this.$input=input}type="file" className="file"/>
-                        <img className="img2" ref={img=>this.$img=img} src={url} alt=""/>
+                    </div>
+                    <div className="msg">
+                        <img
+                            src="http://tvax4.sinaimg.cn/crop.0.0.751.751.50/68b03333ly8fevtg4195kj20kv0kv0tt.jpg"/>
+                        <h3 className="fs_16">姗胖胖</h3>
+                    </div>
+                    <div className="difficulty"><h4 className="fs_18">难度</h4>
+                        <ul>
+                            <li className="current"></li>
+                            <li className="current"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div className="time">
+                        <div className="zero">0分钟</div>
+                        <div className="twelve">20分钟</div>
+                        <div className="zero">0分钟</div>
+                        <span>准备时间</span>
+                        <span>烘焙时间</span>
+                        <span>组装时间</span>
+                    </div>
+                    <div className="temperature">
+                        <h4>温度</h4>
+                        <p>上管温度 180 度</p>
+                        <p>下管温度 180 度</p>
+                    </div>
+                    <div className="pic">
+                        <h4>分量</h4>
+                        <div className="ss">x6个</div>
+                        <span>-</span>
+                        <span>+</span>
+                    </div>
+                    <div className="needs">
+                        <h4>食材</h4>
+                        <span>公制</span>
+                        <span>英制</span>
+                    </div>
+                    <div className="list">
+                        <ul>
+                            <li>
+                                <div className="left"><i></i>黄油A</div>
+                                <div className="right">
+                                    <span className="gram">35</span>
+                                    <span className="food_unit">克</span>
+                                </div>
+                            </li>
+                            <li className="m_b_8">
+                                <div className="left"><i></i>淡奶油</div>
+                                <div className="right"><span className="gram">50</span><span
+                                    className="food_unit">克</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>鸡蛋</div>
+                                <div className="right"><span className="gram">1</span><span
+                                    className="food_unit">个</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>椰糖</div>
+                                <div className="right"><span className="gram">50</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li className="m_b_8">
+                                <div className="left"><i></i>红酒</div>
+                                <div className="right"><span className="gram">20</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>低筋面粉</div>
+                                <div className="right"><span className="gram">70</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>泡打粉</div>
+                                <div className="right"><span className="gram">2</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>杏仁粉</div>
+                                <div className="right"><span className="gram">25</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li className="m_b_8">
+                                <div className="left"><i></i>提子干</div>
+                                <div className="right"><span className="gram">30</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>马斯卡朋</div>
+                                <div className="right"><span className="gram">80</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>红酒</div>
+                                <div className="right"><span className="gram">10</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li>
+                                <div className="left"><i></i>淡奶油</div>
+                                <div className="right"><span className="gram">50</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li className="m_b_8">
+                                <div className="left"><i></i>糖粉</div>
+                                <div className="right"><span className="gram">12</span><span
+                                    className="food_unit">克</span></div>
+                            </li>
+                            <li className="m_b_8">
+                                <div className="left"><i></i>提子</div>
+                                <div className="right"><span className="gram">6</span><span
+                                    className="food_unit">个</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="now">
+                        马上跟做
+                    </div>
+                    <div className="content_frame">
+                        <div className="content">
+                            <div className="step">步骤1／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bvepg4fdoq7167jq3711p4nk0q.png" alt=""/>
+                            <p className="description">烤箱180℃预热；黄油、淡奶油放入碗中，微波加热至黄油完全融化，用蛋抽搅拌均匀，放凉备用；</p><p
+                            className="ingredients fs_14">黄油A <span className="unitFood">35克</span>,淡奶油
+                            <span className="unitFood">50克</span></p></div>
+                        <div className="content">
+                            <div className="step">步骤2／10</div>
+                            <img
+                                src="http://beile.bakelulu.com.cn/step/o_1bvepirqnieqrss1t981h379iq15.png?imageView2/1/w/720/h/540"
+                                alt=""/>
+                            <p className="description">鸡蛋、椰糖、红酒放入料理盆中，用蛋抽混合均匀；</p><p className="ingredients fs_14"><i
+                            className="icon1"></i>鸡蛋 <span className="unitFood">1个</span>,椰糖 <span className="unitFood">50克</span>,红酒
+                            <span className="unitFood">20克</span></p></div>
+                        <div className="content">
+                            <div className="step">步骤3／10</div>
+                            <img
+                                src="http://beile.bakelulu.com.cn/step/o_1bvepl05dmni1di0o4r175itac1g.png?imageView2/1/w/720/h/540"
+                                alt=""/>
+                            <p className="description">将冷却的黄油奶油混合物倒入料理盆中，用蛋抽混合均匀；</p></div>
+                        <div className="content">
+                            <div className="step">步骤4／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bvepp021qhl1u0f123514on3ia20.png?imageView2/1/w/720/h/540" alt=""/>
+                            <p className="description">混合筛入低筋面粉和泡打粉，倒入杏仁粉，用蛋抽沿不规则的方向混合均匀，切勿画圈；再倒入提子干，用刮刀翻拌均匀；</p><p
+                            className="ingredients fs_14">低筋面粉 <span
+                            className="unitFood">70克</span>,泡打粉
+                            <span className="unitFood">2克</span>,杏仁粉 <span className="unitFood">25克</span>,提子干 <span
+                                className="unitFood">30克</span></p></div>
+                        <div className="content">
+                            <div className="step">步骤5／10</div>
+                            <img
+                                src="http://beile.bakelulu.com.cn/step/o_1bveq694po4p1ddavk018dlfhh2b.png?imageView2/1/w/720/h/540"
+                                alt=""/>
+                            <p className="description">面糊倒入裱花袋中，挤入模具，180度烤20分钟；<br/>烤箱上管温度 180 度<br/>烤箱下管温度 180 度</p>
+                            <p className="time_frame fs_14">用时 20 分钟</p></div>
+                        <div className="content">
+                            <div className="step">步骤6／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bveqdee54j3s63a8g19tr1cgn30.png?imageView2/1/w/720/h/540" alt=""/>
+                            <p className="description">烤至表面金黄即可出炉冷却；</p></div>
+                        <div className="content">
+                            <div className="step">步骤7／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bveqhc7j1ig6i051k061p40aie3b.png?imageView2/1/w/720/h/540" alt=""/>
+                            <p className="description">黄油软化，和马斯卡彭放入料理盆中，用蛋抽混合至顺滑细腻，倒入剩下所有材料，用电动打蛋器低速打至比较硬，可以裱花的程度；</p><p
+                            className="ingredients fs_14"><i className="icon1"></i>黄油B <span
+                            className="unitFood">35克</span>,马斯卡朋
+                            <span className="unitFood">80克</span>,红酒 <span className="unitFood">10克</span>,淡奶油 <span
+                                className="unitFood">50克</span>,糖粉 <span className="unitFood">12克</span></p></div>
+                        <div className="content">
+                            <div className="step">步骤8／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bveqlsv4acteva1vbr1jovk2q3m.png?imageView2/1/w/720/h/540" alt=""/>
+                            <p className="description">夹心用的提子或葡萄剥皮去籽；</p><p className="ingredients fs_14"><i
+                            className="icon1"></i>提子
+                            <span className="unitFood">6个</span></p></div>
+                        <div className="content">
+                            <div className="step">步骤9／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bveqpa4bvg4dip1bj318udf0446.png?imageView2/1/w/720/h/540" alt=""/>
+                            <p className="description">蛋糕用刀子挖一个小坑，把提子填进去；用裱花袋装上星形花嘴，挤上奶酪霜，装饰切半的提子与薄荷叶，完成！</p></div>
+                        <div className="content">
+                            <div className="step">步骤10／10</div>
+                            <img src="http://beile.bakelulu.com.cn/step/o_1bveqqhip1br4goa1rru190hu1g4h.png?imageView2/1/w/720/h/540" alt=""/>
+                            <p className="description">非常油润绵密的口感，超好吃。</p></div>
                     </div>
                 </div>
-                {/*<div className="courseDiv">
-                    头部分
-                    <div className="arc_header">
-                        <div className="pic">
-                            <img src="http://beile.bakelulu.com.cn/course/56456190d9ae450db7179eb6062c0518_temp.jpg"
-                                 alt=""/>
-                        </div>
-                        <h2 className="fs_18">派皮制作与入模小技巧</h2>
-                        <div className="content">
-                            <div className="top">
-                                <div className="img">
-                                    <img src="http://beile.bakelulu.com.cn/FluvAmpf-qsWdScxXCgTUzBaOwlr" alt=""/>
-                                </div>
-                                <div className="text">
-                                    <span>焙忘录</span>
-                                    <p className="fs_14">烘焙是生活的俄一道光</p>
-                                </div>
-                            </div>
-                            <div className="middle">
-                                详细解答了派皮的制作与入模小技巧，如果还有疑问，欢迎来微博提问哟！@焙忘录的主页君
-                            </div>
-                            <div className="bottom">
-                                <div className="level">
-                                    <ul className="current">
-                                        <li className="current"></li>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                    </ul>
-                                    <p>难度基于5分</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="arc_content">
-                        <p>
-                            <span>派皮是烘焙中很常用的一个单品，制作简单保存方便，不同的填馅就能带来变化丰富的口味，实用度非常高!</span>
-                        </p>
-                        <p>
-                            <span>接下来就说说派皮的详细做法（本篇仅做步骤和做法的分享，具体的分量大家要参照自己的配方进行）：</span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                1、把砂糖和盐加入低粉，搅拌均匀。然后加入黄油块，用面粉裹住；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/d9866b9eabc941229797ce1ee1f0d0c7.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                2、用手快速将黄油一个个捏扁，用面粉裹住（这一步非常解压，我很喜欢）。注意不需要搓得非常细碎，可以保留一些片状黄油；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/65c83043e6d24b12a3a3b6f806a5f134.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                               3、加入冰水，用刮板切拌至基本成团；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/eb3ce609539040959dc8ec1bd225da5a.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                4、将碎面块聚到一起。然后用手掌将面团压平推开、再折叠成团，重复一两次，直至没有散开的面块。这一步是为了让面团中较大块的黄油抻拉为比较薄的片状。注意一旦成团就停止，不要过度揉面，以免形成太强的面筋；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/246e07e76b7b419c8e32e1561e66df9a.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                5、和好的面团用保鲜膜包紧后，用擀面杖压平擀薄。保证面团挤压到保鲜膜的每一个角落，不留任何干碎的面块。冷藏松弛至少15分钟；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/68b08e1d1c27484fa6a59b14cf5bbecd.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                6、做好的派皮有些会装入到活底模中使用，如图中这样：
-                                <img src="http://beile.bakelulu.com.cn/ueditor/3c02f8d2492048b28869d77d69377f67.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                但更多的，是装进常用的派盘中使用。
-                                <img src="http://beile.bakelulu.com.cn/ueditor/541edc7938014060976ffb45699af91a.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                想要把派皮完整、漂亮的装入到派盘中，也需要一些小技巧：
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                1、将冷藏松弛好的派皮面团拿出来，稍微回温变软，用擀面杖擀平成大于派盘的尺寸。
-                                <img src="http://beile.bakelulu.com.cn/ueditor/9d60384c987948318376f38a8847ee4c.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                2、用擀面杖将派皮慢慢卷起，再将卷着派皮的擀面杖放在派盘上方，接着一边卷动擀面杖，一边把派皮慢慢转出来盖在派盘上；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/82871908fb5e429eb2ab1ab25d8fd5d5.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                拿一块边缘多出来的派皮捏成小团，把派皮沿着模具边缘轻轻按下，整形；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/077c05d30b8a47bd9fd244cd8dc95b0d.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                再借助擀面杖在派盘顶部压过，去掉多余的派皮；
-                                <img src="http://beile.bakelulu.com.cn/ueditor/eb06e609fa0443ada4e6d0005cc22017.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                最后用叉子戳孔。
-                                <img src="http://beile.bakelulu.com.cn/ueditor/aab02d76f3fb46de9a982359add17448.png" alt=""/>
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                最后装入填馅。如果填馅制作时间长，记得把派皮连同派盘放回冰箱冷藏；如果填馅已经准备好，可以直接装入派皮中，或预烤派皮后再装填馅。
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span>
-                                派皮还是挺皮实的一个单品，操作起来也并不复杂，赶快试试吧！
-                            </span>
-                        </p>
-                        <p className="child">
-                            <span></span>
-                        </p>
-                        <br/>
-                    </div>
-                    <div className="arc_end fs_14">
-                        新技能get，快去练习一下吧～
-                    </div>
-                    <div className="arc_comment custom_frame">
-                        <div className="content">
-                            <div className="title_frame">
-                                <h3>这个教程的评论</h3>
-                                <span>
-                                    <a href="#">1条评论</a>
-                                </span>
-                            </div>
-                            <div className="content_frame">
-                                <ul>
-                                    <li>
-                                        <div className="head_frame">
-                                            <div className="left">
-                                                <img src="http://wx.qlogo.cn/mmhead/50HcP4UOeLU8Mqk3A4y07VYs8MUl3NibunQfI3tyCRKGYoyKExcwO0w/0" alt=""/>
-                                                <span>北冥有鱼，其名为姗。</span>
-                                            </div>
-                                            <div className="right">
-                                                <div className="click_frame">
-                                                    <i></i>
-                                                    <span className="fs_12 count">0</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="center_frame fs_14">
-                                            派皮也可用于蛋挞皮么
-                                        </div>
-                                        <div className="bottom_frame fs_12">
-                                            2017-07-17
-                                            <span>·</span>
-                                            <a href="#">举报</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <a href="#" className="write">
-                                   <span>
-                                       <i></i>
-                                       写评论
-                                   </span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="arc_course">
-                        <div className="title">
-                            <div className="border"></div>
-                            <span className="fs_18">相关教程</span>
-                        </div>
-                        <div className="content">
-                            <div className="pic">
-                                <img src="http://beile.bakelulu.com.cn/recipe/306fe0cf3aa447658ee9413ce527eb03_temp.jpg" alt=""/>
-                            </div>
-                            <div className="text">
-                                <div className="msg">
-                                    <h3>一键掌握空气戚风</h3>
-                                    <p className="fs_12">共7个课程</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>*/}
             </div>
-        )
+    )
     }
-}
-import './suff.less';
+    }
+    import './suff.less';
