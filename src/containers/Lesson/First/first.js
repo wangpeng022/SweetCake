@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import './first.less'
-
+import {Route, NavLink, Link, Redirect, Switch} from 'react-router-dom';
 export default class First extends Component {
     constructor(){
         super();
         this.state={show:false}
     }
-    handleClick=()=>{
+   /* handleClick=(e)=>{
       this.setState({
           show:!this.state.show
       })
-    };
+    };*/
     render() {
         //console.log(this.props);
         //console.log(this.props.lessons);
@@ -20,15 +20,16 @@ export default class First extends Component {
                         this.props.lessons.map((item,index)=>(
                             <li className="current" key={index}>
                                 <div className="frame">
-                                    <a href="javascript:;" onClick={this.handleClick}>
+                                    <Link to={`/lesson/course/${index}`}>
                                         <img src={item.url} alt=""/>
                                         <div className="title">{item.title}</div>
-                                    </a>
+                                    </Link>
                                        {/*<div key={index} className="sign"/>*/}
                                 </div>
                             </li>
                         ))
                     }
+
                 </ul>
         )
     }
