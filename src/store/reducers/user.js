@@ -15,7 +15,8 @@ let initState = {
     phone: '',//电话
     password: '',//密码
     draft: [],//草稿
-    collections:[]
+    collections:[],
+    compile:{},//编辑的草稿
 };
 
 export default function (state = initState, action) {
@@ -57,7 +58,11 @@ export default function (state = initState, action) {
             //     collect_title:payload.data-course.course_title,
             //     comment_counts:payload.data-comment.comment_count
             // };
-
+        case types.COMPILE_DRAFT:
+                return{
+                    ...state,
+                    compile:action.payload
+                };
         default:
             return state;
     }

@@ -7,7 +7,7 @@ import actions from "../../store/actions/search";
 import {CSSTransition} from 'react-transition-group';
 
 const Fade = ({children, ...props}) => {
-    console.log({...props});
+    //console.log({...props});
     return (
         <CSSTransition
             {...props}
@@ -64,13 +64,13 @@ class Search extends Component {
     };
 
     componentWillReceiveProps(props) {
-        console.log(props);
-        console.log(props.keyword);
+        //console.log(props);
+        //console.log(props.keyword);
         this.state.recent = (JSON.parse(localStorage.getItem('search')) || []);
     }
 
     handleKeyUp = (e) => {
-        console.log(e.keyCode);
+        //console.log(e.keyCode);
         let keyCode = e.keyCode;
         if (e.target === this.$input && keyCode === 13) {
             this.handleClick(e);
@@ -81,15 +81,15 @@ class Search extends Component {
     };
 
     render() {
-        console.log(this.props.match);
+        //console.log(this.props.match);
         url = this.props.location.pathname;
-        console.log(this.props);
+       // console.log(this.props);
         return (
             <div className="home-search" onKeyUp={this.handleKeyUp}>
                 <div className="search-header">
                     <div onClick={() => {
                         this.props.history.goBack();
-                        console.log(this.props.match);
+                        //console.log(this.props.match);
                     }} className="search-back">
                         <i> </i>
                     </div>

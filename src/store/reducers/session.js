@@ -5,8 +5,6 @@ let initState={
     success:null,
     error:null,
     code:null,
-
-
 };
 
 export default function (state=initState,action) {

@@ -32,6 +32,12 @@ export default {
                 })
             })
         }
+    },
+    compileDraft(data) {
+        return {
+            type: types.COMPILE_DRAFT,
+            payload: data
+        }
     }
 }
 

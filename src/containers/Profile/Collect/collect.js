@@ -58,7 +58,9 @@ import actions from '../../../store/actions/session'
 
                         <li>
                             <a href="">
-                                <div className="collect-img"/>
+                                <div className="collect-img">
+                                    <img src={item.dataCourse.course_img} alt=""/>
+                                </div>
                                 <div className="background"/>
                             </a>
                             <div className="collect-tittle">
