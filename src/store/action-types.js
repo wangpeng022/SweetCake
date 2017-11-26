@@ -72,3 +72,5 @@ export const GET_USER = 'GET_USER';
 export const COMPILE_DRAFT = 'COMPILE_DRAFT';
 //删除评论
 export const DELETE_COMMENT = 'DELETE_COMMENT';
+//添加评论
+export const ADD_COMMENT = 'ADD_COMMENT';
