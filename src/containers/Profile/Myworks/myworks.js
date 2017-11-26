@@ -46,13 +46,13 @@ class Myworks extends Component {
     };
 
     componentDidMount() {
+        console.log(JSON.parse(localStorage.getItem('user')));
         let user = JSON.parse(localStorage.getItem('user')).id;
-        console.log(user);
         this.props.getUser(user);
     }
 
     componentWillReceiveProps(props) {
-        console.log(props);
+        console.log(props.works);
         this.setState({works: props.works});
     }
 
@@ -73,7 +73,7 @@ class Myworks extends Component {
                                         <a href="">
                                             <div className="picture">
                                                 <div onClick={this.handleClick}
-                                                     style={{backgroundImage: `url(${item.url})`}} className="img"/>
+                                                     style={{backgroundImage: item.url?`url(${item.url})`:'url("http://img.hb.aicdn.com/3eeedfcbcfaccc4368e54524b8a67368ccd2918a2572f-7XKYH4_fw658")'}} className="img"/>
                                             </div>
                                         </a>
                                     </div>

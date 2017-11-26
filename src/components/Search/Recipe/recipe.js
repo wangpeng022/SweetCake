@@ -60,7 +60,6 @@ class Recipe extends Component {
     }
 
     render() {
-        console.log(this.props,'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
         return (
             this.state.list.length || this.state.data ?
                 <div className="recipe">
@@ -71,7 +70,7 @@ class Recipe extends Component {
                             {
                                 this.state.list.map((item, index) => (
                                     <li key={index} className="">
-                                        <Link to="/">
+                                        <Link to={`/lesson/course/${index}`}>
                                             <img src={item.recipe_img} alt=""/>
                                             <div className="recipe-info">
                                                 <span className="recipe-title">{item.recipe_name}</span>

@@ -8,7 +8,6 @@ import actions from '../../store/actions/works';
 import {CSSTransition} from 'react-transition-group';
 
 const Fade = ({children, ...props}) => {
-    console.log({...props});
     return (
         <CSSTransition
             {...props}
@@ -36,6 +35,7 @@ class Works extends Component {
             show: false,
             showWord: '',
             face: '',
+            flag: 2,
         }
     }
 
@@ -50,13 +50,13 @@ class Works extends Component {
                 this.setState({show: !this.state.show});
                 this.props.postDraft(works);
                 setTimeout(() => {
-                    this.props.history.push('/');
+                    this.props.history.goBack();
                 }, 1700);
             } else {
-                this.props.history.push('/');
+                this.props.history.goBack();
             }
         } else {
-            this.props.history.push('/');
+            this.props.history.goBack();
         }
     };
 
@@ -67,16 +67,18 @@ class Works extends Component {
         if (id) {
             if (id && this.state.title && this.state.url && this.state.describe) {
                 let works = {...this.state, id: id};
-                console.log(works);
                 this.props.postWorks(works);
-                this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: '一次就提交成功了呢'});
+                this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: this.state.flag > 2 ? '哈哈,终于好了喔' : '哇,一次就发布成功了呢'});
+                this.state.flag=2;
+                this.setState({show: !this.state.show});
                 setTimeout(() => {
-                    this.props.history.push('/');
+                    this.props.history.goBack();
                 }, 1700);
             } else {
+                this.state.flag++;
                 this.setState({
                     face: '(๑╹◡╹)ﾉ"""',
-                    showWord: !this.state.title ? '方子还没有起名字哦' : !this.state.url ? '请选择一张图片' : !this.state.star ? '请选择困难程度哦' : !this.state.describe ? '还没有添加描述哦' : '终于好了喔'
+                    showWord: !this.state.title ? '方子还没有起名字哦' : !this.state.url ? '请选择一张图片' : !this.state.star ? '请选择困难程度哦' : !this.state.describe ? '还没有添加描述哦' : ''
                 });
                 this.setState({show: !this.state.show})
             }
@@ -161,7 +163,6 @@ class Works extends Component {
                                 }} className='works-body-left'>-
                                 </div>
                                 <div onClick={() => {
-                                    console.log(this.state.part);
                                     this.setState({part: ++this.state.part})
                                 }} className='works-body-right'>+
                                 </div>

@@ -94,7 +94,23 @@ app.post('/register', function (req, res) {
     } else {
         user.id = users.length + 1;
         user.petname = user.phone;
-        user = {...users[users.length - 1], ...user};
+        user = {
+            comment_count: 0,//评论
+            url: "",
+            create_time: "",//创建时间
+            author: "",//用户昵称
+            user_img: "http://beile.bakelulu.com.cn//Flh_vGEnT0qfGmX2mieNHpA4jCeg",//用户头像
+            works: [],//个人作品
+            follows: [],//关注的人
+            fans: [],//粉丝
+            message: [],//信息
+            id: '',//用户ID
+            collects: [],//收藏,
+            phone: '',//电话
+            password: '',//密码
+            draft: [],//草稿
+            collections: [], ...user
+        };
         users.push(user);
         res.json({code: 0, success: '用户注册成功！', user})
     }
@@ -140,8 +156,6 @@ app.get('/signout', function (req, res) {
 });
 
 
-
-
 //获取课程包优选课程列表数据
 let lessonsPrefer = require('./mock/lessons-prefer');
 app.get('/lessonPrefer', function (req, res) {
@@ -184,6 +198,8 @@ app.post('/draft', function (req, res) {
 //获取用户信息
 app.get('/works', function (req, res) {
     let user = users.find(item => item.id == req.query.id);
+
+    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     console.log(user);
     res.json(user);
 });
@@ -208,29 +224,31 @@ app.post('/getOthers', function (req, res) {
 
 
 //登录成功后获取当前用户的收藏详情
-app.post('/getCollections',function (req,res) {
+app.post('/getCollections', function (req, res) {
     // let curId=req.body.userId;
     // console.log(req.body);
-    let otherId=req.body.otherId;
-    let collection=[];
-    let user=users.find(item=>item.id==otherId);
+    let otherId = req.body.otherId;
+    let collection = [];
+    let user = users.find(item => item.id == otherId);
 
-    detailList.detailList.filter(item=>{
-       if(user.collects.indexOf(item.id)>=0){
-          return collection.push(item);
-       }
-   });
+    detailList.detailList.filter(item => {
+        if (user.collects.indexOf(item.id) >= 0) {
+            return collection.push(item);
+        }
+    });
     // console.log(collection);
-    if(collection){
-       res.json(collection);
-   }else {
-       res.json({});
-   }
+    if (collection) {
+        res.json(collection);
+    } else {
+        res.json({});
+    }
 
 });
 
+
 //返回用户收藏数
 app.post('/collect',function (req, res) {
+
 
     let id = req.body.id;
     let user = req.body.user;
