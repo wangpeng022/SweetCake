@@ -262,9 +262,6 @@ app.post('/collect', function (req, res) {
 
 
 
-
-
-
 //删除用户评论
 app.post('/delete', function (req, res) {
     let detailId = req.body.detailId;//当前大的对象的id
@@ -290,6 +287,8 @@ app.post('/add', function (req, res) {
     //console.log('kkkkkkkkkkkkkkkkkkkkkk');
     res.json(detailItem);
 });
+
+
 
 app.listen(3000, function () {
     console.log("端口 3000")
