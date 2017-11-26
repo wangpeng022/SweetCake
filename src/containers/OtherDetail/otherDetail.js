@@ -5,7 +5,9 @@ import Fangzi from "./Fangzi/fangzi";
 import Header from "../../components/Header/header";
 import {upMore, downRefresh, fixed} from "../../utils/util";
 import {connect} from 'react-redux'
-import actions from '../../store/actions/getOthers'
+import actions from '../../store/actions/getOthers';
+import Dixian from "./dixian/dixian";
+
  class OtherDetail extends Component {
     componentDidMount() {
         upMore(this.refs.other, () => "");
@@ -45,11 +47,7 @@ import actions from '../../store/actions/getOthers'
                     }
                     <div className="other-select">
                         <Route path="/other/fangzi" render={() => <Fangzi/>}/>
-                        <Route path="/other/zp" render={() => <div className="zp"><p>还没上传作品哦</p>
-                            <div className="footer-footer">
-                                <p>对，我就是传说中的底线</p>
-                                <p>——————————————</p>
-                            </div></div>}/>
+                        <Route path="/other/zp" render={() => <Dixian/>}/>
                     </div>
                 </div>
             </div>

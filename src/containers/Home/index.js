@@ -44,7 +44,7 @@ class Home extends Component {
         };
         let mySlider = this.props.slider || [];
         let style = {
-            left:(this.state.index+1)*.9+"rem"
+            left:(this.state.index)*50+"%"
         };
         return (
             <div>
