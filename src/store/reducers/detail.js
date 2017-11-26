@@ -13,7 +13,7 @@ export default function (state = initState, action) {
     switch (action.type) {
         case types.FETCH_DETAIL_LIST:
             //console.log(action.payload);
-            let {id, dataCourse, dataCakeLIst, dataComment, dataTopic} = action.payload;
+            var {id, dataCourse, dataCakeLIst, dataComment, dataTopic} = action.payload;
             return {
                 id: id,
                 dataCourse: {...state.dataCourse, ...dataCourse},
@@ -22,7 +22,23 @@ export default function (state = initState, action) {
                 dataTopic: {...state.dataTopic, ...dataTopic}
             };
         case types.DELETE_COMMENT:
-            return {...state, ...action.payload};
+            var {id, dataCourse, dataCakeLIst, dataComment, dataTopic} = action.payload;
+            return {
+                id: id,
+                dataCourse: {...state.dataCourse, ...dataCourse},
+                dataCakeLIst: [...state.dataCakeLIst, ...dataCakeLIst],
+                dataComment: {...state.dataComment, ...dataComment},
+                dataTopic: {...state.dataTopic, ...dataTopic}
+            };
+        case types.ADD_COMMENT:
+            var {id, dataCourse, dataCakeLIst, dataComment, dataTopic} = action.payload;
+            return {
+                id: id,
+                dataCourse: {...state.dataCourse, ...dataCourse},
+                dataCakeLIst: [...state.dataCakeLIst, ...dataCakeLIst],
+                dataComment: {...state.dataComment, ...dataComment},
+                dataTopic: {...state.dataTopic, ...dataTopic}
+            };
         default:
             return state;
     }

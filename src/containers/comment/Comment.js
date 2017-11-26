@@ -21,7 +21,10 @@ export default class CommentList extends React.Component {
     }
 
     handleDelete = () => {
+        console.log(this.props);
+        console.log(this.props.commentId);
         this.props.delComment(this.props.commentId);
+        this.setState({});
     };
 
     render() {
@@ -34,7 +37,7 @@ export default class CommentList extends React.Component {
             <li className="list-group-item" style={{width: '100%', height: '.75rem'}}>
                 {this.state.nickname}:{this.state.comment}
                 <button onClick={this.handleDelete} className="btn btn-danger"
-                        style={{padding: '0 0', display: this.state.id == this.props.user_ids ? 'block' : 'none'}}>
+                        style={{padding: '0 0', display: this.state.id == this.props.id ? 'block' : 'none'}}>
                     删除
                 </button>
                 <span className="pull-right">{this.state.coment_time}</span>

@@ -9,5 +9,9 @@ export function fetchUserCollect(data) {
 }
 
 export function delComment(data) {
-    return post('/delcomment', data)
+    return post('/delete', data)
+}
+
+export function addComment(data) {
+    return post('/add', data)
 }
