@@ -273,7 +273,7 @@ app.post('/delete', function (req, res) {
     console.log(commentId);
     let detailItem = detailList['detailList'].find((item, index) => item.id == detailId + 1);
     console.log(detailItem);
-    let list = detailItem.dataComment.commentList.filter((item, index) => item.user_ids == commentId);
+    let list = detailItem.dataComment.commentList.filter((item, index) => index != commentId);
     console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
     console.log(list);
     detailList['detailList'][detailId] = {...detailItem, dataComment: {...detailItem.dataComment, "commentList": list}};
