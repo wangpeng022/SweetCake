@@ -12,8 +12,8 @@ export default class HomeListNew extends Component {
                     {this.props.list?this.props.list.length ?
                         this.props.list.map((item, index) => (
 
-                            <Link to={"/suff"}>
-                                <li >
+                            <Link to={"/suff"}  key={index}>
+                                <li>
                                     <img src={item.url} alt=""/>
                                     <div className="footer">
                                         <div className="footer-title">
