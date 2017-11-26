@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import "./fangzi.less"
 import {connect} from 'react-redux'
-import actions from '../../../store/actions/getOthers'
+import actions from '../../../store/actions/getOthers';
+
 class Fangzi extends Component {
 
     render() {
