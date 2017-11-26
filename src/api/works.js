@@ -11,3 +11,7 @@ export function postDraft(data) {
 export function getUser(index) {
     return get(`/works?id=${index}`);
 }
+/*
+export function postCompile(data) {
+    return post('/compile');
+}*/

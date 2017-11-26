@@ -18,7 +18,9 @@ const Fade = ({children, ...props}) => {
         </CSSTransition>
     )
 };
-let id = '';
+let id;
+let compile;
+let speech;
 
 class Works extends Component {
     constructor() {
@@ -30,17 +32,36 @@ class Works extends Component {
             part: 2,//份量
             describe: '',//描述
             file: '',
-            url: '',
+            url: '',//图片地址,
             id: '',
-            show: false,
-            showWord: '',
-            face: '',
+            show: false,//是否显示dailog弹窗,
+            showWord: '',//dailog文字,
+            face: '',//dailog表情,
             flag: 2,
         }
     }
 
+    componentDidMount() {
+        speech = localStorage.getItem('speech');
+        console.log(this.props);
+        compile = JSON.parse(localStorage.getItem('compile'));
+        //this.props.compile?
+        console.log(compile);
+        compile ? (() => {
+            this.$title.value = compile.title;
+            if (compile.url) {
+                this.$img.src = compile.url;
+                this.$img.style.display = 'block';
+            }
+            this.$title.focus();
+            this.setState({...compile});
+        })() : '';
+        this.setState({});
+    };
 
-    handleGoback = () => {
+    handleGoBack = () => {
+        localStorage.removeItem('speech');
+        localStorage.removeItem('compile');
         id = JSON.parse(localStorage.getItem('user'));
         id = id ? id.id : null;
         if (id) {
@@ -48,15 +69,35 @@ class Works extends Component {
             if (this.state.title || this.state.url || this.state.describe) {
                 this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: '方子已经保存到草稿箱'});
                 this.setState({show: !this.state.show});
+                this.$div.style.zIndex = 4;
+                setTimeout(() => {
+                    this.$div.style.zIndex = -4;
+                }, 1700);
                 this.props.postDraft(works);
                 setTimeout(() => {
-                    this.props.history.goBack();
+                    speech ? this.props.history.push('/') : this.props.history.goBack();
                 }, 1700);
             } else {
-                this.props.history.goBack();
+                this.setState({face: 'Ψ ♪(＾∀＾●)ﾉ', showWord: '正在返回~'});
+                this.setState({show: !this.state.show});
+                this.$div.style.zIndex = 4;
+                setTimeout(() => {
+                    this.$div.style.zIndex = -4;
+                }, 1700);
+                setTimeout(() => {
+                    speech ? this.props.history.push('/') : this.props.history.goBack();
+                }, 1700);
             }
         } else {
-            this.props.history.goBack();
+            this.setState({face: 'Ψ ♪(＾∀＾●)ﾉ', showWord: '正在返回~'});
+            this.setState({show: !this.state.show});
+            this.$div.style.zIndex = 4;
+            setTimeout(() => {
+                this.$div.style.zIndex = -4;
+            }, 1700);
+            setTimeout(() => {
+                speech ? this.props.history.push('/') : this.props.history.goBack();
+            }, 1700);
         }
     };
 
@@ -69,22 +110,34 @@ class Works extends Component {
                 let works = {...this.state, id: id};
                 this.props.postWorks(works);
                 this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: this.state.flag > 2 ? '哈哈,终于好了喔' : '哇,一次就发布成功了呢'});
-                this.state.flag=2;
+                this.state.flag = 2;
                 this.setState({show: !this.state.show});
+                this.$div.style.zIndex = 4;
+                setTimeout(() => {
+                    this.$div.style.zIndex = -4;
+                }, 1700);
                 setTimeout(() => {
                     this.props.history.goBack();
                 }, 1700);
             } else {
                 this.state.flag++;
                 this.setState({
-                    face: '(๑╹◡╹)ﾉ"""',
+                    face: 'ヾ(๑╹◡╹)ﾉ"',
                     showWord: !this.state.title ? '方子还没有起名字哦' : !this.state.url ? '请选择一张图片' : !this.state.star ? '请选择困难程度哦' : !this.state.describe ? '还没有添加描述哦' : ''
                 });
-                this.setState({show: !this.state.show})
+                this.setState({show: !this.state.show});
+                this.$div.style.zIndex = 4;
+                setTimeout(() => {
+                    this.$div.style.zIndex = -4;
+                }, 1700);
             }
         } else {
             this.setState({face: 'ヾ(◍°∇°◍)ﾉﾞ', showWord: '请先登录'});
-            this.setState({show: !this.state.show})
+            this.setState({show: !this.state.show});
+            this.$div.style.zIndex = 4;
+            setTimeout(() => {
+                this.$div.style.zIndex = -4;
+            }, 1700);
         }
     };
 //创建预览图,获取图片url,
@@ -106,7 +159,7 @@ class Works extends Component {
                 <Header>
                     {
                         <div className="works-header">
-                            <a onClick={this.handleGoback} className="works-left"><i> </i></a>
+                            <a onClick={this.handleGoBack} className="works-left"><i> </i></a>
                             <span className="works-title">新建方子</span>
                             <a onClick={this.handleSubmit} className="works-right">发布</a>
                         </div>

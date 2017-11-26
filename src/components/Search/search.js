@@ -112,7 +112,7 @@ class Search extends Component {
                             <div className="record-catalog">
                                 <span>最近搜索</span>
                                 <a onClick={() => {
-                                    localStorage.clear('search');
+                                    localStorage.removeItem('search');
                                     this.setState({
                                         recent: [],
                                     });

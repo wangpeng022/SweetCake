@@ -179,6 +179,7 @@ app.post('/detail', function (req, res) {
     res.json(newDetailList);
 
 });
+//增加个人作品,
 app.post('/works', function (req, res) {
     let user = users.find((item) => {
         return item.id == req.body.id
@@ -187,6 +188,7 @@ app.post('/works', function (req, res) {
     user.works.push(req.body);
     res.json(user);
 });
+//增加草稿,
 app.post('/draft', function (req, res) {
     let user = users.find((item) => {
         return item.id == req.body.id
@@ -198,8 +200,6 @@ app.post('/draft', function (req, res) {
 //获取用户信息
 app.get('/works', function (req, res) {
     let user = users.find(item => item.id == req.query.id);
-
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     console.log(user);
     res.json(user);
 });
@@ -248,8 +248,6 @@ app.post('/getCollections', function (req, res) {
 
 //返回用户收藏数
 app.post('/collect',function (req, res) {
-
-
     let id = req.body.id;
     let user = req.body.user;
     let collectItem = users.find((item, index) => item.id == user);

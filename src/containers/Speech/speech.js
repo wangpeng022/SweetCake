@@ -11,17 +11,20 @@ class Speech extends Component {
         super();
         this.state = {
             compile: '',//选中要编辑的草稿
+            index:'',
         }
     }
 
     componentDidMount() {
-        let user = JSON.parse(localStorage.getItem('user')).id;
-        this.props.getUser(user);
+        localStorage.setItem('speech', 'speech');
+        let user = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')).id : '';
+        user ? this.props.getUser(user) : null;
     }
 
     //编辑草稿
     handleCompileDraft = () => {
-        this.compileDraft(this.state.compile);
+        //this.props.compileDraft(this.state.compile);
+        localStorage.setItem('compile', JSON.stringify(this.state.compile));
         this.props.history.push('/works');
     };
 
@@ -39,10 +42,10 @@ class Speech extends Component {
                         {this.props.draft.length ?
                             this.props.draft.map((item, index) => (
                                 <li key={index} onClick={() => {
-                                    this.setState({compile: item});
-                                }}>
+                                    this.setState({compile: item, index});
+                                }} className="active">
                                     <img src={item.url} alt=""/>
-                                    <div className="footer">
+                                    <div className={index === this.state.index ? "footer active" : 'footer'}>
                                         <div className="footer-title">
                                             <h4>{item.title}</h4>
                                             <span>{item.describe}</span>
