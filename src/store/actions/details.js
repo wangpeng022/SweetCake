@@ -1,5 +1,5 @@
 import * as types from '../action-types'
-import {fetchDetailList, fetchUserCollect, delComment} from '../../api/detail'
+import {fetchDetailList, fetchUserCollect, delComment, addComment} from '../../api/detail'
 
 export default {
     //获取后台详情列表数据
@@ -30,6 +30,16 @@ export default {
             delComment(data).then(value => {
                 display({
                     type: types.DELETE_COMMENT,
+                    payload: value,
+                })
+            })
+        }
+    },
+    addComment(data) {
+        return display => {
+            addComment(data).then(value => {
+                display({
+                    type: types.ADD_COMMENT,
                     payload: value,
                 })
             })

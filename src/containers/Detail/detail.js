@@ -65,7 +65,8 @@ class Detail extends Component {
     };
     render() {
        // console.log(this.props, 'xxxxxxx');
-        let {id, message, dataCourse, dataCakeLIst, dataComment, dataTopic} = this.props;
+        console.log(this.props);
+        let {message, dataCourse, dataCakeLIst, dataComment, dataTopic} = this.props;
         //console.log(dataCakeLIst);
        // console.log(id);
         let num = Math.round(Math.random() * 4 + 1);
@@ -88,7 +89,7 @@ class Detail extends Component {
                     }
                 </DetailHeader>
                 {
-                    dataCakeLIst && dataComment.comment_list ? (
+                    dataCakeLIst && dataComment.commentList ? (
                         <div className="courseDiv">
                             {/*头部分*/}
                             <div className="arc_header">
@@ -240,8 +241,8 @@ class Detail extends Component {
                                             <li>
                                                 <div className="head_frame">
                                                     <div className="left">
-                                                        <img src={dataComment.comment_list[0].head_icon} alt=""/>
-                                                        <span>{dataComment.comment_list[0].nickname}</span>
+                                                        <img src={dataComment.commentList[0].head_icon} alt=""/>
+                                                        <span>{dataComment.commentList[0].nickname}</span>
                                                     </div>
                                                     <div className="right">
                                                         <div className="click_frame">
@@ -251,10 +252,10 @@ class Detail extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="center_frame fs_14">
-                                                    {dataComment.comment_list[0].comment}
+                                                    {dataComment.commentList[0].comment}
                                                 </div>
                                                 <div className="bottom_frame fs_12">
-                                                    {dataComment.comment_list[0].comment_time}
+                                                    {dataComment.commentList[0].comment_time}
                                                     <span>·</span>
                                                     <a href="#">举报</a>
                                                 </div>

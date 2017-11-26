@@ -21,33 +21,33 @@ class CommentApp extends React.Component {
     }
 
     componentDidMount() {
-        let user = JSON.parse(localStorage.getItem('user'));
-        let id = user ? user.id : '';
         this.props.fetchDetailLists(+this.props.match.params.id);
-        this.setState({id});
+        this.setState({id:+this.props.match.params.id});
     }
 
     componentWillReceiveProps(props) {
-        let comments = props.dataComment.comment_list;
+        console.log(props);
+        let comments = props.dataComment.commentList;
         this.setState({comments});
     }
 
-    addComment = (comment) => {
+    /*addComment = (comment) => {
         //console.log(comment);
         comment.id = comment.username;
         comment.createAt = new Date();
         this.setState({
             comments: [...this.state.comments, comment].reverse()
         });
-    };
+    };*/
     delComment = (id) => {
         /*this.setState({
             comments: this.state.comments.filter((item) => item.id !== id)
         })*/
+        console.log(this.props);
         this.props.delComment({detailId:this.state.id,commentId:id});
     };
     render() {
-        console.log(this.props);
+        //console.log(this.props);
         return (
             <div className="container"
                  style={{position: 'fixed', top: '.44rem', bottom: '.49rem', overflowY: 'scroll'}}>
@@ -59,10 +59,10 @@ class CommentApp extends React.Component {
                                 <h3 className="text-center">评论框</h3>
                             </div>*/}
                             <div className="panel-footer">
-                                <CommentInput addComment={this.addComment}/>
+                                <CommentInput detailId={+this.props.match.params.id} addComment={this.props.addComment}/>
                             </div>
                             <div className="panel-body">
-                                <CommentList id={this.state.id} comments={this.state.comments}
+                                <CommentList comments={this.state.comments}
                                              delComment={this.delComment}/>
                             </div>
                         </div>
