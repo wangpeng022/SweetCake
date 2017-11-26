@@ -261,11 +261,12 @@ app.post('/collect',function (req, res) {
 
 
 //删除用户评论
-app.post('/getcomment', function (req, res) {
+app.post('/delete', function (req, res) {
     let detailId = req.body.detailId;//当前大的对象的id
     let commentId = req.body.commentId;//当前大对象下每一项评论的id
     let detailItem=detailList['detailList'].find((item,index) =>item.id==detailId);
-    detailItem.dataComment.filter((item,index)=>item.id!==commentId)
+    let newItem=detailItem.dataComment.filter((item,index)=>item.id!==commentId);
+    res.json(newItem);
 });
 
 
