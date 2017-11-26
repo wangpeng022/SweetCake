@@ -4,7 +4,7 @@ import DetailHeader from "../../components/DetailHeader/detail-header.js";
 import {Route, Link} from 'react-router-dom';
 import actions from '../../store/actions/details'
 import {connect} from 'react-redux'
-import Comment from '../comment/CommentApp.js'
+import CommentApp from '../comment/CommentApp.js'
 let ary = [1, 2, 3, 4, 5];
 let comment=localStorage.getItem('userComment');
 let getUserComment=JSON.parse(comment);
@@ -260,7 +260,7 @@ class Detail extends Component {
                                                 </div>
                                             </li>
                                         </ul>
-                                        <Link to="/comment" className="write">
+                                        <Link to={`/comment/${this.props.match.params.index}`} className="write">
                                    <span>
                                        <i></i>
                                        写评论
@@ -318,7 +318,7 @@ class Detail extends Component {
                         </div>
                     ) : ''
                 }
-                <Route path="/comment" component={Comment}/>
+                {/*<Route path="/comment/:id" componen={CommentApp}/>*/}
             </div>
         )
     }

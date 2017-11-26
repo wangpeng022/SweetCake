@@ -66,7 +66,7 @@ export default class App extends Component {
                         <Route path="/other/fangzi/:id" component={OtherDetail}/>
                         <Route path="/works" component={Works}/>
                         <Route path="/speech" component={Speech}/>
-                        <Route path="/comment" component={Comment}/>
+                        <Route path="/comment/:id" component={Comment}/>
                         <Redirect to="/home"/>
                     </Switch>
                     <Tab/>
