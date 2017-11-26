@@ -229,14 +229,20 @@ app.post('/getCollections', function (req, res) {
     // console.log(req.body);
     let otherId = req.body.otherId;
     let collection = [];
+    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    console.log(otherId);
+    console.log(users.length);
     let user = users.find(item => item.id == otherId);
-
+    console.log(user);
     detailList.detailList.filter(item => {
-        if (user.collects.indexOf(item.id) >= 0) {
-            return collection.push(item);
+        if(user){
+            if (user.collects.indexOf(item.id-1) >= 0) {
+                return collection.push(item);
+            }
         }
+
     });
-    // console.log(collection);
+     console.log(collection);
     if (collection) {
         res.json(collection);
     } else {
@@ -250,11 +256,14 @@ app.post('/getCollections', function (req, res) {
 app.post('/collect', function (req, res) {
     let id = req.body.id;
     let user = req.body.user;
+   // console.log(id);
+   // console.log(user);
+   // console.log(users);
     let collectItem = users.find((item, index) => item.id == user);
-    console.log(collectItem);
+   // console.log(collectItem);
     if (collectItem) {
         collectItem.collects.push(id);
-        console.log(collectItem);
+        console.log(collectItem.collects);
         res.json(collectItem);
     }
 });
@@ -265,14 +274,14 @@ app.post('/collect', function (req, res) {
 //删除用户评论
 app.post('/delete', function (req, res) {
     let detailId = req.body.detailId;//当前大的对象的id
-    console.log(detailId);
+   // console.log(detailId);
     let commentId = req.body.commentId;//当前大对象下每一项评论的id
-    console.log(commentId);
+   // console.log(commentId);
     let detailItem = detailList['detailList'].find((item, index) => item.id == detailId + 1);
-    console.log(detailItem);
+   // console.log(detailItem);
     let list = detailItem.dataComment.commentList.filter((item, index) => index != commentId);
-    console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
-    console.log(list);
+   // console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
+   // console.log(list);
     detailList['detailList'][detailId] = {...detailItem, dataComment: {...detailItem.dataComment, "commentList": list}};
     res.json({...detailItem, dataComment: {...detailItem.dataComment, "commentList": list}});
 });

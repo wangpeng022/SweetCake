@@ -79,7 +79,7 @@ class Detail extends Component {
                                 <Link className="go_home" to="/home">首页</Link>
                             </div>
                             <div className="right">
-                                <a href="javascript:;" className="love" onClick={() => this.handleClick(this.props.match.params.index)}><i
+                                <a href="javascript:;" className="love" onClick={() => this.handleClick(+this.props.match.params.index)}><i
                                     className={this.state.show ? 'current' : ''}> </i></a>
                                 <a className="share" onClick={this.handleShow}>
                                     <span></span>
