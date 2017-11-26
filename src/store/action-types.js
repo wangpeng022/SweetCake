@@ -70,3 +70,5 @@ export const GET_USER = 'GET_USER';
 
 //再次编辑草稿
 export const COMPILE_DRAFT = 'COMPILE_DRAFT';
+//删除评论
+export const DELETE_COMMENT = 'DELETE_COMMENT';

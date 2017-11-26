@@ -43,20 +43,17 @@ class Works extends Component {
 
     componentDidMount() {
         speech = localStorage.getItem('speech');
-        console.log(this.props);
         compile = JSON.parse(localStorage.getItem('compile'));
-        //this.props.compile?
-        console.log(compile);
-        compile ? (() => {
+        if (compile) {
             this.$title.value = compile.title;
+            this.$title.focus();
+            this.setState({...compile});
             if (compile.url) {
                 this.$img.src = compile.url;
                 this.$img.style.display = 'block';
             }
-            this.$title.focus();
-            this.setState({...compile});
-        })() : '';
-        this.setState({});
+        }
+        //this.setState({});
     };
 
     handleGoBack = () => {

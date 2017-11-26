@@ -2,27 +2,55 @@ import React from 'react'
 /*import 'bootstrap/dist/css/bootstrap.css'*/
 import CommentInput from './CommentInput.js'
 import CommentList from "./CommentList";
-export default class CommentApp extends React.Component{
-    constructor(){
+import {connect} from "react-redux";
+import actions from '../../store/actions/details';
+
+class CommentApp extends React.Component {
+    constructor() {
         super();
-        this.state={comments:[{id:1,username:'娜可露露',content:'这个技能get到了',createAt:new Date()},{id:2,username:'李白',content:'一人我饮酒醉',createAt:new Date()}]}
+        this.state = {
+            id: '',
+            comments: [],
+            /*[{id: 1, username: '娜可露露', content: '这个技能get到了', createAt: new Date()}, {
+                id: 2,
+                username: '李白',
+                content: '一人我饮酒醉',
+                createAt: new Date()
+            }]*/
+        }
     }
-    addComment=(comment)=>{
+
+    componentDidMount() {
+        let user = JSON.parse(localStorage.getItem('user'));
+        let id = user ? user.id : '';
+        this.props.fetchDetailLists(+this.props.match.params.id);
+        this.setState({id});
+    }
+
+    componentWillReceiveProps(props) {
+        let comments = props.dataComment.comment_list;
+        this.setState({comments});
+    }
+
+    addComment = (comment) => {
         //console.log(comment);
         comment.id = comment.username;
         comment.createAt = new Date();
         this.setState({
-            comments:[...this.state.comments,comment].reverse()
+            comments: [...this.state.comments, comment].reverse()
         });
     };
-    delComment=(id)=>{
-        this.setState({
-            comments:this.state.comments.filter((item)=>item.id!==id)
-        })
+    delComment = (id) => {
+        /*this.setState({
+            comments: this.state.comments.filter((item) => item.id !== id)
+        })*/
+        this.props.delComment({detailId:this.state.id,commentId:id});
     };
-    render(){
-        return(
-            <div className="container" style={{position:'fixed',top:'.44rem',bottom:'.49rem',overflowY:'scroll'}}>
+    render() {
+        console.log(this.props);
+        return (
+            <div className="container"
+                 style={{position: 'fixed', top: '.44rem', bottom: '.49rem', overflowY: 'scroll'}}>
                 <div className="row">
                     <div className="col-md-6 col-md-offset-3">
                         {/*.panel.panel-default*/}
@@ -34,7 +62,8 @@ export default class CommentApp extends React.Component{
                                 <CommentInput addComment={this.addComment}/>
                             </div>
                             <div className="panel-body">
-                                <CommentList comment={this.state.comments} delComment={this.delComment}/>
+                                <CommentList id={this.state.id} comments={this.state.comments}
+                                             delComment={this.delComment}/>
                             </div>
                         </div>
                     </div>
@@ -44,4 +73,5 @@ export default class CommentApp extends React.Component{
     }
 }
 
+export default connect(state => state.detail, actions)(CommentApp);
 
