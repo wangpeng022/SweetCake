@@ -65,6 +65,8 @@ class Myworks extends Component {
                 </div>
                 <div className="collect-middle">我的作品</div>
 
+
+                <div className="works-bg"/>
                 <div className="list-works">
                     <ul>
                         {this.state.works.map((item, index) => (

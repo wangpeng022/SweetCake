@@ -50,7 +50,7 @@ class CommentApp extends React.Component {
         console.log(this.props);
         return (
             <div className="container"
-                 style={{position: 'fixed', top: '.44rem', bottom: '.49rem', overflowY: 'scroll'}}>
+                 style={{position: 'fixed', top: '.13rem', bottom: '.49rem', overflowY: 'scroll'}}>
                 <div className="row">
                     <div className="col-md-6 col-md-offset-3">
                         {/*.panel.panel-default*/}
