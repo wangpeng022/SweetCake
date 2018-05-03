@@ -9,5 +9,5 @@ react-mobile
 3. API文档地址
 `https://www.eolinker.com/#/share/index?shareCode=q3l5Mc`
 
-![Image text](https://github.com/Chloe-huang/PROJECT--REACT/tree/master/src/containers/Images/Sweet.gif)
+![Alt text](https://github.com/Chloe-huang/PROJECT--REACT/tree/master/src/containers/Images/Sweet.gif)
 
